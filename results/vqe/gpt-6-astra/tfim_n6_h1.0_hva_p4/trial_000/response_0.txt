@@ -1,0 +1,6 @@
+```json
+{
+  "reasoning": "I use a short, approximately adiabatic schedule starting from the transverse-field ground state, increasing the ZZ rotations as ferromagnetic correlations develop. The X rotations taper toward the final layer, with a shorter final rotation to reduce residual dynamical phase. The angles have matching signs so the initial layers generate positive ZZ correlations.",
+  "weights": [0.22, 0.98, 0.43, 0.90, 0.59, 0.80, 0.65, 0.40]
+}
+```

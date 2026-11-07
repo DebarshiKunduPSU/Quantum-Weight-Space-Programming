@@ -1,0 +1,6 @@
+```json
+{
+  "reasoning": "I chose a three-layer schedule with increasing cost angles and decreasing mixer angles. The moderate cost rotations account for the graph’s degree variation and five triangles, while the smaller final mixer favors concentrating probability on high-cut configurations. These are hand-selected angles, not numerically optimized values.",
+  "weights": [0.42, 0.52, 0.77, 0.32, 0.99, 0.17]
+}
+```

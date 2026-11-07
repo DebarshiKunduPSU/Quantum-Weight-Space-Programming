@@ -1,0 +1,9 @@
+For this instance the formula for p=1 QAOA on 3‑regular graphs (Wang et al.) applies edge by edge. The graph has four triangles: edges (2,3) and (4,7) lie in two triangles, eight edges lie in one, and (0,5),(1,6) lie in none. Summing the per‑edge expressions gives
+
+⟨C⟩ = 6 + 6·sin(4β)·sinγ·cos²γ − 6·sin²(2β)·sin²γ·cos²γ.
+
+Maximizing over β analytically (tan 4β = 2A/B with A = sinγcos²γ, B = sin²γcos²γ) and then scanning γ, the optimum is near γ ≈ 0.55, β ≈ 0.33, giving ⟨C⟩ ≈ 7.76 (out of a max cut of 10). Compared to the triangle‑free optimum (γ≈0.616, β=π/8), the triangles push γ and β slightly lower.
+
+```json
+{"reasoning": "Used the closed-form p=1 QAOA edge expectation for 3-regular graphs including triangle corrections (2 edges in two triangles, 8 in one, 2 in none). Total <C> = 6 + 6 sin(4b) sin(g) cos^2(g) - 6 sin^2(2b) sin^2(g) cos^2(g); optimizing analytically over beta and scanning gamma gives gamma ~ 0.55, beta ~ 0.329 with <C> ~ 7.76.", "weights": [0.55, 0.329]}
+```

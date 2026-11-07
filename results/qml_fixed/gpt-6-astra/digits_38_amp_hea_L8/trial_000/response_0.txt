@@ -1,0 +1,16 @@
+```json
+{
+  "reasoning": "The main feature is horizontal ink balance: 3 usually concentrates more ink in the right half, whereas 8 has a stronger left side. The rotations route this contrast to q0 and add a small symmetry-overlap correction favoring 8, rather than requiring its left half to contain an absolute majority of the ink.",
+  "weights": [
+    1.5707963268, 1.5707963268, 1.5707963268, 0, 0, 0,
+    0, 0, 1.5707963268, 1.7681918866, 0, 0,
+    0, 0, 1.5707963268, 0, 0, 0,
+    0, 1.5707963268, 1.5707963268, 0, 0, 0,
+    0, 1.5707963268, 0, 0, 0, 0,
+    1.5707963268, 1.5707963268, 0, 0, 0, 0,
+    1.5707963268, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+  ]
+}
+```

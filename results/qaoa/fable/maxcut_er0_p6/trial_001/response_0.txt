@@ -1,0 +1,9 @@
+**Analysis of the setup**
+
+- `rzz(-γ)` on each edge equals `exp(+iγ Z_iZ_j/2)`, which (up to a global phase) is exactly `exp(-iγ C)` with `C = Σ(1−Z_iZ_j)/2`; `rx(2β) = exp(-iβX)`. So this is the standard QAOA sign convention: good angles have γ > 0 and β ∈ (0, π/4) (a quick p=1 single-edge check gives ⟨C⟩ = ½ + ½ sin4β sinγ, maximized at β = π/8, γ = π/2 — positive values).
+- The graph has 8 nodes, 15 edges, average degree 3.75 (degrees 2–6) and many triangles (10). Max cut is 11 (e.g. {0,1,6} vs rest; the triangle structure forbids 12).
+- For such graphs, the well-known 3-regular fixed-angle QAOA schedules (γ increasing, β decreasing with depth) transfer well; since the average degree is somewhat higher than 3 and triangles are present, I shrink the γ values by ~0.85 while keeping β essentially unchanged, and smooth the schedule into a near-monotone ramp.
+
+```json
+{"reasoning": "The circuit matches the standard convention exp(-i gamma C), exp(-i beta sum X) with gamma>0, beta in (0, pi/4). I start from the known optimal fixed-angle p=6 schedule for 3-regular MaxCut (gammas rising ~0.33->1.13, betas falling ~0.64->0.14), scale the gammas by ~0.85 to account for the higher average degree (3.75, max degree 6) and the many triangles in this graph, keep betas as in the regular-graph schedule, and lightly smooth into a monotone ramp (annealing-like: small gamma / large beta first, large gamma / small beta last).", "weights": [0.28, 0.63, 0.50, 0.53, 0.63, 0.45, 0.74, 0.36, 0.86, 0.26, 0.97, 0.14]}
+```

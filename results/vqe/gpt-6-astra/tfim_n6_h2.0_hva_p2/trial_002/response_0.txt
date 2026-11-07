@@ -1,0 +1,3 @@
+```json
+{"reasoning":"The strong transverse field makes |+>^6 a good starting point, with weak ferromagnetic correlations. I chose the two layers to reproduce the leading nearest-neighbor and next-nearest-neighbor ground-state amplitudes, then approximately corrected the final rotation for residual phases and higher-order effects.","weights":[0.236,1.359,0.436,0.614]}
+```

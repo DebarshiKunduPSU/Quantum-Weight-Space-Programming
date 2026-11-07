@@ -1,0 +1,361 @@
+{
+  "experiment": "qml_fixed",
+  "model": "fable",
+  "case": "digits_all10_amp_hea_L2",
+  "trial": 2,
+  "meta": {
+    "classes": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "shots_per_class": 3,
+    "ansatz": "amplitude+HEA(L=2)",
+    "n_params": 18
+  },
+  "status": "ok",
+  "attempts": [
+    {
+      "model": "claude-fable-5-1",
+      "stop_reason": "max_tokens",
+      "input_tokens": 3284,
+      "output_tokens": 32000,
+      "latency_s": 409.1,
+      "error": "no JSON object found in the reply"
+    },
+    {
+      "model": "claude-fable-5-1",
+      "stop_reason": "end_turn",
+      "input_tokens": 3336,
+      "output_tokens": 1024,
+      "latency_s": 15.9
+    }
+  ],
+  "n_attempts": 2,
+  "model_reported": "claude-fable-5-1",
+  "input_tokens": 6620,
+  "output_tokens": 33024,
+  "weights": [
+    0.8,
+    0.5,
+    1.2,
+    0.6,
+    0.3,
+    0.2,
+    -0.7,
+    1.0,
+    0.4,
+    -0.5,
+    0.9,
+    0.3,
+    0.6,
+    -0.8,
+    1.1,
+    0.7,
+    -0.4,
+    0.5
+  ],
+  "llm": {
+    "test": {
+      "accuracy": 0.04814814814814815,
+      "balanced_accuracy": 0.04765086765086765,
+      "confusion": [
+        [
+          0,
+          16,
+          0,
+          0,
+          0,
+          3,
+          32,
+          0,
+          0,
+          3
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          6,
+          45,
+          1,
+          2,
+          0
+        ],
+        [
+          0,
+          3,
+          0,
+          4,
+          0,
+          4,
+          30,
+          0,
+          5,
+          7
+        ],
+        [
+          0,
+          5,
+          0,
+          0,
+          0,
+          10,
+          37,
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          45,
+          3,
+          6,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          6,
+          1,
+          19,
+          27,
+          0,
+          1,
+          0
+        ],
+        [
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          3,
+          3,
+          35,
+          11
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          54,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          3,
+          47,
+          0,
+          2,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          0,
+          11,
+          39,
+          1,
+          0,
+          2
+        ]
+      ]
+    },
+    "support": {
+      "accuracy": 0.0,
+      "balanced_accuracy": 0.0,
+      "confusion": [
+        [
+          0,
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          3,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          2,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          3,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          3,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          3,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0
+        ]
+      ]
+    }
+  },
+  "baselines": {
+    "random_weights": {
+      "n_draws": 20,
+      "mean": 0.09972222222222223,
+      "std": 0.03336559652621347,
+      "max": 0.16111111111111112
+    },
+    "trained_on_support": {
+      "train_loss": 1.5788507607827447,
+      "stopped": "converged",
+      "seconds": 1.1,
+      "n_fit": 30,
+      "fit_accuracy": 0.6,
+      "test_accuracy": 0.35
+    },
+    "llm_finetuned_on_support": {
+      "train_loss": 1.7106351804847608,
+      "stopped": "converged",
+      "seconds": 0.9,
+      "n_fit": 30,
+      "fit_accuracy": 0.4666666666666667,
+      "test_accuracy": 0.3537037037037037
+    },
+    "trained_on_full": {
+      "train_loss": 1.7664006272880481,
+      "stopped": "converged",
+      "seconds": 3.7,
+      "n_fit": 200,
+      "fit_accuracy": 0.455,
+      "test_accuracy": 0.38333333333333336
+    },
+    "logreg_on_support": 0.7407407407407407
+  },
+  "summary": {
+    "acc_llm": 0.04814814814814815,
+    "acc_support": 0.0,
+    "acc_random": 0.09972222222222223,
+    "acc_trained_support": 0.35,
+    "acc_llm_finetuned": 0.3537037037037037,
+    "acc_trained_full": 0.38333333333333336,
+    "chance": 0.1
+  }
+}

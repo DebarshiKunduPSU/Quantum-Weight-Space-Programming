@@ -1,0 +1,9 @@
+**Analysis.** Only q0 is measured, and the CX chain only flows away from q0, so after working through the algebra the readout depends solely on the row structure of the image (column rotations cancel). With θ0 = π/2 and θ1 = π/2 the q0 reduced state has
+- population imbalance ρ11−ρ00 = 2⟨T|B⟩ (overlap between the top-half and bottom-half row vectors, i.e. vertical stroke alignment — larger for 8s with two vertical strokes), and
+- coherence ρ01 = ½·f where f = (ink² in outer rows 0,1,6,7 − ink² in inner rows 2,3,4,5)/total — larger for 3s, whose inner rows hold only a single right-side stroke while the outer rows carry heavy horizontal bars; 8s are more uniform across rows.
+
+The final ry(θ6) combines them: P(q0=1) = ½ + cosθ6·⟨T|B⟩ + sinθ6·f/2. Choosing θ6 ≈ −1.38 (tan θ6 ≈ −5.3) sets a threshold so that 8s (high vertical overlap, small f) give P(1) > ½ and 3s (bar-heavy outer rows, large f) give P(1) < ½, based on estimates from typical 8×8 digit images. Remaining angles are irrelevant to the q0 measurement and are set to 0.
+
+```json
+{"reasoning": "Only q0 is read out and CX gates only flow away from q0, so the output depends on the row structure only. With theta0=pi/2 and theta1=pi/2 the measured probability is P(1)=1/2+cos(theta6)*<Top|Bottom> + sin(theta6)*f/2, where <Top|Bottom> is the overlap of upper and lower half rows (larger for 8s with aligned vertical strokes) and f is the outer-rows-minus-inner-rows ink fraction (larger for 3s, whose inner rows hold only one stroke while outer rows are heavy bars). theta6=-1.384 sets the decision threshold between the two feature contributions. Other angles do not affect q0 and are set to 0.", "weights": [1.5707963, 1.5707963, 0.0, 0.0, 0.0, 0.0, -1.384, 0.0, 0.0, 0.0, 0.0, 0.0]}
+```

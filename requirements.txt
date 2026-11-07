@@ -8,3 +8,5 @@ anthropic
 # tests only (qiskit is the reference the simulator is checked against)
 pytest
 qiskit
+matplotlib
+pandas

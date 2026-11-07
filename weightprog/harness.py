@@ -23,7 +23,7 @@ from .providers import FatalProviderError, LLMResponse, Message, make_provider, 
 from .spec import SpecError, extract_json
 
 ROOT = Path(__file__).resolve().parent.parent
-FINISHED = ("ok", "invalid", "refused")
+FINISHED = ("ok", "invalid", "refused", "truncated")
 
 
 def repair_message(error: str) -> Message:
@@ -48,6 +48,9 @@ def query(provider, system: str, user: Message, parse: Callable[[str], Any], max
         try:
             return parse(resp.text), attempts, "ok"
         except SpecError as e:
+            if resp.stop_reason in ("max_tokens", "max_output_tokens", "length"):
+                record["error"] = f"reply truncated at the output-token budget: {e}"
+                return None, attempts, "truncated"  # a retry would just exhaust the budget again
             record["error"] = str(e)
             messages += [Message("assistant", [resp.text or "(empty reply)"]), repair_message(str(e))]
     return None, attempts, "invalid"

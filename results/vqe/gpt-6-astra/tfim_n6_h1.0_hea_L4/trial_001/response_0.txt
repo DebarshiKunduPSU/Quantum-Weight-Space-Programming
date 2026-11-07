@@ -1,0 +1,12 @@
+```json
+{
+  "reasoning": "The last CNOT sweep maps a domain-wall description back to the physical spins. I choose its input rotations near the optimal ferromagnetic product state in that description, with a symmetric superposition on the first qubit. Small rotations before the first three sweeps add neighboring domain-wall pair correlations, and I slightly adjust the main rotations to accommodate this entanglement.",
+  "weights": [
+    0.0, 0.0, 0.110, 0.115, 0.102, 0.0,
+    0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+    0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+    1.5707963268, 1.074, 1.020, 0.998, 1.002, 1.051,
+    0.0, 0.0, 0.0, 0.0, 0.0, 0.0
+  ]
+}
+```

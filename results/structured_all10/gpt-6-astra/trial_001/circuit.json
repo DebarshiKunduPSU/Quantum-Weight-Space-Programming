@@ -1,0 +1,543 @@
+{
+  "reasoning": "Eight regional encodings describe upper and lower side strokes, central ink, and lower-center ink. These features target distinctions such as the hollow center of 0, the lower-left stroke of 6, and the right-heavy strokes of 3 and 9. Sign-compensated rotations separated by Z gates accumulate regional brightness; a CNOT converts the two central measurements into an ink-and-parity representation. Each class pools three distinct morphological codewords to accommodate writing variation. All weights are fixed hand-chosen values.",
+  "n_qubits": 8,
+  "state_prep": {
+    "type": "zero"
+  },
+  "gates": [
+    {
+      "gate": "ry",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "pi * (0.08 + 0.20 * x[10])"
+      ]
+    },
+    {
+      "gate": "z",
+      "qubits": [
+        0
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "-pi * 0.15 * x[17]"
+      ]
+    },
+    {
+      "gate": "z",
+      "qubits": [
+        0
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "pi * 0.40 * x[18]"
+      ]
+    },
+    {
+      "gate": "z",
+      "qubits": [
+        0
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "-pi * 0.25 * x[26]"
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        1
+      ],
+      "params": [
+        "pi * 0.2016129032 * x[5]"
+      ]
+    },
+    {
+      "gate": "z",
+      "qubits": [
+        1
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        1
+      ],
+      "params": [
+        "-pi * 0.1209677419 * x[4]"
+      ]
+    },
+    {
+      "gate": "z",
+      "qubits": [
+        1
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        1
+      ],
+      "params": [
+        "pi * 0.1612903226 * x[13]"
+      ]
+    },
+    {
+      "gate": "z",
+      "qubits": [
+        1
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        1
+      ],
+      "params": [
+        "-pi * 0.2016129032 * x[21]"
+      ]
+    },
+    {
+      "gate": "z",
+      "qubits": [
+        1
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        1
+      ],
+      "params": [
+        "pi * 0.0806451613 * x[12]"
+      ]
+    },
+    {
+      "gate": "z",
+      "qubits": [
+        1
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        1
+      ],
+      "params": [
+        "-pi * 0.0403225806 * x[20]"
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        2
+      ],
+      "params": [
+        "pi * (0.12 + 0.15 * x[25])"
+      ]
+    },
+    {
+      "gate": "z",
+      "qubits": [
+        2
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        2
+      ],
+      "params": [
+        "-pi * 0.35 * x[26]"
+      ]
+    },
+    {
+      "gate": "z",
+      "qubits": [
+        2
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        2
+      ],
+      "params": [
+        "pi * 0.15 * x[33]"
+      ]
+    },
+    {
+      "gate": "z",
+      "qubits": [
+        2
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        2
+      ],
+      "params": [
+        "-pi * 0.35 * x[34]"
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        3
+      ],
+      "params": [
+        "pi * (0.08 + 0.35 * x[29])"
+      ]
+    },
+    {
+      "gate": "z",
+      "qubits": [
+        3
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        3
+      ],
+      "params": [
+        "-pi * 0.15 * x[30]"
+      ]
+    },
+    {
+      "gate": "z",
+      "qubits": [
+        3
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        3
+      ],
+      "params": [
+        "pi * 0.35 * x[37]"
+      ]
+    },
+    {
+      "gate": "z",
+      "qubits": [
+        3
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        3
+      ],
+      "params": [
+        "-pi * 0.15 * x[38]"
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        4
+      ],
+      "params": [
+        "pi * (0.14 + 0.15 * x[41])"
+      ]
+    },
+    {
+      "gate": "z",
+      "qubits": [
+        4
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        4
+      ],
+      "params": [
+        "-pi * 0.45 * x[42]"
+      ]
+    },
+    {
+      "gate": "z",
+      "qubits": [
+        4
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        4
+      ],
+      "params": [
+        "pi * 0.10 * x[49]"
+      ]
+    },
+    {
+      "gate": "z",
+      "qubits": [
+        4
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        4
+      ],
+      "params": [
+        "-pi * 0.30 * x[50]"
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        5
+      ],
+      "params": [
+        "pi * (0.08 + 0.35 * x[45])"
+      ]
+    },
+    {
+      "gate": "z",
+      "qubits": [
+        5
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        5
+      ],
+      "params": [
+        "-pi * 0.15 * x[46]"
+      ]
+    },
+    {
+      "gate": "z",
+      "qubits": [
+        5
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        5
+      ],
+      "params": [
+        "pi * 0.35 * x[53]"
+      ]
+    },
+    {
+      "gate": "z",
+      "qubits": [
+        5
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        5
+      ],
+      "params": [
+        "-pi * 0.15 * x[54]"
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        6
+      ],
+      "params": [
+        "pi * (0.06 + 0.275 * x[27])"
+      ]
+    },
+    {
+      "gate": "z",
+      "qubits": [
+        6
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        6
+      ],
+      "params": [
+        "-pi * 0.275 * x[28]"
+      ]
+    },
+    {
+      "gate": "z",
+      "qubits": [
+        6
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        6
+      ],
+      "params": [
+        "pi * 0.275 * x[35]"
+      ]
+    },
+    {
+      "gate": "z",
+      "qubits": [
+        6
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        6
+      ],
+      "params": [
+        "-pi * 0.275 * x[36]"
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        7
+      ],
+      "params": [
+        "pi * 0.30 * x[43]"
+      ]
+    },
+    {
+      "gate": "z",
+      "qubits": [
+        7
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        7
+      ],
+      "params": [
+        "-pi * 0.30 * x[44]"
+      ]
+    },
+    {
+      "gate": "z",
+      "qubits": [
+        7
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        7
+      ],
+      "params": [
+        "pi * 0.20 * x[51]"
+      ]
+    },
+    {
+      "gate": "z",
+      "qubits": [
+        7
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        7
+      ],
+      "params": [
+        "-pi * 0.20 * x[52]"
+      ]
+    },
+    {
+      "gate": "cx",
+      "qubits": [
+        6,
+        7
+      ]
+    }
+  ],
+  "readout": {
+    "type": "bitstrings",
+    "qubits": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "classes": {
+      "0": [
+        "10111101",
+        "10111100",
+        "11111000"
+      ],
+      "1": [
+        "00000110",
+        "11010100",
+        "01101010"
+      ],
+      "2": [
+        "10000010",
+        "10000101",
+        "01001010"
+      ],
+      "3": [
+        "00010111",
+        "00000111",
+        "10010100"
+      ],
+      "4": [
+        "10111011",
+        "00111101",
+        "10110010"
+      ],
+      "5": [
+        "10100010",
+        "10000111",
+        "10100110"
+      ],
+      "6": [
+        "10101111",
+        "10101100",
+        "10101110"
+      ],
+      "7": [
+        "01010010",
+        "01101011",
+        "01010011"
+      ],
+      "8": [
+        "10001010",
+        "10000011",
+        "10001011"
+      ],
+      "9": [
+        "11110111",
+        "00010100",
+        "10110111"
+      ]
+    }
+  }
+}

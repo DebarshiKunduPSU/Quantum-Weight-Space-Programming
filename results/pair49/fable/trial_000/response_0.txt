@@ -1,0 +1,19 @@
+**Design idea.** The 9 has a closed loop at the top: ink in the top-middle pixels (row 0, cols 2–3), the top arc crossing row 1 col 3, and a closed loop bottom at row 3 col 3. The 4 instead has an open top (dark gap at col 3 in rows 1–3) and a long horizontal crossbar reaching far left (row 4–5, col 1), which a 9 lacks. I combine these pixels into one linear score and encode it as a rotation angle on a single qubit, offset by π/2 so that the sign of the score decides the measured bit.
+
+```json
+{
+  "reasoning": "Single-qubit linear classifier. Pixels favoring class 9 (top-middle ink x[2], x[3], top arc x[11], loop bottom x[27]) rotate toward |1>; pixels favoring class 4 (far-left crossbar x[33], x[41]) rotate back toward |0>. A constant offset of pi/2 - 1.2 puts the decision threshold at score 0, so P(1) > 0.5 iff the weighted score is positive.",
+  "n_qubits": 1,
+  "state_prep": {"type": "zero"},
+  "gates": [
+    {"gate": "ry", "qubits": [0], "params": ["pi/2 - 1.2"]},
+    {"gate": "ry", "qubits": [0], "params": ["1.1 * x[2]"]},
+    {"gate": "ry", "qubits": [0], "params": ["1.1 * x[3]"]},
+    {"gate": "ry", "qubits": [0], "params": ["1.1 * x[11]"]},
+    {"gate": "ry", "qubits": [0], "params": ["1.1 * x[27]"]},
+    {"gate": "ry", "qubits": [0], "params": ["-1.1 * x[33]"]},
+    {"gate": "ry", "qubits": [0], "params": ["-1.1 * x[41]"]}
+  ],
+  "readout": {"type": "bitstrings", "qubits": [0], "classes": {"4": ["0"], "9": ["1"]}}
+}
+```

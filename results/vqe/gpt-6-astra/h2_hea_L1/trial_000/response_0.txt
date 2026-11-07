@@ -1,0 +1,6 @@
+```json
+{
+  "reasoning": "The ground state lies in the odd-parity sector, predominantly |q0 q1⟩ = |10⟩ with a small negative |01⟩ component. These angles prepare cos(t/2)|10⟩ − sin(t/2)|01⟩, where t = atan(0.1820/0.7782) diagonalizes that sector and minimizes the energy.",
+  "weights": [0.2297437, 0.0, 3.141592653589793, 0.0]
+}
+```

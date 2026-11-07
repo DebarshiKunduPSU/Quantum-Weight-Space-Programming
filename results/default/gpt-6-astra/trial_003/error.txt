@@ -1,0 +1,89 @@
+Traceback (most recent call last):
+  File "/Users/debarshikundu/opt/anaconda3/envs/weightprog/lib/python3.11/site-packages/httpx2/_transports/default.py", line 98, in map_httpcore_exceptions
+    yield
+  File "/Users/debarshikundu/opt/anaconda3/envs/weightprog/lib/python3.11/site-packages/httpx2/_transports/default.py", line 245, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/debarshikundu/opt/anaconda3/envs/weightprog/lib/python3.11/site-packages/httpcore2/_sync/connection_pool.py", line 242, in handle_request
+    raise exc from None
+  File "/Users/debarshikundu/opt/anaconda3/envs/weightprog/lib/python3.11/site-packages/httpcore2/_sync/connection_pool.py", line 224, in handle_request
+    response = connection.handle_request(pool_request.request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/debarshikundu/opt/anaconda3/envs/weightprog/lib/python3.11/site-packages/httpcore2/_sync/connection.py", line 94, in handle_request
+    raise exc
+  File "/Users/debarshikundu/opt/anaconda3/envs/weightprog/lib/python3.11/site-packages/httpcore2/_sync/connection.py", line 74, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/debarshikundu/opt/anaconda3/envs/weightprog/lib/python3.11/site-packages/httpcore2/_sync/connection.py", line 117, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/debarshikundu/opt/anaconda3/envs/weightprog/lib/python3.11/site-packages/httpcore2/_backends/sync.py", line 203, in connect_tcp
+    with map_exceptions(exc_map):
+  File "/Users/debarshikundu/opt/anaconda3/envs/weightprog/lib/python3.11/contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/Users/debarshikundu/opt/anaconda3/envs/weightprog/lib/python3.11/site-packages/httpcore2/_exceptions.py", line 17, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore2.ConnectError: [Errno 8] nodename nor servname provided, or not known
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/debarshikundu/opt/anaconda3/envs/weightprog/lib/python3.11/site-packages/openai/_base_client.py", line 1183, in request
+    response = self._send_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/debarshikundu/opt/anaconda3/envs/weightprog/lib/python3.11/site-packages/openai/_client.py", line 211, in _send_request
+    return sync_send_request(self, request, stream=stream, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/debarshikundu/opt/anaconda3/envs/weightprog/lib/python3.11/site-packages/openai/lib/_client_auth.py", line 328, in sync_send_request
+    response = self._send_with_auth_retry(request, stream=stream, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/debarshikundu/opt/anaconda3/envs/weightprog/lib/python3.11/site-packages/openai/_client.py", line 197, in _send_with_auth_retry
+    return sync_send_with_auth_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/debarshikundu/opt/anaconda3/envs/weightprog/lib/python3.11/site-packages/openai/lib/_client_auth.py", line 313, in sync_send_with_auth_retry
+    response = super(_owner, self)._send_request(request, stream=stream, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/debarshikundu/opt/anaconda3/envs/weightprog/lib/python3.11/site-packages/openai/_base_client.py", line 1104, in _send_request
+    return self._client.send(request, stream=stream, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/debarshikundu/opt/anaconda3/envs/weightprog/lib/python3.11/site-packages/httpx2/_client.py", line 979, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/debarshikundu/opt/anaconda3/envs/weightprog/lib/python3.11/site-packages/httpx2/_client.py", line 1007, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/debarshikundu/opt/anaconda3/envs/weightprog/lib/python3.11/site-packages/httpx2/_client.py", line 1042, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/debarshikundu/opt/anaconda3/envs/weightprog/lib/python3.11/site-packages/httpx2/_client.py", line 1075, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/debarshikundu/opt/anaconda3/envs/weightprog/lib/python3.11/site-packages/httpx2/_transports/default.py", line 244, in handle_request
+    with map_httpcore_exceptions():
+  File "/Users/debarshikundu/opt/anaconda3/envs/weightprog/lib/python3.11/contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/Users/debarshikundu/opt/anaconda3/envs/weightprog/lib/python3.11/site-packages/httpx2/_transports/default.py", line 115, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx2.ConnectError: [Errno 8] nodename nor servname provided, or not known
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/debarshikundu/Library/CloudStorage/OneDrive-ThePennsylvaniaStateUniversity/Research/weight_programming/weightprog/run.py", line 231, in main
+    result = run_trial(cfg, task, provider, trial, trial_dir)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/debarshikundu/Library/CloudStorage/OneDrive-ThePennsylvaniaStateUniversity/Research/weight_programming/weightprog/run.py", line 112, in run_trial
+    resp = provider.complete(system, messages)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/debarshikundu/Library/CloudStorage/OneDrive-ThePennsylvaniaStateUniversity/Research/weight_programming/weightprog/providers.py", line 81, in complete
+    resp = self.client.responses.create(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/debarshikundu/opt/anaconda3/envs/weightprog/lib/python3.11/site-packages/openai/resources/responses/responses.py", line 1382, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "/Users/debarshikundu/opt/anaconda3/envs/weightprog/lib/python3.11/site-packages/openai/_base_client.py", line 1474, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/debarshikundu/opt/anaconda3/envs/weightprog/lib/python3.11/site-packages/openai/_base_client.py", line 1218, in request
+    raise APIConnectionError(request=request) from err
+openai.APIConnectionError: Connection error.

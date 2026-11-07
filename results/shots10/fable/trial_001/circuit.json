@@ -1,0 +1,95 @@
+{
+  "reasoning": "Linear classifier on the left-middle pixels (columns 1-2, rows 2-5), which are inked for an 8 (left sides of both loops) but empty for a 3. Chained ry rotations on one qubit sum their angles, so P(1)=sin^2((c+sum w_i x_i)/2); rows 4-5 get larger weights since 3 is most reliably empty there. Offset 0.4 and weights keep the total between 0.4 and 4.4 rad, so P(1)>0.5 iff total>pi/2, i.e. enough left-side ink -> class 8.",
+  "n_qubits": 1,
+  "state_prep": {
+    "type": "zero"
+  },
+  "gates": [
+    {
+      "gate": "ry",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "0.4 + 0.4 * x[17]"
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "0.4 * x[18]"
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "0.4 * x[25]"
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "0.4 * x[26]"
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "0.6 * x[33]"
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "0.6 * x[34]"
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "0.6 * x[41]"
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "0.6 * x[42]"
+      ]
+    }
+  ],
+  "readout": {
+    "type": "bitstrings",
+    "qubits": [
+      0
+    ],
+    "classes": {
+      "3": [
+        "0"
+      ],
+      "8": [
+        "1"
+      ]
+    }
+  }
+}

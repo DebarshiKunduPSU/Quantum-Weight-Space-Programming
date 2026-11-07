@@ -1,0 +1,6 @@
+```json
+{
+  "reasoning": "I chose a hand-tuned three-layer schedule with increasing cost angles and decreasing mixer angles. The moderate early cost angles account for the high-degree vertices and many triangles, while the larger later angles help resolve the lower-degree part of the graph. These are heuristic choices, not numerically optimized values.",
+  "weights": [0.33, 0.51, 0.62, 0.32, 0.84, 0.16]
+}
+```

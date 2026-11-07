@@ -1,0 +1,6 @@
+```json
+{
+  "reasoning": "I chose a smooth three-layer schedule with increasing cost angles and decreasing mixer angles. The graph's high-degree vertices and numerous triangles favor relatively conservative cost rotations and smaller mixer angles than a triangle-free graph of similar average degree. These are hand-chosen angles, not numerically optimized.",
+  "weights": [0.38, 0.48, 0.70, 0.30, 0.90, 0.15]
+}
+```

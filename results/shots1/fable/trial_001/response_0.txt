@@ -1,0 +1,22 @@
+**Design idea.** In 8×8 digits the clearest difference between a 3 and an 8 is the left side of the middle rows: an 8 closes both loops, so pixels in columns 1–2 of rows 2–5 carry ink, whereas a 3 is open on the left and those pixels are dark. A 3 instead tends to push its middle stroke to the right (row 3, column 5). I accumulate these pixels as commuting RY rotations on a single qubit (so the total angle is a linear score), with positive weights on the left-middle pixels, a negative weight on the right-middle pixel, and a constant offset acting as the bias. Weights are scaled so the total angle stays in [0, π] over the realistic feature range, keeping P(|1⟩)=sin²(θ/2) monotone in the score. Qubit measured 1 → class 8, 0 → class 3.
+
+```json
+{
+  "reasoning": "An 8 has ink on the left side of the middle rows (closed loops), a 3 is dark there and pushes its middle stroke to the right. Single-qubit linear score built from commuting RY rotations: positive weights on left-middle pixels (cols 1-2, rows 2-5), negative weight on row 3 col 5, constant RY as bias. P(1)=sin^2(score/2) is monotone over the achievable range; 1 -> class 8, 0 -> class 3.",
+  "n_qubits": 1,
+  "state_prep": {"type": "zero"},
+  "gates": [
+    {"gate": "ry", "qubits": [0], "params": [0.37]},
+    {"gate": "ry", "qubits": [0], "params": ["0.6 * x[17]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.6 * x[25]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.6 * x[33]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.6 * x[41]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.3 * x[18]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.3 * x[26]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.3 * x[34]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.3 * x[42]"]},
+    {"gate": "ry", "qubits": [0], "params": ["-0.36 * x[29]"]}
+  ],
+  "readout": {"type": "bitstrings", "qubits": [0], "classes": {"3": ["0"], "8": ["1"]}}
+}
+```

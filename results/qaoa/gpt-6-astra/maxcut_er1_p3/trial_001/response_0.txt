@@ -1,0 +1,6 @@
+```json
+{
+  "reasoning": "I chose a three-layer schedule with increasing cost angles and decreasing mixer magnitudes, using moderate cost angles to accommodate the high-degree vertices and overlapping triangles. The negative mixer angles match the stated exp(-i gamma C) convention for maximizing the cut with positive gamma. These are structure-informed hand-selected angles, not numerically optimized values.",
+  "weights": [0.42, -0.52, 0.78, -0.34, 0.98, -0.17]
+}
+```

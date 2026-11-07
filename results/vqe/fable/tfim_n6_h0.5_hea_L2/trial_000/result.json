@@ -1,0 +1,13 @@
+{
+  "experiment": "vqe",
+  "model": "fable",
+  "case": "tfim_n6_h0.5_hea_L2",
+  "trial": 0,
+  "meta": {
+    "hamiltonian": "TFIM n=6 J=1.0 h=0.5 open",
+    "ansatz": "HEA(n=6, L=2)",
+    "n_params": 18
+  },
+  "status": "error",
+  "error": "ReadTimeout: The read operation timed out"
+}

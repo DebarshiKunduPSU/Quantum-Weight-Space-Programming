@@ -1,0 +1,21 @@
+**Design idea.** The key visual difference: an 8 has ink on the left side in the upper loop (rows 2–3, columns 1–2) and lower loop (rows 4–5, columns 1–2), whereas a 3 is open on the left and its left-side pixels in those rows are dark. I use one qubit and accumulate a linear score with commuting RY rotations (angles add): a bias plus positive weights on these left-side pixels. The final angle is biased so that it crosses π/2 (P(|1>) = 0.5) when the weighted left-side ink is about 0.9; more ink → P(1) > 0.5 → class 8.
+
+```json
+{
+  "reasoning": "Single-qubit linear classifier via additive RY rotations. 8s have ink on the left side of both loops (rows 2-5, cols 1-2), while 3s are open on the left there. Positive weights on those pixels push the state toward |1> (class 8); the bias pi/2 - 0.9 sets the decision threshold so a 3 (little left-side ink) stays near |0>.",
+  "n_qubits": 1,
+  "state_prep": {"type": "zero"},
+  "gates": [
+    {"gate": "ry", "qubits": [0], "params": ["pi/2 - 0.9"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.6 * x[17]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.6 * x[18]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.4 * x[25]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.3 * x[26]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.3 * x[33]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.3 * x[34]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.6 * x[41]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.5 * x[42]"]}
+  ],
+  "readout": {"type": "bitstrings", "qubits": [0], "classes": {"3": ["0"], "8": ["1"]}}
+}
+```

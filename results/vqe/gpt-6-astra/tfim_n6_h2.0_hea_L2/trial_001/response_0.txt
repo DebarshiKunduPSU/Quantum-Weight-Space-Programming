@@ -1,0 +1,6 @@
+```json
+{
+  "reasoning": "The strong transverse field favors a state close to |+> on every spin, with weak ferromagnetic correlations. I use the second CNOT ladder and middle rotations to create the dominant nearest-neighbor correlations, while small deviations in the first layer add higher-order correlations. The angles preserve global spin-flip symmetry and include small boundary corrections.",
+  "weights": [1.57079633, 1.57079633, 1.54095190, 1.53959126, 1.53959126, 1.54095190, 0.0, -0.2524, -0.2602, -0.2605, -0.2602, -0.2524, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+}
+```

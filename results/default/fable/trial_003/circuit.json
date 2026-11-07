@@ -1,0 +1,104 @@
+{
+  "reasoning": "An 8 has ink on the left side of rows 2-5 (cols 1-2) where a 3 is open/black. Accumulate ry rotations on one qubit weighted by those pixels: total angle = pi/2 - 0.6 + 0.5*(x17+x18+x25+x26+x33+x34) + 0.3*(x41+x42). For a 3 (left side dark) the angle stays below pi/2 so qubit reads 0; for an 8 the left stroke pushes it above pi/2 so qubit reads 1. Max angle ~4.3 < 3pi/2, so no wrap-around.",
+  "n_qubits": 1,
+  "state_prep": {
+    "type": "zero"
+  },
+  "gates": [
+    {
+      "gate": "ry",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "pi/2 - 0.6"
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "0.5 * x[17]"
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "0.5 * x[18]"
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "0.5 * x[25]"
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "0.5 * x[26]"
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "0.5 * x[33]"
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "0.5 * x[34]"
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "0.3 * x[41]"
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "0.3 * x[42]"
+      ]
+    }
+  ],
+  "readout": {
+    "type": "bitstrings",
+    "qubits": [
+      0
+    ],
+    "classes": {
+      "3": [
+        "0"
+      ],
+      "8": [
+        "1"
+      ]
+    }
+  }
+}

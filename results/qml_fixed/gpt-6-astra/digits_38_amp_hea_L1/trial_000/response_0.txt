@@ -1,0 +1,6 @@
+```json
+{
+  "reasoning": "I chose a row-structure discriminator: the 3 examples generally concentrate more squared ink in the outer two-row bands than in the middle bands. The rotations combine this contrast with a top-versus-bottom row-coherence correction and a small threshold-like offset. Only the two leading row-qubit rotations and the final readout rotation affect this measurement; the remaining weights are zero.",
+  "weights": [1.5707963268, 2.1815222912, 0, 0, 0, 0, -1.4566, 0, 0, 0, 0, 0]
+}
+```

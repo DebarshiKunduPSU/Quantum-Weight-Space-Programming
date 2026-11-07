@@ -1,0 +1,43 @@
+```json
+{
+  "reasoning": "The main distinction is stroke placement: 4 usually has substantial middle-left and lower-middle ink forming its crossbar, whereas 9 has a stronger upper-left loop and a lower-right tail. Successive RY gates accumulate a fixed weighted contrast between these regions. The total angle stays within a monotonic measurement range for all allowed pixel values, so greater crossbar evidence increases the score for 4 without periodic wraparound.",
+  "n_qubits": 1,
+  "state_prep": {"type": "zero"},
+  "gates": [
+    {"gate": "ry", "qubits": [0], "params": [1.4987963267948966]},
+    {"gate": "ry", "qubits": [0], "params": ["0.064 * x[25]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.104 * x[26]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.176 * x[33]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.216 * x[34]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.136 * x[35]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.088 * x[36]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.080 * x[41]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.152 * x[42]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.168 * x[43]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.104 * x[44]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.048 * x[52]"]},
+    {"gate": "ry", "qubits": [0], "params": ["-0.040 * x[2]"]},
+    {"gate": "ry", "qubits": [0], "params": ["-0.048 * x[5]"]},
+    {"gate": "ry", "qubits": [0], "params": ["-0.168 * x[10]"]},
+    {"gate": "ry", "qubits": [0], "params": ["-0.040 * x[11]"]},
+    {"gate": "ry", "qubits": [0], "params": ["-0.104 * x[13]"]},
+    {"gate": "ry", "qubits": [0], "params": ["-0.104 * x[18]"]},
+    {"gate": "ry", "qubits": [0], "params": ["-0.072 * x[21]"]},
+    {"gate": "ry", "qubits": [0], "params": ["-0.056 * x[28]"]},
+    {"gate": "ry", "qubits": [0], "params": ["-0.104 * x[46]"]},
+    {"gate": "ry", "qubits": [0], "params": ["-0.120 * x[54]"]},
+    {"gate": "ry", "qubits": [0], "params": ["-0.064 * x[58]"]},
+    {"gate": "ry", "qubits": [0], "params": ["-0.088 * x[59]"]},
+    {"gate": "ry", "qubits": [0], "params": ["-0.096 * x[61]"]},
+    {"gate": "ry", "qubits": [0], "params": ["-0.064 * x[62]"]}
+  ],
+  "readout": {
+    "type": "bitstrings",
+    "qubits": [0],
+    "classes": {
+      "4": ["1"],
+      "9": ["0"]
+    }
+  }
+}
+```

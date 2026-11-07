@@ -1,0 +1,6 @@
+```json
+{
+  "reasoning": "The graph has eight edges in one triangle, two in two triangles, and two in no triangles. Its exact p=1 expectation is 6 + 6 sin(4 beta) sin(gamma) cos²(gamma) - 6 sin²(2 beta) sin²(gamma) cos²(gamma). Analytically maximizing this expression gives the angles below.",
+  "weights": [0.54876186, 0.32891611]
+}
+```

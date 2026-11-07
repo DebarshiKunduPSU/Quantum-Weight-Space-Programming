@@ -1,0 +1,21 @@
+**Design idea.** The clearest difference between a 3 and an 8 in these 8×8 images is the left side of the middle region: an 8 has a closed left stroke in rows 2–5 (columns 1–2), while a 3 is open there and those pixels are essentially black. I sum those pixels with a single qubit: consecutive `ry` rotations on one qubit commute, so the total rotation angle is an affine function of the pixel sum. The offset is set so that a dark left side (3) leaves the angle below π/2 (measuring mostly |0⟩), while a lit left side (8) pushes it above π/2 (mostly |1⟩). Weights are chosen so the maximum possible angle stays below 3π/2, avoiding wrap-around.
+
+```json
+{
+  "reasoning": "An 8 has ink on the left side of rows 2-5 (cols 1-2) where a 3 is open/black. Accumulate ry rotations on one qubit weighted by those pixels: total angle = pi/2 - 0.6 + 0.5*(x17+x18+x25+x26+x33+x34) + 0.3*(x41+x42). For a 3 (left side dark) the angle stays below pi/2 so qubit reads 0; for an 8 the left stroke pushes it above pi/2 so qubit reads 1. Max angle ~4.3 < 3pi/2, so no wrap-around.",
+  "n_qubits": 1,
+  "state_prep": {"type": "zero"},
+  "gates": [
+    {"gate": "ry", "qubits": [0], "params": ["pi/2 - 0.6"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.5 * x[17]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.5 * x[18]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.5 * x[25]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.5 * x[26]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.5 * x[33]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.5 * x[34]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.3 * x[41]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.3 * x[42]"]}
+  ],
+  "readout": {"type": "bitstrings", "qubits": [0], "classes": {"3": ["0"], "8": ["1"]}}
+}
+```

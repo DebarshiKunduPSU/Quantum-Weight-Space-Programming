@@ -1,0 +1,11 @@
+**Analysis**
+
+With the given gate definitions the circuit is exactly the standard p=1 QAOA with U_C = e^{-iγC}, U_B = e^{-iβΣX}, so I can use the closed-form p=1 MaxCut expectation per edge (Wang et al.):
+
+⟨C_uv⟩ = ½ + ¼ sin4β sinγ (cos^{d_u}γ + cos^{d_v}γ) − ¼ sin²2β cos^{d_u+d_v−2f}γ (1 − cos^f 2γ),
+
+with d = degree−1 and f = number of triangles on the edge. For this graph the degrees are (2,6,4,4,2,3,5,4) and the triangle counts per edge are 0,0,3,2,0,2,4,3,2,3,2,2,2,2,3. Summing gives ⟨C⟩ = 7.5 + ¼[sin4β·F(γ) − sin²2β·G(γ)], and optimizing β analytically for each γ gives ⟨C⟩ = 7.5 + ¼[√(F²+G²/4) − G/2]. Scanning γ: 0.40→9.128, 0.45→9.159, 0.50→9.162, 0.55→9.140, 0.60→9.097, so the optimum is at γ ≈ 0.48. The optimal β then satisfies tan(4β) = 2F/G ≈ 2.72, giving β ≈ 0.305 (positive sign confirmed by the single-edge check: ⟨cut⟩ = ½ + ½ sin4β sinγ in this convention). Expected cut ≈ 9.16 out of a maximum of ~11–12.
+
+```json
+{"reasoning": "Standard p=1 QAOA convention matches the circuit (rzz(-gamma) = exp(i gamma ZZ/2), rx(2beta) = exp(-i beta X)). Used the closed-form p=1 MaxCut edge expectation with degrees (2,6,4,4,2,3,5,4) and per-edge triangle counts, summed over all 15 edges, optimized beta analytically for each gamma and scanned gamma. The maximum (<C> ≈ 9.16) occurs near gamma ≈ 0.48 with beta ≈ 0.305 (tan 4beta = 2F/G ≈ 2.7).", "weights": [0.48, 0.305]}
+```

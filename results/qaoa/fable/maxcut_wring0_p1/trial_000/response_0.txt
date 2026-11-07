@@ -1,0 +1,12 @@
+**Analysis.** For p=1 on a triangle‑free graph the energy has a closed form. With this circuit's conventions (rzz(−wγ) = e^{−iγ w(1−ZZ)/2}, rx(2β) = e^{−iβX}) one gets for each ring edge (u,v) of weight w with neighbouring edge weights w_a, w_b:
+
+⟨C_uv⟩ = w/2 + (w/4)·sin(4β)·sin(γw)·[cos(γw_a) + cos(γw_b)]
+
+So β = π/8 (sin4β = 1) is optimal, and γ must maximise  
+F(γ) = Σ_k w_k sin(γw_k)[cos(γw_{k−1}) + cos(γw_{k+1})] over the 8 ring edges with weights (1,4,4,3,4,2,5,2).
+
+Scanning γ: F(0.20)≈26.77, F(0.23)≈27.68, F(0.24)≈27.76, F(0.25)≈27.72, F(0.26)≈27.57, F(0.30)≈25.9. The maximum is near γ ≈ 0.243 (roughly π/4 divided by the typical weight ≈4, slightly adjusted for the weight‑5 and weight‑2/3 edges), giving ⟨C⟩ ≈ 12.5 + 27.76/4 ≈ 19.4 out of a maximum 25.
+
+```json
+{"reasoning": "Used the exact p=1 formula for triangle-free weighted graphs: <C_uv> = w/2 + (w/4) sin(4β) sin(γw)[cos(γw_a)+cos(γw_b)]. The sign check for this circuit (rzz(-wγ), rx(2β)) shows positive β=π/8 maximizes sin(4β)=1. Then numerically maximized the sum over the ring edges with weights (1,4,4,3,4,2,5,2) over γ, finding the peak near γ≈0.243 (≈π/4 divided by the typical weight 4), giving <C>≈19.4 of max 25.", "weights": [0.243, 0.39269908]}
+```

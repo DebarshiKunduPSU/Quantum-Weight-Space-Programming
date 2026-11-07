@@ -1,0 +1,10 @@
+```json
+{
+  "reasoning": "The examples suggest that 3 has more ink energy in the outer row bands relative to the middle bands, while 8 is more centrally distributed. These angles implement that row-band contrast with modest row-overlap corrections to avoid relying on a strict equal-energy threshold. Positive readout expectation favors class 3; negative favors class 8.",
+  "weights": [
+    1.5707963268, 1.8207963268, 0, 0, 0, 0,
+    -1.4007963268, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+  ]
+}
+```

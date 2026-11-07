@@ -1,0 +1,19 @@
+**Design idea.** In these 8x8 digits the clearest difference between 3 and 8 is the left side of the two loops: an 8 has ink on the left edge of both the upper loop (rows 2–3, columns 1–2) and the lower loop (rows 4–5, columns 1–2), while a 3 is open there (those pixels are dark; its ink sits on the right half plus a middle bar). I therefore build a linear score from those left-side pixels and implement it as a single-qubit RY accumulator: all RY angles on one qubit add up, so the final angle is θ = 0.72 + 0.5·(x[17]+x[18]+x[25]+x[33]+x[41]+x[42]), and P(1)=sin²(θ/2) crosses 0.5 when the left-side ink sum is ≈1.7. The bias and weights are chosen so θ stays in roughly [0.7, 3.7], keeping P(1) monotone enough that more left ink always means "8".
+
+```json
+{
+  "reasoning": "8 has ink on the left side of both loops (rows 2-3 and 4-5, columns 1-2) while 3 is open on the left there. Accumulate a linear score of these left-side pixels as summed RY rotations on one qubit: theta = 0.72 + 0.5*(x17+x18+x25+x33+x41+x42). P(1)=sin^2(theta/2) exceeds 0.5 once left-side ink sum > ~1.7, which indicates an 8.",
+  "n_qubits": 1,
+  "state_prep": {"type": "zero"},
+  "gates": [
+    {"gate": "ry", "qubits": [0], "params": [0.72]},
+    {"gate": "ry", "qubits": [0], "params": ["0.5 * x[17]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.5 * x[18]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.5 * x[25]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.5 * x[33]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.5 * x[41]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.5 * x[42]"]}
+  ],
+  "readout": {"type": "bitstrings", "qubits": [0], "classes": {"3": ["0"], "8": ["1"]}}
+}
+```

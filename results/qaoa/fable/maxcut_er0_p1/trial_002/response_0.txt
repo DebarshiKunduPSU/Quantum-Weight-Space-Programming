@@ -1,0 +1,9 @@
+**Analysis.** For p=1 MaxCut QAOA the expected cut decomposes edge‑by‑edge (Wang et al. formula) in terms of the node degrees and the number of triangles λ on each edge:
+
+⟨C_uv⟩ = 1/2 + ¼·sin4β·sinγ·(cos^{d_u−1}γ + cos^{d_v−1}γ) − ¼·sin²2β·cos^{d_u+d_v−2−2λ}γ·(1 − cos^λ2γ).
+
+Degrees here: d = (2,6,4,4,2,3,5,4); this graph is triangle‑dense (e.g. edge (1,6) sits in 4 triangles, (1,2),(1,7),(2,6),(6,7) in 3). Summing over the 15 edges gives ⟨C⟩ = 7.5 + ¼[A(γ)sin4β − B(γ)sin²2β], which for fixed γ is maximized at tan(4β)=2A/B with value ¼[√(A²+B²/4) − B/2]. Scanning γ: γ=0.3 → 8.97, 0.4 → 9.13, 0.45 → 9.16, 0.5 → 9.16, 0.6 → 9.10. The optimum is near γ≈0.49 with A≈9.5, B≈7.1, giving 4β≈1.21 rad, i.e. β≈0.30, and ⟨C⟩≈9.16 (out of 15 edges). The sign convention (rzz(−γ) with rx(2β)) matches the standard one where positive γ, β are optimal.
+
+```json
+{"reasoning": "Used the exact p=1 edge-wise formula for MaxCut QAOA including degree and triangle corrections. Summed over all 15 edges (degrees 2,6,4,4,2,3,5,4; many edges in 2-4 triangles), then scanned gamma and solved for the optimal beta analytically via tan(4beta)=2A/B. The maximum (~9.16 expected cut) occurs near gamma≈0.49, beta≈0.30; the triangle-rich structure pushes gamma below the usual pi/2-ish single-edge optimum and beta slightly above pi/8.", "weights": [0.49, 0.303]}
+```

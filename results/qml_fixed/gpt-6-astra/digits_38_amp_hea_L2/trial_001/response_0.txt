@@ -1,0 +1,6 @@
+```json
+{
+  "reasoning": "I used the contrast between ink energy in the outer row pairs (0–1 and 6–7) and the middle rows (2–5), since the examples of 3 generally emphasize the outer rows more. The rotations map this contrast onto the measured qubit, with a small row-coherence correction favoring 8 when the energy contrast is weak.",
+  "weights": [1.5707963267948966, 1.5707963267948966, 0, 0, 0, 0, -1.46, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+}
+```

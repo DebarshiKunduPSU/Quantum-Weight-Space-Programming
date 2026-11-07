@@ -1,0 +1,16 @@
+```json
+{
+  "reasoning": "The eight CNOT ladders compose to the identity when the rotations vanish, so I used sparse rotations with interpretable spatial effects. Intermediate rotations mix opposite image locations and introduce row-dependent left–right contrasts; the final rotations combine row features at two scales. These are hand-designed heuristic weights, not optimized or validated weights.",
+  "weights": [
+    0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0,
+    0, 0, 0.7, 0, 0, 0,
+    0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0,
+    -0.95, 0, 0, 0.18, 0, 0,
+    0, -0.55, -0.22, 0, 0, 0
+  ]
+}
+```

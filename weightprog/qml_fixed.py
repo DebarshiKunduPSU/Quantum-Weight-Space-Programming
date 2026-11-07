@@ -104,7 +104,7 @@ def build_cases() -> list[Case]:
     for classes in ([3, 8], [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]):
         task = data.load_task(classes, cfg["task"]["test_fraction"], cfg["task"]["split_seed"])
         shots = p_cfg["shots_per_class"] if len(classes) == 2 else 3
-        for layers in (1, 2):
+        for layers in (1, 2, 4, 8):  # 12, 18, 30, 54 weights: how far does hand-written weight programming scale?
             ans = az.qml_amplitude_hea(layers, task.class_labels)
             cid = f"digits_{''.join(map(str, classes)) if len(classes) < 4 else 'all10'}_amp_hea_L{layers}"
             def user(trial, task=task, ans=ans, shots=shots):

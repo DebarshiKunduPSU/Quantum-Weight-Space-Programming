@@ -1,0 +1,21 @@
+**Design idea.** In these 8x8 digits a "3" is open on the left: in the middle rows (rows 2–5) the left columns (cols 1–2) are dark, since the top and bottom strokes of a 3 sit at rows 0–1 and 6–7 and all the vertical ink is on the right. An "8" has two closed loops, so its left side at rows 2–3 (upper loop) and rows 4–5 (lower loop) carries ink. I therefore build a linear score S from the eight pixels x[17],x[18],x[25],x[26],x[33],x[34],x[41],x[42] (rows 2–5, columns 1–2). A single qubit accumulates ry rotations (same axis, so angles simply add): θ = π/2 + 0.6·(S − 1.6). Measuring |1⟩ with probability sin²(θ/2) > 1/2 exactly when S exceeds the threshold ⇒ class 8; otherwise class 3. The scale 0.6 keeps θ inside (0, π) for all feature values so the decision never wraps around.
+
+```json
+{
+  "reasoning": "A '3' is open on the left (rows 2-5, cols 1-2 dark) while an '8' has closed loops with ink on the left side at rows 2-3 and 4-5. A single qubit accumulates ry rotations proportional to those left-side pixels; bias set so theta = pi/2 at the threshold. P(|1>) > 0.5 means class 8.",
+  "n_qubits": 1,
+  "state_prep": {"type": "zero"},
+  "gates": [
+    {"gate": "ry", "qubits": [0], "params": [0.6108]},
+    {"gate": "ry", "qubits": [0], "params": ["0.42 * x[18]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.42 * x[26]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.30 * x[17]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.30 * x[25]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.36 * x[34]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.30 * x[42]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.30 * x[33]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.30 * x[41]"]}
+  ],
+  "readout": {"type": "bitstrings", "qubits": [0], "classes": {"3": ["0"], "8": ["1"]}}
+}
+```

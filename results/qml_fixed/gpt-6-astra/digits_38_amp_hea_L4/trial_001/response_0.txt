@@ -1,0 +1,12 @@
+```json
+{
+  "reasoning": "I chose rotations that make the readout compare left- and right-half ink, weighted by coherence between rows two pixels apart. This targets the stronger left-side structure of an 8 versus a 3; a modest column-mixing rotation softens the boundary for shifted handwriting. The remaining rotations route this comparison through the fixed CNOT layers to q0.",
+  "weights": [
+    0, 1.5707963267948966, 0, -0.55, 0, 0,
+    1.5707963267948966, 1.5707963267948966, 1.5707963267948966, 1.5707963267948966, 0, 0,
+    0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0,
+    -1.5707963267948966, 0, 0, 0, 0, 0
+  ]
+}
+```

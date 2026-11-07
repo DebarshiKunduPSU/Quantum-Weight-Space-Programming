@@ -1,0 +1,9 @@
+**Approach.** The whole circuit is real‑orthogonal, so the readout `P(q0=1)` equals the image's squared‑mass inside a 32‑dimensional subspace that I can pick by propagating the final `Z0` observable backwards through the layers (ry with ±π/2 swaps X↔Z, CNOT chains map `X_a→X_aX_{a+1}`, `Z_b→Z_0…Z_b`). Choosing θ24=−π/2, θ18=π/2, θ13=π/2, θ8=θ9=π/2 (all others 0) gives the Heisenberg path Z0 → X0 → X0X1 → Z0X1 → Z0X1X2 → Z0Z1X2 → Z1X2X3 → Z1Z2Z3 → Z0Z1Z3, so the circuit measures ⟨Z0Z1Z3⟩ and
+
+P(class 8) = ink fraction in {rows 2–5, columns 0–3} ∪ {rows 0,1,6,7, columns 4–7}.
+
+A "3" is open on the left in its middle rows (its middle bar and right side live in columns 3–6) while its top/bottom arcs reach left, so this score is well below 0.5 for 3s; an "8" has left loop walls in rows 2–5 (and is roughly balanced elsewhere, slant cancelling between outer rows), so its score sits at/above 0.5. All other rotation angles are set to 0 so they do not disturb this parity feature.
+
+```json
+{"reasoning": "Treat the circuit as a real orthogonal map and propagate the measured Z0 backwards (Heisenberg picture) with ry(±pi/2) acting as X<->Z swaps and the CNOT chains spreading Pauli strings. With theta24=-pi/2, theta18=pi/2, theta13=pi/2, theta8=theta9=pi/2 and all else 0, the measured observable becomes Z0*Z1*Z3, so P(q0=1) = ink mass in (rows 2-5, cols 0-3) plus (rows 0,1,6,7, cols 4-7). Digit 3 has an empty left side in its middle rows and left-reaching arcs, giving a low score (predict 3); digit 8 has left loop walls in rows 2-5 and is otherwise balanced, giving a score >= 0.5 (predict 8).", "weights": [0, 0, 0, 0, 0, 0, 0, 0, 1.5707963, 1.5707963, 0, 0, 0, 1.5707963, 0, 0, 0, 0, 1.5707963, 0, 0, 0, 0, 0, -1.5707963, 0, 0, 0, 0, 0]}
+```

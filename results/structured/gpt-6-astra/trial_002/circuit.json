@@ -1,0 +1,213 @@
+{
+  "reasoning": "An 8 usually has more ink along the middle-left and lower-left portions of the image, closing loops that remain open in a 3. The circuit contrasts those pixels with the middle-right strokes shared by both digits. Feature-dependent phase gates accumulate this fixed weighted contrast on an entangled pair; the final Hadamards convert it into even-parity evidence for 3 and odd-parity evidence for 8.",
+  "n_qubits": 2,
+  "state_prep": {
+    "type": "zero"
+  },
+  "gates": [
+    {
+      "gate": "h",
+      "qubits": [
+        0
+      ]
+    },
+    {
+      "gate": "cx",
+      "qubits": [
+        0,
+        1
+      ]
+    },
+    {
+      "gate": "p",
+      "qubits": [
+        0
+      ],
+      "params": [
+        1.4132963267948966
+      ]
+    },
+    {
+      "gate": "p",
+      "qubits": [
+        1
+      ],
+      "params": [
+        "0.21 * x[18]"
+      ]
+    },
+    {
+      "gate": "p",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "0.385 * x[26]"
+      ]
+    },
+    {
+      "gate": "p",
+      "qubits": [
+        1
+      ],
+      "params": [
+        "0.42 * x[34]"
+      ]
+    },
+    {
+      "gate": "p",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "0.35 * x[42]"
+      ]
+    },
+    {
+      "gate": "p",
+      "qubits": [
+        1
+      ],
+      "params": [
+        "0.245 * x[27]"
+      ]
+    },
+    {
+      "gate": "p",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "0.315 * x[35]"
+      ]
+    },
+    {
+      "gate": "p",
+      "qubits": [
+        1
+      ],
+      "params": [
+        "0.35 * x[43]"
+      ]
+    },
+    {
+      "gate": "p",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "-0.14 * x[20]"
+      ]
+    },
+    {
+      "gate": "p",
+      "qubits": [
+        1
+      ],
+      "params": [
+        "-0.0875 * x[21]"
+      ]
+    },
+    {
+      "gate": "p",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "-0.1575 * x[28]"
+      ]
+    },
+    {
+      "gate": "p",
+      "qubits": [
+        1
+      ],
+      "params": [
+        "-0.105 * x[29]"
+      ]
+    },
+    {
+      "gate": "p",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "-0.1225 * x[36]"
+      ]
+    },
+    {
+      "gate": "p",
+      "qubits": [
+        1
+      ],
+      "params": [
+        "-0.0875 * x[37]"
+      ]
+    },
+    {
+      "gate": "p",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "-0.0525 * x[44]"
+      ]
+    },
+    {
+      "gate": "p",
+      "qubits": [
+        1
+      ],
+      "params": [
+        "-0.1225 * x[45]"
+      ]
+    },
+    {
+      "gate": "p",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "-0.07 * x[38]"
+      ]
+    },
+    {
+      "gate": "p",
+      "qubits": [
+        1
+      ],
+      "params": [
+        "-0.07 * x[46]"
+      ]
+    },
+    {
+      "gate": "h",
+      "qubits": [
+        0
+      ]
+    },
+    {
+      "gate": "h",
+      "qubits": [
+        1
+      ]
+    }
+  ],
+  "readout": {
+    "type": "bitstrings",
+    "qubits": [
+      0,
+      1
+    ],
+    "classes": {
+      "3": [
+        "00",
+        "11"
+      ],
+      "8": [
+        "01",
+        "10"
+      ]
+    }
+  }
+}

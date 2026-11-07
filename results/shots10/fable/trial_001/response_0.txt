@@ -1,0 +1,22 @@
+**Design idea.** In 8×8 digit images the clearest difference between 3 and 8 is the left side of the middle rows: an 8 has ink on the left of both loops (columns 1–2, rows 2–5), whereas a 3 is open on the left there (its strokes only touch the left in the top and bottom rows). So a linear score built from those left‑middle pixels separates the classes well.
+
+A single qubit suffices: successive `ry` rotations on the same qubit add their angles, so a chain of `ry(w_i·x[i])` gates implements `ry(c + Σ w_i x[i])`, and P(|1⟩) = sin²(total/2) exceeds 0.5 exactly when the total angle passes π/2. Weights are chosen so a typical 3 gives a total ≈ 0.5–1.0 rad (predict 3), a typical 8 gives ≈ 2–3.5 rad (predict 8), and the maximum possible total (4.4 rad) stays below 3π/2 so the decision stays monotone.
+
+```json
+{
+  "reasoning": "Linear classifier on the left-middle pixels (columns 1-2, rows 2-5), which are inked for an 8 (left sides of both loops) but empty for a 3. Chained ry rotations on one qubit sum their angles, so P(1)=sin^2((c+sum w_i x_i)/2); rows 4-5 get larger weights since 3 is most reliably empty there. Offset 0.4 and weights keep the total between 0.4 and 4.4 rad, so P(1)>0.5 iff total>pi/2, i.e. enough left-side ink -> class 8.",
+  "n_qubits": 1,
+  "state_prep": {"type": "zero"},
+  "gates": [
+    {"gate": "ry", "qubits": [0], "params": ["0.4 + 0.4 * x[17]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.4 * x[18]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.4 * x[25]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.4 * x[26]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.6 * x[33]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.6 * x[34]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.6 * x[41]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.6 * x[42]"]}
+  ],
+  "readout": {"type": "bitstrings", "qubits": [0], "classes": {"3": ["0"], "8": ["1"]}}
+}
+```

@@ -1,0 +1,6 @@
+```json
+{
+  "reasoning": "I use a smooth, approximately adiabatic schedule: weak initial ZZ rotations preserve the transverse-field polarization, then stronger ZZ rotations build ferromagnetic correlations. The X rotations decrease across the layers, with a smaller final rotation to reduce residual phase winding. These are physically motivated estimates rather than numerically optimized angles.",
+  "weights": [0.22, 0.93, 0.43, 0.81, 0.59, 0.67, 0.60, 0.32]
+}
+```

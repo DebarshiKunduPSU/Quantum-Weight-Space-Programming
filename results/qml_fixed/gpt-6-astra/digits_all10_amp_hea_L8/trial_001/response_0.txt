@@ -1,0 +1,16 @@
+```json
+{
+  "reasoning": "I chose a sparse spatial heuristic: the initial rotations reorder row regions and mix corresponding upper/lower image regions, while the late rotations introduce row-dependent horizontal interference features. These features target differences in stroke position and symmetry. The values are hand-chosen rather than fitted, so their held-out accuracy is not established.",
+  "weights": [
+    -0.9, 3.141592653589793, 3.141592653589793, -0.15, 0.0, 0.0,
+    0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+    0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+    0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+    0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+    0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+    0.0, 0.0, 0.0, 0.6, 0.0, 0.0,
+    0.0, 0.0, 0.0, 0.45, 0.0, 0.0,
+    0.0, 0.0, 0.0, 0.2, 0.0, 0.0
+  ]
+}
+```

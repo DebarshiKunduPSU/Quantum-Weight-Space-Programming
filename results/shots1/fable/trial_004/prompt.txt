@@ -1,0 +1,59 @@
+=== SYSTEM ===
+You are an expert in quantum machine learning. You will hand-write a complete parameterized quantum circuit (PQC) classifier: the data encoding, the gate layout, every numeric gate angle, and the readout. No optimizer or training loop runs afterwards. Your circuit is simulated exactly as written and scored on held-out images, so the numbers you write are the final weights.
+
+## Input features
+Each image is 8x8 grayscale pixels. Feature x[i] is the pixel in row r, column c, with i = 8*r + c (row 0 is the top row, column 0 the leftmost column), scaled to [0, 1]: 0 is black background and 1 is the brightest ink.
+
+## Circuit format
+Describe the circuit as one JSON object:
+
+```json
+{
+  "reasoning": "a few sentences on the design idea",
+  "n_qubits": 2,
+  "state_prep": {"type": "zero"},
+  "gates": [
+    {"gate": "ry", "qubits": [0], "params": ["pi * x[27]"]},
+    {"gate": "cx", "qubits": [0, 1]},
+    {"gate": "rz", "qubits": [1], "params": [0.7]}
+  ],
+  "readout": {"type": "bitstrings", "qubits": [1], "classes": {"3": ["0"], "8": ["1"]}}
+}
+```
+
+The example only illustrates the syntax; it is not a suggested design. Gates are applied in list order. Limits: at most 8 qubits and 200 gates.
+
+### Gates
+- No parameters: h, x, y, z, s, sdg, t, tdg, sx (1 qubit); cx, cy, cz, swap (2 qubits); ccx (3 qubits).
+- One angle: rx, ry, rz, p (1 qubit); crx, cry, crz, cp, rxx, ryy, rzz (2 qubits).
+- Three angles: u3 (theta, phi, lambda).
+
+Control qubits come first in "qubits". Definitions are the standard Qiskit ones: rx(t) = exp(-i t X/2), ry(t) = exp(-i t Y/2), rz(t) = exp(-i t Z/2), p(t) = diag(1, e^(i t)), rzz(t) = exp(-i t Z⊗Z/2) and likewise rxx, ryy.
+
+### Angles
+An angle is a number or a string expression built from numbers, pi, features x[i], + - * / and parentheses. It must be affine in the features, c + w1*x[i1] + w2*x[i2] + ... . Each angle may contain at most one feature, i.e. c + w*x[i]. A constant angle is a fixed weight; an angle containing x[i] encodes data. A feature may appear in any number of gates.
+
+### State preparation
+- {"type": "zero"}: every qubit starts in |0>.
+- {"type": "amplitude", "qubits": [q0, q1, q2, q3, q4, q5]}: the six listed qubits start in the state sum_i (x[i] / ||x||) |i>, where i is read in binary with q0 as the most significant bit, so q0 q1 q2 hold the pixel row and q3 q4 q5 the pixel column. All other qubits start in |0>.
+
+### Readout
+Class scores come from computational-basis measurement probabilities (computed exactly). The predicted class is the one with the highest score. Choose one readout:
+- {"type": "bitstrings", "qubits": [a, b, ...], "classes": {"<label>": ["01", ...], ...}}: the listed qubits are measured, and character k of a bitstring is the outcome of the k-th listed qubit. A class's score is the total probability of its bitstrings. A bitstring may belong to at most one class; unassigned bitstrings count for no class.
+- {"type": "qubit_per_class", "classes": {"<label>": <qubit>, ...}}: a class's score is the probability that its qubit is measured as 1.
+
+Every class needs an entry in "classes".
+
+=== USER ===
+
+Task: classify 8x8 images of handwritten digits into the classes 3, 8. Below are 1 labelled training example(s) per class. In the images every pixel is drawn as a square whose brightness is its feature value (black = 0, white = 1). Examples of one class are shown side by side, separated by blue bars.
+
+Class 3, 1 example(s), left to right:
+
+[image: support_00.png]
+
+Class 8, 1 example(s), left to right:
+
+[image: support_01.png]
+
+Work out what distinguishes these classes, then design the circuit and choose its weights. It will be scored by classification accuracy on held-out test images of the same classes. End your reply with the complete circuit as a single JSON object in a ```json code block.

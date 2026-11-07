@@ -1,0 +1,6 @@
+```json
+{
+  "reasoning": "I chose a row-coherence test: the 8s generally maintain stronger overlap through the middle rows, while the 3s concentrate more overlap near the top and bottom. These angles make the readout compare those patterns with a small coherence-based offset, assigning positive Z expectation to class 3 and negative expectation to class 8.",
+  "weights": [0, 0, 0, 0, 0, 0, 0, -1.3830343801, 0, 0, 0, 0, 1.5707963268, 0, 0, 0, 0, 0]
+}
+```

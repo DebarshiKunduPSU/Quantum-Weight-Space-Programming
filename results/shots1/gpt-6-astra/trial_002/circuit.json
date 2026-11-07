@@ -1,0 +1,185 @@
+{
+  "reasoning": "An 8 usually has ink along the middle-left side and lower-left interior, closing two loops; a 3 usually leaves these regions open and concentrates more ink on the right. The circuit accumulates a weighted contrast between these regions using consecutive RY rotations. Its fixed offset sets the decision threshold, with outcome 1 favoring 8 and outcome 0 favoring 3.",
+  "n_qubits": 1,
+  "state_prep": {
+    "type": "zero"
+  },
+  "gates": [
+    {
+      "gate": "ry",
+      "qubits": [
+        0
+      ],
+      "params": [
+        1.2907963267948965
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "0.32 * x[18]"
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "0.44 * x[26]"
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "0.44 * x[34]"
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "0.34 * x[42]"
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "0.22 * x[35]"
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "0.14 * x[43]"
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "0.08 * x[17]"
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "0.12 * x[25]"
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "0.12 * x[33]"
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "0.08 * x[41]"
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "-0.20 * x[37]"
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "-0.12 * x[45]"
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "-0.08 * x[29]"
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "-0.06 * x[21]"
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "-0.06 * x[20]"
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "-0.06 * x[53]"
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "-0.04 * x[12]"
+      ]
+    }
+  ],
+  "readout": {
+    "type": "bitstrings",
+    "qubits": [
+      0
+    ],
+    "classes": {
+      "3": [
+        "0"
+      ],
+      "8": [
+        "1"
+      ]
+    }
+  }
+}

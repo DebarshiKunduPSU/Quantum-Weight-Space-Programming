@@ -1,0 +1,6 @@
+```json
+{
+  "reasoning": "The strong transverse field makes |+>^6 a good starting point, so the ZZ rotations should introduce only modest ferromagnetic correlations. I chose the two layers to approximately match the leading nearest-neighbor and next-nearest-neighbor pair-flip amplitudes of the high-field ground state. The X rotations set their relative phases, allowing the layers to cancel unwanted imaginary amplitudes.",
+  "weights": [0.25, 1.36, 0.46, 0.58]
+}
+```

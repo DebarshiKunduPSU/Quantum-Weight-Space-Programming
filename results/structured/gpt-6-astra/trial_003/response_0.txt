@@ -1,0 +1,45 @@
+```json
+{
+  "reasoning": "An 8 usually has more ink along the middle-left side, closing its loops, whereas a 3 tends to leave that region open. The circuit accumulates a weighted middle-left ink score, with smaller penalties for middle-right ink. Interleaved Z gates reverse alternating rotation signs; the final controlled-X transfers the resulting classification probability to the readout qubit.",
+  "n_qubits": 2,
+  "state_prep": {
+    "type": "zero"
+  },
+  "gates": [
+    {"gate": "ry", "qubits": [0], "params": [1.0557963267948966]},
+    {"gate": "z", "qubits": [0]},
+    {"gate": "ry", "qubits": [0], "params": ["-0.275 * x[18]"]},
+    {"gate": "z", "qubits": [0]},
+    {"gate": "ry", "qubits": [0], "params": ["0.55 * x[26]"]},
+    {"gate": "z", "qubits": [0]},
+    {"gate": "ry", "qubits": [0], "params": ["-0.575 * x[34]"]},
+    {"gate": "z", "qubits": [0]},
+    {"gate": "ry", "qubits": [0], "params": ["0.55 * x[42]"]},
+    {"gate": "z", "qubits": [0]},
+    {"gate": "ry", "qubits": [0], "params": ["-0.325 * x[17]"]},
+    {"gate": "z", "qubits": [0]},
+    {"gate": "ry", "qubits": [0], "params": ["0.45 * x[25]"]},
+    {"gate": "z", "qubits": [0]},
+    {"gate": "ry", "qubits": [0], "params": ["-0.45 * x[33]"]},
+    {"gate": "z", "qubits": [0]},
+    {"gate": "ry", "qubits": [0], "params": ["0.35 * x[41]"]},
+    {"gate": "z", "qubits": [0]},
+    {"gate": "ry", "qubits": [0], "params": ["0.075 * x[21]"]},
+    {"gate": "z", "qubits": [0]},
+    {"gate": "ry", "qubits": [0], "params": ["-0.1 * x[29]"]},
+    {"gate": "z", "qubits": [0]},
+    {"gate": "ry", "qubits": [0], "params": ["0.125 * x[37]"]},
+    {"gate": "z", "qubits": [0]},
+    {"gate": "ry", "qubits": [0], "params": ["-0.125 * x[45]"]},
+    {"gate": "cx", "qubits": [0, 1]}
+  ],
+  "readout": {
+    "type": "bitstrings",
+    "qubits": [1],
+    "classes": {
+      "3": ["0"],
+      "8": ["1"]
+    }
+  }
+}
+```

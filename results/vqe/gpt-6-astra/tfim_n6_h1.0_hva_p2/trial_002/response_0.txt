@@ -1,0 +1,6 @@
+```json
+{
+  "reasoning": "At the critical field, the state needs substantial nearest-neighbor ZZ correlations while retaining transverse magnetization. I use two moderate ZZ rotations, a larger first X rotation, and a smaller final X rotation to balance these contributions. These angles are a hand-estimated near-critical choice, rather than a numerically optimized minimum.",
+  "weights": [0.42, 1.24, 0.72, 0.62]
+}
+```

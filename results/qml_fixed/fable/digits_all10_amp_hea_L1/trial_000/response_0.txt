@@ -1,0 +1,9 @@
+**Approach.** With only 12 angles on a CNOT-chain circuit, the most controllable thing is *which groups of pixels* each readout bitstring collects. I use:
+
+- `ry(-π/2)` on q0 (row bit r2): this coherently folds the top and bottom halves of the image (rows r and r+4 are summed), so q0 ends up ≈ 0 and the remaining three readout bits become a pooled "row-pair × column-half" feature map, which is more robust than single rows.
+- `ry(π)` on q1 (flip r1) to permute which pooled row-pair goes to which class pair, so that (after the CNOT chain) class 0/1 ↔ rows {2,6} left/right, class 2/3 ↔ rows {3,7} right/left, class 4/5 ↔ rows {1,5} left/right, class 6/7 ↔ rows {0,4} right/left. This roughly matches where ink mass concentrates: "1" has its stroke in the right half of the middle rows, "5" has its top bar / bottom hook in the right of rows 1 and 5, "7" has top-bar mass in rows 0/4, "0" / "6" have left-side strokes in rows 2/6, "2"/"3" have mass in rows 3/7.
+- All other angles 0 so the CNOT chain acts as a pure relabelling of basis states and no uncontrolled interference is introduced.
+
+```json
+{"reasoning": "Fold top/bottom rows coherently with ry(-pi/2) on q0 so q0~0 and readout becomes a pooled (row-pair x column-half) mass detector; flip q1 with ry(pi) to permute which pooled row-pairs map to which class pairs so the assignment roughly matches where typical digits concentrate ink (1: right-middle, 5: rows1/5 right, 7: rows 0/4, 0/6: rows 2/6 left, 2/3: rows 3/7). Remaining angles 0 so the CNOT chain is a clean basis relabelling.", "weights": [-1.5707963, 3.1415927, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}
+```

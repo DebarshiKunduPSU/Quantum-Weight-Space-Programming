@@ -1,0 +1,12 @@
+experiment: vqe
+model: gpt-6-astra
+resolved_model:
+  provider: openai
+  model: gpt-6-astra
+llm:
+  max_output_tokens: 32000
+  effort: null
+  max_repair_attempts: 2
+  timeout_s: 1800
+seed: 0
+trials: 3

@@ -1,0 +1,105 @@
+```json
+{
+  "reasoning": "The circuit encodes eight complementary stroke tests: central ink, upper-left dominance, upper-right ink, lower-left ink, lower-right ink, a bottom bar, a narrow central stem, and upper-left occupancy. Signed pixel contributions accumulate through commuting RY gates. Each digit receives a distinct eight-bit stroke signature; its score is the probability of that signature, allowing uncertain individual tests to contribute softly rather than imposing hard thresholds. All weights are fixed by these geometric distinctions.",
+  "n_qubits": 8,
+  "state_prep": {
+    "type": "zero"
+  },
+  "gates": [
+    {"gate": "ry", "qubits": [0], "params": [0.45]},
+    {"gate": "ry", "qubits": [0], "params": ["0.85 * x[27]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.85 * x[28]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.85 * x[35]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.85 * x[36]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.15 * x[26]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.15 * x[34]"]},
+
+    {"gate": "ry", "qubits": [1], "params": [1.4]},
+    {"gate": "ry", "qubits": [1], "params": ["0.65 * x[18]"]},
+    {"gate": "ry", "qubits": [1], "params": ["0.65 * x[26]"]},
+    {"gate": "ry", "qubits": [1], "params": ["-0.55 * x[20]"]},
+    {"gate": "ry", "qubits": [1], "params": ["-0.55 * x[28]"]},
+    {"gate": "ry", "qubits": [1], "params": ["-0.25 * x[19]"]},
+    {"gate": "ry", "qubits": [1], "params": ["0.2 * x[17]"]},
+    {"gate": "ry", "qubits": [1], "params": ["0.2 * x[25]"]},
+
+    {"gate": "ry", "qubits": [2], "params": [0.8]},
+    {"gate": "ry", "qubits": [2], "params": ["0.4 * x[13]"]},
+    {"gate": "ry", "qubits": [2], "params": ["0.5 * x[21]"]},
+    {"gate": "ry", "qubits": [2], "params": ["0.4 * x[29]"]},
+    {"gate": "ry", "qubits": [2], "params": ["0.15 * x[12]"]},
+    {"gate": "ry", "qubits": [2], "params": ["0.15 * x[20]"]},
+    {"gate": "ry", "qubits": [2], "params": ["-0.25 * x[27]"]},
+
+    {"gate": "ry", "qubits": [3], "params": [0.75]},
+    {"gate": "ry", "qubits": [3], "params": ["0.75 * x[34]"]},
+    {"gate": "ry", "qubits": [3], "params": ["0.75 * x[42]"]},
+    {"gate": "ry", "qubits": [3], "params": ["0.3 * x[50]"]},
+    {"gate": "ry", "qubits": [3], "params": ["0.2 * x[33]"]},
+    {"gate": "ry", "qubits": [3], "params": ["0.2 * x[41]"]},
+    {"gate": "ry", "qubits": [3], "params": ["-0.2 * x[36]"]},
+    {"gate": "ry", "qubits": [3], "params": ["-0.2 * x[44]"]},
+
+    {"gate": "ry", "qubits": [4], "params": [0.6]},
+    {"gate": "ry", "qubits": [4], "params": ["0.45 * x[37]"]},
+    {"gate": "ry", "qubits": [4], "params": ["0.7 * x[45]"]},
+    {"gate": "ry", "qubits": [4], "params": ["0.45 * x[53]"]},
+    {"gate": "ry", "qubits": [4], "params": ["0.3 * x[46]"]},
+    {"gate": "ry", "qubits": [4], "params": ["0.2 * x[54]"]},
+    {"gate": "ry", "qubits": [4], "params": ["-0.2 * x[43]"]},
+
+    {"gate": "ry", "qubits": [5], "params": [0.45]},
+    {"gate": "ry", "qubits": [5], "params": ["0.25 * x[58]"]},
+    {"gate": "ry", "qubits": [5], "params": ["0.35 * x[59]"]},
+    {"gate": "ry", "qubits": [5], "params": ["0.35 * x[60]"]},
+    {"gate": "ry", "qubits": [5], "params": ["0.25 * x[61]"]},
+    {"gate": "ry", "qubits": [5], "params": ["0.35 * x[50]"]},
+    {"gate": "ry", "qubits": [5], "params": ["0.35 * x[51]"]},
+    {"gate": "ry", "qubits": [5], "params": ["0.3 * x[52]"]},
+    {"gate": "ry", "qubits": [5], "params": ["0.2 * x[53]"]},
+    {"gate": "ry", "qubits": [5], "params": ["-0.35 * x[43]"]},
+    {"gate": "ry", "qubits": [5], "params": ["-0.25 * x[44]"]},
+
+    {"gate": "ry", "qubits": [6], "params": [1.15]},
+    {"gate": "ry", "qubits": [6], "params": ["0.24 * x[19]"]},
+    {"gate": "ry", "qubits": [6], "params": ["0.18 * x[20]"]},
+    {"gate": "ry", "qubits": [6], "params": ["0.24 * x[27]"]},
+    {"gate": "ry", "qubits": [6], "params": ["0.18 * x[28]"]},
+    {"gate": "ry", "qubits": [6], "params": ["0.18 * x[35]"]},
+    {"gate": "ry", "qubits": [6], "params": ["0.18 * x[36]"]},
+    {"gate": "ry", "qubits": [6], "params": ["-0.3 * x[18]"]},
+    {"gate": "ry", "qubits": [6], "params": ["-0.3 * x[26]"]},
+    {"gate": "ry", "qubits": [6], "params": ["-0.3 * x[34]"]},
+    {"gate": "ry", "qubits": [6], "params": ["-0.24 * x[42]"]},
+    {"gate": "ry", "qubits": [6], "params": ["-0.3 * x[21]"]},
+    {"gate": "ry", "qubits": [6], "params": ["-0.3 * x[29]"]},
+    {"gate": "ry", "qubits": [6], "params": ["-0.27 * x[37]"]},
+    {"gate": "ry", "qubits": [6], "params": ["-0.24 * x[45]"]},
+    {"gate": "ry", "qubits": [6], "params": ["-0.12 * x[13]"]},
+    {"gate": "ry", "qubits": [6], "params": ["-0.12 * x[50]"]},
+
+    {"gate": "ry", "qubits": [7], "params": [0.8]},
+    {"gate": "ry", "qubits": [7], "params": ["0.5 * x[10]"]},
+    {"gate": "ry", "qubits": [7], "params": ["0.65 * x[18]"]},
+    {"gate": "ry", "qubits": [7], "params": ["0.65 * x[26]"]},
+    {"gate": "ry", "qubits": [7], "params": ["-0.15 * x[11]"]},
+    {"gate": "ry", "qubits": [7], "params": ["-0.15 * x[19]"]}
+  ],
+  "readout": {
+    "type": "bitstrings",
+    "qubits": [0, 1, 2, 3, 4, 5, 6, 7],
+    "classes": {
+      "0": ["01111101"],
+      "1": ["10000110"],
+      "2": ["10100100"],
+      "3": ["10101100"],
+      "4": ["11010001"],
+      "5": ["11001101"],
+      "6": ["11011101"],
+      "7": ["10100000"],
+      "8": ["10010101"],
+      "9": ["10101101"]
+    }
+  }
+}
+```

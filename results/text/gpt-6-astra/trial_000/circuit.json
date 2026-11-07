@@ -1,0 +1,158 @@
+{
+  "reasoning": "An 8 typically has ink along the middle and lower left side, closing two loops; a 3 usually leaves that region open and concentrates more ink on the right. The circuit gives positive weights to left-side closure and central connecting strokes, with smaller negative weights on right-side strokes. Successive RY rotations accumulate a fixed linear decision score, and the angle range ensures that class 8 wins exactly when this score is positive.",
+  "n_qubits": 1,
+  "state_prep": {
+    "type": "zero"
+  },
+  "gates": [
+    {
+      "gate": "ry",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "pi / 2 - 0.525"
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "0.45 * x[26]"
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "0.55 * x[34]"
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "0.50 * x[42]"
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "0.275 * x[35]"
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "0.175 * x[43]"
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "0.125 * x[18]"
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "0.15 * x[27]"
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "-0.175 * x[37]"
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "-0.15 * x[45]"
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "-0.125 * x[20]"
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "-0.075 * x[28]"
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "-0.05 * x[36]"
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "-0.05 * x[29]"
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "-0.075 * x[46]"
+      ]
+    }
+  ],
+  "readout": {
+    "type": "bitstrings",
+    "qubits": [
+      0
+    ],
+    "classes": {
+      "3": [
+        "0"
+      ],
+      "8": [
+        "1"
+      ]
+    }
+  }
+}

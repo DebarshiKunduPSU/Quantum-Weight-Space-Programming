@@ -1,0 +1,6 @@
+```json
+{
+  "reasoning": "The two edge-disjoint triangles create frustration and limit the maximum cut to 10. I chose a depth-3 cubic-graph QAOA schedule with increasing cost angles and decreasing mixer angles, moderating the mixing to account for the triangles and short cycles. These are hand-selected heuristic angles, not a numerically verified optimum.",
+  "weights": [0.43, 0.56, 0.80, 0.36, 0.98, 0.19]
+}
+```

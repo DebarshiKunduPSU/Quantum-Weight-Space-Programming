@@ -1,0 +1,6 @@
+```json
+{
+  "reasoning": "The low field favors ferromagnetic ZZ correlations while retaining appreciable transverse polarization. I use a moderate first ZZ rotation and a stronger second one, with X rotations chosen to convert the interaction-generated phases into positive ZZ correlations. The angles balance these correlations against the transverse-field energy, allowing for the open boundaries.",
+  "weights": [0.52, 1.18, 0.95, 0.60]
+}
+```

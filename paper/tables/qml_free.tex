@@ -1,0 +1,14 @@
+\begin{tabular}{llcccccc}
+\toprule
+Task & Model & Valid & LLM & Random w. & Optimizer & LLM$\to$opt. & LogReg \\
+\midrule
+3 vs 8 & GPT-6 Astra & 5/5 & 0.924 $\pm$ 0.032 & 0.515 $\pm$ 0.018 & 0.617 $\pm$ 0.094 & 0.869 $\pm$ 0.094 & 0.950 $\pm$ 0.024 \\
+4 vs 9 & GPT-6 Astra & 5/5 & 0.952 $\pm$ 0.008 & 0.497 $\pm$ 0.013 & 0.583 $\pm$ 0.097 & 0.950 $\pm$ 0.026 & 0.972 $\pm$ 0.015 \\
+10 classes (3-shot) & GPT-6 Astra & 5/5 & 0.653 $\pm$ 0.053 & 0.104 $\pm$ 0.007 & 0.166 $\pm$ 0.082 & 0.636 $\pm$ 0.045 & 0.764 $\pm$ 0.016 \\
+3 vs 8, 1-shot & GPT-6 Astra & 5/5 & 0.935 $\pm$ 0.007 & 0.509 $\pm$ 0.009 & 0.609 $\pm$ 0.107 & 0.926 $\pm$ 0.025 & 0.861 $\pm$ 0.066 \\
+3 vs 8, 10-shot & GPT-6 Astra & 5/5 & 0.907 $\pm$ 0.025 & 0.516 $\pm$ 0.040 & 0.685 $\pm$ 0.164 & 0.846 $\pm$ 0.057 & 0.957 $\pm$ 0.011 \\
+3 vs 8, pixels as text & GPT-6 Astra & 5/5 & 0.933 $\pm$ 0.014 & 0.475 $\pm$ 0.028 & 0.522 $\pm$ 0.063 & 0.863 $\pm$ 0.081 & 0.950 $\pm$ 0.024 \\
+3 vs 8, structured & GPT-6 Astra & 5/5 & 0.939 $\pm$ 0.017 & 0.478 $\pm$ 0.014 & 0.572 $\pm$ 0.060 & 0.898 $\pm$ 0.048 & 0.950 $\pm$ 0.024 \\
+10 classes, structured & GPT-6 Astra & 5/5 & 0.650 $\pm$ 0.075 & 0.096 $\pm$ 0.004 & 0.179 $\pm$ 0.077 & 0.529 $\pm$ 0.102 & 0.764 $\pm$ 0.016 \\
+\bottomrule
+\end{tabular}

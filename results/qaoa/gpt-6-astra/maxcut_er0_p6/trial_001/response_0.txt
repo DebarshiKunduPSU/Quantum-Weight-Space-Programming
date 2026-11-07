@@ -1,0 +1,6 @@
+```json
+{
+  "reasoning": "I chose a smooth six-layer schedule with increasing cost angles and decreasing mixer magnitudes. The moderate cost angles account for the graph's high-degree vertices and numerous triangles. Negative mixer angles give the cut-enhancing sign for the stated cost-unitary convention; these are hand-chosen values, not numerically optimized ones.",
+  "weights": [0.29, -0.52, 0.46, -0.43, 0.57, -0.345, 0.68, -0.26, 0.79, -0.175, 0.92, -0.09]
+}
+```

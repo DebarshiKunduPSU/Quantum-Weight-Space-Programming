@@ -1,0 +1,86 @@
+Traceback (most recent call last):
+  File "/Users/debarshikundu/opt/anaconda3/envs/weightprog/lib/python3.11/site-packages/httpcore2/_exceptions.py", line 13, in map_exceptions
+    yield
+  File "/Users/debarshikundu/opt/anaconda3/envs/weightprog/lib/python3.11/site-packages/httpcore2/_backends/sync.py", line 127, in read
+    return self._sock.recv(max_bytes)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/debarshikundu/opt/anaconda3/envs/weightprog/lib/python3.11/ssl.py", line 1308, in recv
+    return self.read(buflen)
+           ^^^^^^^^^^^^^^^^^
+  File "/Users/debarshikundu/opt/anaconda3/envs/weightprog/lib/python3.11/ssl.py", line 1181, in read
+    return self._sslobj.read(len)
+           ^^^^^^^^^^^^^^^^^^^^^^
+TimeoutError: The read operation timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/debarshikundu/opt/anaconda3/envs/weightprog/lib/python3.11/site-packages/httpx2/_transports/default.py", line 98, in map_httpcore_exceptions
+    yield
+  File "/Users/debarshikundu/opt/anaconda3/envs/weightprog/lib/python3.11/site-packages/httpx2/_transports/default.py", line 124, in __iter__
+    yield from self._httpcore_stream
+  File "/Users/debarshikundu/opt/anaconda3/envs/weightprog/lib/python3.11/site-packages/httpcore2/_sync/connection_pool.py", line 426, in __iter__
+    for chunk in iterator:
+  File "/Users/debarshikundu/opt/anaconda3/envs/weightprog/lib/python3.11/site-packages/httpcore2/_sync/http11.py", line 320, in __iter__
+    raise exc
+  File "/Users/debarshikundu/opt/anaconda3/envs/weightprog/lib/python3.11/site-packages/httpcore2/_sync/http11.py", line 312, in __iter__
+    for chunk in iterator:
+  File "/Users/debarshikundu/opt/anaconda3/envs/weightprog/lib/python3.11/site-packages/httpcore2/_sync/http11.py", line 188, in _receive_response_body
+    event = self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/debarshikundu/opt/anaconda3/envs/weightprog/lib/python3.11/site-packages/httpcore2/_sync/http11.py", line 200, in _receive_event
+    data = self._network_stream.read(self.READ_NUM_BYTES, timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/debarshikundu/opt/anaconda3/envs/weightprog/lib/python3.11/site-packages/httpcore2/_backends/sync.py", line 125, in read
+    with map_exceptions(exc_map):
+  File "/Users/debarshikundu/opt/anaconda3/envs/weightprog/lib/python3.11/contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/Users/debarshikundu/opt/anaconda3/envs/weightprog/lib/python3.11/site-packages/httpcore2/_exceptions.py", line 17, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore2.ReadTimeout: The read operation timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/debarshikundu/Library/CloudStorage/OneDrive-ThePennsylvaniaStateUniversity/Research/weight_programming/weightprog/harness.py", line 196, in run_cases
+    obj, attempts, status = query(provider, case.system, user, case.parse, cfg["llm"]["max_repair_attempts"], out_dir)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/debarshikundu/Library/CloudStorage/OneDrive-ThePennsylvaniaStateUniversity/Research/weight_programming/weightprog/harness.py", line 41, in query
+    resp: LLMResponse = provider.complete(system, messages)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/debarshikundu/Library/CloudStorage/OneDrive-ThePennsylvaniaStateUniversity/Research/weight_programming/weightprog/providers.py", line 193, in complete
+    message = stream.get_final_message()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/debarshikundu/opt/anaconda3/envs/weightprog/lib/python3.11/site-packages/anthropic/lib/streaming/_messages.py", line 100, in get_final_message
+    self.until_done()
+  File "/Users/debarshikundu/opt/anaconda3/envs/weightprog/lib/python3.11/site-packages/anthropic/lib/streaming/_messages.py", line 127, in until_done
+    consume_sync_iterator(self)
+  File "/Users/debarshikundu/opt/anaconda3/envs/weightprog/lib/python3.11/site-packages/anthropic/_utils/_streams.py", line 6, in consume_sync_iterator
+    for _ in iterator:
+  File "/Users/debarshikundu/opt/anaconda3/envs/weightprog/lib/python3.11/site-packages/anthropic/lib/streaming/_messages.py", line 74, in __iter__
+    for item in self._iterator:
+  File "/Users/debarshikundu/opt/anaconda3/envs/weightprog/lib/python3.11/site-packages/anthropic/lib/streaming/_messages.py", line 138, in __stream__
+    for sse_event in self._raw_stream:
+  File "/Users/debarshikundu/opt/anaconda3/envs/weightprog/lib/python3.11/site-packages/anthropic/_streaming.py", line 65, in __iter__
+    for item in self._iterator:
+  File "/Users/debarshikundu/opt/anaconda3/envs/weightprog/lib/python3.11/site-packages/anthropic/_streaming.py", line 92, in __stream__
+    for sse in iterator:
+  File "/Users/debarshikundu/opt/anaconda3/envs/weightprog/lib/python3.11/site-packages/anthropic/_streaming.py", line 71, in _iter_events
+    yield from self._decoder.iter_bytes(self.response.iter_bytes())
+  File "/Users/debarshikundu/opt/anaconda3/envs/weightprog/lib/python3.11/site-packages/anthropic/_streaming.py", line 351, in iter_bytes
+    for chunk in self._iter_chunks(iterator):
+  File "/Users/debarshikundu/opt/anaconda3/envs/weightprog/lib/python3.11/site-packages/anthropic/_streaming.py", line 362, in _iter_chunks
+    for chunk in iterator:
+  File "/Users/debarshikundu/opt/anaconda3/envs/weightprog/lib/python3.11/site-packages/httpx2/_models.py", line 893, in iter_bytes
+    for raw_bytes in self.iter_raw():
+  File "/Users/debarshikundu/opt/anaconda3/envs/weightprog/lib/python3.11/site-packages/httpx2/_models.py", line 948, in iter_raw
+    for raw_stream_bytes in self.stream:
+  File "/Users/debarshikundu/opt/anaconda3/envs/weightprog/lib/python3.11/site-packages/httpx2/_client.py", line 143, in __iter__
+    yield from self._stream
+  File "/Users/debarshikundu/opt/anaconda3/envs/weightprog/lib/python3.11/site-packages/httpx2/_transports/default.py", line 123, in __iter__
+    with map_httpcore_exceptions():
+  File "/Users/debarshikundu/opt/anaconda3/envs/weightprog/lib/python3.11/contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/Users/debarshikundu/opt/anaconda3/envs/weightprog/lib/python3.11/site-packages/httpx2/_transports/default.py", line 115, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx2.ReadTimeout: The read operation timed out

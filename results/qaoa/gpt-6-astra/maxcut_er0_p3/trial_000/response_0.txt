@@ -1,0 +1,6 @@
+```json
+{
+  "reasoning": "I chose a smooth three-layer schedule with increasing cost angles and decreasing mixer angles. The graph's dense, triangle-rich core favors moderate cost angles and smaller mixer angles than a triangle-free graph of similar degree. These are hand-chosen parameters, not numerically optimized values.",
+  "weights": [0.35, 0.51, 0.65, 0.30, 0.85, 0.14]
+}
+```

@@ -1,0 +1,291 @@
+{
+  "reasoning": "An 8 usually has more ink along the middle-left and lower-left sides, closing two loops; a 3 leaves those regions open and concentrates more ink on the right. The fixed weights emphasize this contrast, with additional central-pixel evidence to accommodate slanted handwriting. CNOTs transfer the encoded phase through an ancilla, and final interference converts the accumulated contrast into class probabilities.",
+  "n_qubits": 2,
+  "state_prep": {
+    "type": "zero"
+  },
+  "gates": [
+    {
+      "gate": "h",
+      "qubits": [
+        0
+      ]
+    },
+    {
+      "gate": "cx",
+      "qubits": [
+        0,
+        1
+      ]
+    },
+    {
+      "gate": "rz",
+      "qubits": [
+        1
+      ],
+      "params": [
+        "1.2107963267948966 + 0.2 * x[18]"
+      ]
+    },
+    {
+      "gate": "cx",
+      "qubits": [
+        0,
+        1
+      ]
+    },
+    {
+      "gate": "rz",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "-0.16 * x[20]"
+      ]
+    },
+    {
+      "gate": "cx",
+      "qubits": [
+        0,
+        1
+      ]
+    },
+    {
+      "gate": "rz",
+      "qubits": [
+        1
+      ],
+      "params": [
+        "0.24 * x[25]"
+      ]
+    },
+    {
+      "gate": "cx",
+      "qubits": [
+        0,
+        1
+      ]
+    },
+    {
+      "gate": "rz",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "0.56 * x[26]"
+      ]
+    },
+    {
+      "gate": "cx",
+      "qubits": [
+        0,
+        1
+      ]
+    },
+    {
+      "gate": "rz",
+      "qubits": [
+        1
+      ],
+      "params": [
+        "0.12 * x[27]"
+      ]
+    },
+    {
+      "gate": "cx",
+      "qubits": [
+        0,
+        1
+      ]
+    },
+    {
+      "gate": "rz",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "-0.06 * x[28]"
+      ]
+    },
+    {
+      "gate": "cx",
+      "qubits": [
+        0,
+        1
+      ]
+    },
+    {
+      "gate": "rz",
+      "qubits": [
+        1
+      ],
+      "params": [
+        "0.24 * x[33]"
+      ]
+    },
+    {
+      "gate": "cx",
+      "qubits": [
+        0,
+        1
+      ]
+    },
+    {
+      "gate": "rz",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "0.4 * x[34]"
+      ]
+    },
+    {
+      "gate": "cx",
+      "qubits": [
+        0,
+        1
+      ]
+    },
+    {
+      "gate": "rz",
+      "qubits": [
+        1
+      ],
+      "params": [
+        "0.26 * x[35]"
+      ]
+    },
+    {
+      "gate": "cx",
+      "qubits": [
+        0,
+        1
+      ]
+    },
+    {
+      "gate": "rz",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "-0.08 * x[36]"
+      ]
+    },
+    {
+      "gate": "cx",
+      "qubits": [
+        0,
+        1
+      ]
+    },
+    {
+      "gate": "rz",
+      "qubits": [
+        1
+      ],
+      "params": [
+        "-0.16 * x[37]"
+      ]
+    },
+    {
+      "gate": "cx",
+      "qubits": [
+        0,
+        1
+      ]
+    },
+    {
+      "gate": "rz",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "0.16 * x[41]"
+      ]
+    },
+    {
+      "gate": "cx",
+      "qubits": [
+        0,
+        1
+      ]
+    },
+    {
+      "gate": "rz",
+      "qubits": [
+        1
+      ],
+      "params": [
+        "0.36 * x[42]"
+      ]
+    },
+    {
+      "gate": "cx",
+      "qubits": [
+        0,
+        1
+      ]
+    },
+    {
+      "gate": "rz",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "0.18 * x[43]"
+      ]
+    },
+    {
+      "gate": "cx",
+      "qubits": [
+        0,
+        1
+      ]
+    },
+    {
+      "gate": "rz",
+      "qubits": [
+        1
+      ],
+      "params": [
+        "-0.06 * x[45]"
+      ]
+    },
+    {
+      "gate": "cx",
+      "qubits": [
+        0,
+        1
+      ]
+    },
+    {
+      "gate": "rz",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "-0.12 * x[46]"
+      ]
+    },
+    {
+      "gate": "h",
+      "qubits": [
+        0
+      ]
+    }
+  ],
+  "readout": {
+    "type": "bitstrings",
+    "qubits": [
+      0
+    ],
+    "classes": {
+      "3": [
+        "0"
+      ],
+      "8": [
+        "1"
+      ]
+    }
+  }
+}

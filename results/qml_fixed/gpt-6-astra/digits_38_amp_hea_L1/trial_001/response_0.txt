@@ -1,0 +1,6 @@
+```json
+{
+  "reasoning": "The examples suggest that 3 has more ink concentrated near the top and bottom, while 8 has stronger central-row structure. These angles combine an outer-versus-central row contrast with row-pair coherence, adding a small bias toward 8 for ambiguous images. Rotations that cannot affect the q0 readout are left at zero.",
+  "weights": [1.5707963267948966, 0.9, 0, 0, 0, 0, -1.45, 0, 0, 0, 0, 0]
+}
+```

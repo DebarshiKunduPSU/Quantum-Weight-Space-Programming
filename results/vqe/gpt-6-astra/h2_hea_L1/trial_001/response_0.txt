@@ -1,0 +1,6 @@
+```json
+{
+  "reasoning": "The ground state lies in the odd-parity sector, favoring q0=1, q1=0 with a small negative admixture of q0=0, q1=1. These gates prepare cos(a/2)|10> - sin(a/2)|01>, with kets ordered as q0,q1. Choosing a = atan(0.1820/0.7782) diagonalizes that sector and attains the ground-state energy.",
+  "weights": [0.229743714, 0.0, 3.141592653589793, 0.0]
+}
+```

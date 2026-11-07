@@ -1,0 +1,3 @@
+```json
+{"reasoning": "For p=1 MaxCut QAOA the expected cut decomposes edge-by-edge into closed-form terms depending on endpoint degrees and triangle counts: <C_uv> = 1/2 + (1/4) sin(4β) sin(γ)(cos^{d_u-1}γ + cos^{d_v-1}γ) − (1/4) sin²(2β) cos^{d_u+d_v-2-2λ}γ (1 − cos^λ 2γ). I computed degrees (0:2, 1:1, 2:4, 3:5, 4:3, 5:3, 6:1, 7:5) and common-neighbor counts for each of the 12 edges, summed the terms, and optimized β analytically for several γ. The total peaked near γ ≈ 0.54–0.55 with optimal β ≈ 0.33 (tan 4β = 2A/B), giving <C> ≈ 7.6 out of 12 edges. The circuit's rzz(-γ) and rx(2β) match the standard convention, so no sign flips are needed.", "weights": [0.545, 0.33]}
+```

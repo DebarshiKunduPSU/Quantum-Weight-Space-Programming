@@ -1,0 +1,3 @@
+```json
+{"reasoning": "The circuit implements standard QAOA with U_C = exp(-i gamma C), U_B = exp(-i beta sum X) (rzz(-gamma) gives exp(+i gamma ZZ/2), matching the (1-ZZ)/2 cost; rx(2 beta) = exp(-i beta X)). For 3-regular MaxCut, the Wurtz–Lykken fixed-angle values are near-optimal for essentially any 3-regular instance at p=3: gamma = (0.3297, 0.5688, 0.6406), beta = (0.5500, 0.3675, 0.2109). Sign check at p=1: positive gamma and beta≈pi/8 give the positive sin(4beta) sin(gamma) contribution in this convention, so the signs are correct. Interleaved as theta = [g1, b1, g2, b2, g3, b3].", "weights": [0.3297, 0.5500, 0.5688, 0.3675, 0.6406, 0.2109]}
+```

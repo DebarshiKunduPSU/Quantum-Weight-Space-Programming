@@ -1,0 +1,3 @@
+```json
+{"reasoning": "The circuit matches the standard convention U_C = exp(-i gamma C), U_B = exp(-i beta sum X), for which the p=1 optimum on 3-regular graphs is gamma≈0.616, beta≈π/8 (both positive). For deeper p I use the known fixed-angle (tree-optimal) schedule for 3-regular MaxCut, which has gammas increasing monotonically (~0.33 → ~1.13) and betas decreasing (~0.64 → ~0.14), resembling a smooth annealing-like ramp. These angles are known to transfer well to arbitrary 3-regular instances, including small ones with triangles like this graph (max cut = 10 of 12), so they should give a high expected cut without further optimization.", "weights": [0.331, 0.636, 0.645, 0.534, 0.731, 0.463, 0.837, 0.360, 1.009, 0.259, 1.126, 0.139]}
+```

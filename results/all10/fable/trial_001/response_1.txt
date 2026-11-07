@@ -1,0 +1,76 @@
+```json
+{
+  "reasoning": "Soft decision tree built from four 'bit' qubits plus one ancilla. Qubit 0 (A) measures left-side ink in column 2 (rows 2-5) minus right-mid ink: high for 0,4,5,6,8. Qubit 1 (B) measures top-right ink (rows 1-2, cols 5-6): high for 0,8,2,3,7,9, low for 1,4,5,6. Qubit 2 (C) is rotated conditionally on A: if A=1 it measures center ink minus lower-left (separates 0,6 from 8,4,5); if A=0 it measures right-mid ink x37+x45 (separates 3,9 from 2,7,1). Qubit 3 (D) is rotated conditionally on (A,C) via a ccx ancilla: for (1,1) it separates 4 from 5 (top bar and middle bar vs lower-right stroke), for (0,0) it separates 2 from 7 (bottom-row ink), for (0,1) it separates 3 from 9 (upper-left loop ink). Every rotation is pi/2 + k*(feature - threshold) so each bit is a soft linear threshold; the 4-bit code is read out as bitstrings.",
+  "n_qubits": 5,
+  "state_prep": {"type": "zero"},
+  "gates": [
+    {"gate": "ry", "qubits": [0], "params": [0.1958]},
+    {"gate": "ry", "qubits": [0], "params": ["1.0*x[18]"]},
+    {"gate": "ry", "qubits": [0], "params": ["1.0*x[26]"]},
+    {"gate": "ry", "qubits": [0], "params": ["1.0*x[34]"]},
+    {"gate": "ry", "qubits": [0], "params": ["1.0*x[42]"]},
+    {"gate": "ry", "qubits": [0], "params": ["-1.0*x[29]"]},
+
+    {"gate": "ry", "qubits": [1], "params": [0.7608]},
+    {"gate": "ry", "qubits": [1], "params": ["0.9*x[13]"]},
+    {"gate": "ry", "qubits": [1], "params": ["0.9*x[21]"]},
+    {"gate": "ry", "qubits": [1], "params": ["0.9*x[22]"]},
+
+    {"gate": "cry", "qubits": [0, 2], "params": [1.0458]},
+    {"gate": "cry", "qubits": [0, 2], "params": ["0.7*x[27]"]},
+    {"gate": "cry", "qubits": [0, 2], "params": ["0.7*x[28]"]},
+    {"gate": "cry", "qubits": [0, 2], "params": ["0.7*x[36]"]},
+    {"gate": "cry", "qubits": [0, 2], "params": ["-0.7*x[42]"]},
+    {"gate": "cry", "qubits": [0, 2], "params": ["-0.7*x[41]"]},
+
+    {"gate": "x", "qubits": [0]},
+    {"gate": "cry", "qubits": [0, 2], "params": [0.4008]},
+    {"gate": "cry", "qubits": [0, 2], "params": ["1.3*x[37]"]},
+    {"gate": "cry", "qubits": [0, 2], "params": ["1.3*x[45]"]},
+    {"gate": "x", "qubits": [0]},
+
+    {"gate": "ccx", "qubits": [0, 2, 4]},
+    {"gate": "cry", "qubits": [4, 3], "params": [1.0808]},
+    {"gate": "cry", "qubits": [4, 3], "params": ["0.7*x[2]"]},
+    {"gate": "cry", "qubits": [4, 3], "params": ["0.7*x[3]"]},
+    {"gate": "cry", "qubits": [4, 3], "params": ["0.7*x[27]"]},
+    {"gate": "cry", "qubits": [4, 3], "params": ["-0.7*x[44]"]},
+    {"gate": "ccx", "qubits": [0, 2, 4]},
+
+    {"gate": "x", "qubits": [0]},
+    {"gate": "x", "qubits": [2]},
+    {"gate": "ccx", "qubits": [0, 2, 4]},
+    {"gate": "cry", "qubits": [4, 3], "params": [0.8958]},
+    {"gate": "cry", "qubits": [4, 3], "params": ["0.75*x[52]"]},
+    {"gate": "cry", "qubits": [4, 3], "params": ["0.75*x[53]"]},
+    {"gate": "cry", "qubits": [4, 3], "params": ["0.75*x[61]"]},
+    {"gate": "ccx", "qubits": [0, 2, 4]},
+    {"gate": "x", "qubits": [2]},
+    {"gate": "x", "qubits": [0]},
+
+    {"gate": "x", "qubits": [0]},
+    {"gate": "ccx", "qubits": [0, 2, 4]},
+    {"gate": "cry", "qubits": [4, 3], "params": [0.8708]},
+    {"gate": "cry", "qubits": [4, 3], "params": ["1.0*x[18]"]},
+    {"gate": "cry", "qubits": [4, 3], "params": ["1.0*x[26]"]},
+    {"gate": "ccx", "qubits": [0, 2, 4]},
+    {"gate": "x", "qubits": [0]}
+  ],
+  "readout": {
+    "type": "bitstrings",
+    "qubits": [0, 1, 2, 3],
+    "classes": {
+      "0": ["1100", "1101"],
+      "8": ["1110", "1111"],
+      "6": ["1000", "1001"],
+      "4": ["1010"],
+      "5": ["1011"],
+      "1": ["0000", "0001", "0010", "0011"],
+      "7": ["0100"],
+      "2": ["0101"],
+      "3": ["0110"],
+      "9": ["0111"]
+    }
+  }
+}
+```

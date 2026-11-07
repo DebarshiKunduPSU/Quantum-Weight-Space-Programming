@@ -1,0 +1,6 @@
+```json
+{
+  "reasoning": "I used a singlet-dimer state as the starting point, then tilted the even-qubit rotations to gain antiferromagnetic correlations between dimers. A small first-layer rotation adds a coherent inter-dimer fluctuation. The angles are chosen from a reduced analytical energy estimate rather than numerical optimization.",
+  "weights": [0.0, -0.2305, 0.0, 0.0, 1.5707963268, 1.5707963268, -1.5707963268, 3.1415926536, 1.8039, 3.1415926536, -3.3915, 1.5707963268, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+}
+```

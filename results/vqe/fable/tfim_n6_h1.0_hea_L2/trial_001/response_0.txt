@@ -1,0 +1,9 @@
+**Approach.** Working in the Heisenberg picture, a CNOT ladder maps Z_jZ_{j+1}→Z_{j+1} and X_j→X_jX_{j+1}. Setting the first-layer angle on q0 to π/2 (and zero second-layer angle on q0) kills all long Z-string terms, leaving a closed-form energy in terms of the first-layer angles θ_j (x_j=sinθ_j, z_j=cosθ_j) and second-layer angles φ_j (s_j=sinφ_j, c_j=cosφ_j):
+
+E = −Σ c_jc_{j+1}x_jx_{j+2} − Σ s_js_{j+1}z_{j+1} − c_5x_5 + Σ s_jx_jx_{j+1}.
+
+The uniform solution θ≈π/2, φ≈−0.53 already gives E≈−7.23 (the "product state then ladder" ferromagnet-plus-field state); tilting the first layer slightly away from π/2 (z≈0.1) turns on the −s_js_{j+1}z term and lowers it to ≈−7.28, close to the exact ≈−7.30. Gradient analysis at the uniform point shows boundary qubits (1,5) want slightly smaller |φ| and bulk (2–4) slightly larger; θ_1 has no z-benefit so stays at π/2. The third RY layer is locally optimal at zero.
+
+```json
+{"reasoning": "First RY layer ~ |+> product with small tilt toward +Z (z≈0.1 on qubits 2-5), CNOT ladder, then second RY layer with negative angles (~-0.51 at edges, -0.56 in bulk) which, after the second ladder, produces a state with nearest-neighbor ZZ ≈ sin|phi| ~0.5 and X ≈ cos^2 phi ~0.75, the mean-field-like optimum for the critical TFIM; q0 uses pi/2 and 0 to remove long Z-string terms. Final RY layer set to zero (locally optimal). Estimated energy ≈ -7.28 vs exact ≈ -7.30.", "weights": [1.5708, 1.5708, 1.4717, 1.4666, 1.4666, 1.4717, 0.0, -0.511, -0.563, -0.563, -0.563, -0.511, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]}
+```

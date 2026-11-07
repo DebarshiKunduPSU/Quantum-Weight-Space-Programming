@@ -1,0 +1,6 @@
+```json
+{
+  "reasoning": "For this cubic graph, eight edges belong to one triangle, two belong to two triangles, and two belong to none. The exact p=1 expectation is 6 + 6 sin(4β) sin(γ) cos²(γ) − 6 sin²(2β) sin²(γ) cos²(γ). Analytically maximizing this expression gives the angles below.",
+  "weights": [0.548762, 0.328916]
+}
+```

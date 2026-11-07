@@ -1,0 +1,16 @@
+```json
+{
+  "reasoning": "I used the stronger left-side ink in 8, compared with the predominantly right-side strokes of 3. The Clifford-angle layers route a column-sensitive observable to q0; the 0.75-radian rotation also rewards positive overlap between the two column halves. The resulting readout favors class 8 when left-side ink and bilateral overlap are sufficiently strong.",
+  "weights": [
+    0, 0, 0, 0.75, 0, 0,
+    0, 0, 0, 0, 0, 0,
+    0, 0, 0, 1.5707963267948966, 0, 1.5707963267948966,
+    0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0,
+    1.5707963267948966, 1.5707963267948966, 1.5707963267948966, 1.5707963267948966, 1.5707963267948966, 1.5707963267948966,
+    1.5707963267948966, 0, 0, 0, 0, 0
+  ]
+}
+```

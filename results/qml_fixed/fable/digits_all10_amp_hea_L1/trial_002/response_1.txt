@@ -1,0 +1,3 @@
+```json
+{"reasoning": "With amplitude encoding the readout bitstring probabilities correspond to pixel-mass distributions over row/column subsets after the CNOT parity chain. I chose moderate ry angles so the first layer partially mixes the row-MSB and column-MSB qubits (spreading mass across the 10 assigned bitstrings instead of the unassigned 11xx ones), and the second layer applies small corrections to break ties between classes that share similar row profiles. Without feedback this is a heuristic setting intended to give a non-degenerate class assignment.", "weights": [1.5708, 0.6, -0.4, 1.2, 0.3, 0.0, -0.8, 0.5, 0.9, -0.6, 0.2, 0.0]}
+```

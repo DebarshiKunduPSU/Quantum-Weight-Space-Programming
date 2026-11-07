@@ -98,7 +98,7 @@ def build_cases() -> list[Case]:
     graphs.append(("wring0", "weighted ring", _graph("wring", n, np.random.default_rng(300))))
     cases = []
     for gid, kind, edges in graphs:
-        for p in (1, 3):
+        for p in ((1, 3, 6) if gid in ("3reg0", "er0") else (1, 3)):  # p = 6 (12 angles) probes scaling
             ans = az.qaoa_maxcut(n, edges, p)
             cases.append(Case(f"maxcut_{gid}_p{p}", SYSTEM, _user(n, edges, kind, p, ans),
                               lambda t, m=ans.n_params: parse_weights(t, m), _score_factory(n, edges, ans),

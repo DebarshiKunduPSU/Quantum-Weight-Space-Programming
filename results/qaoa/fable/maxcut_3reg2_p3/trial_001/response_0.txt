@@ -1,0 +1,5 @@
+For a 3-regular MaxCut instance the Wurtz–Love "fixed-angle" values for p=3 are known to be near-optimal across 3-regular graphs in exactly this convention (U_C = exp(-iγ Σ(1-ZZ)/2), U_B = exp(-iβ ΣX)). The gammas increase and betas decrease layer by layer (adiabatic-like schedule). Although this graph has triangles (two K4-minus-an-edge blocks joined by two edges, max cut = 10), these angles remain a robust choice.
+
+```json
+{"reasoning": "Used the fixed-angle (Wurtz–Love) p=3 QAOA parameters for 3-regular MaxCut, which match this circuit's convention (gamma on exp(-i gamma C) with C=sum(1-ZZ)/2, beta on exp(-i beta sum X)): gammas increasing (0.422, 0.798, 0.937), betas decreasing (0.609, 0.459, 0.235), an adiabatic-like schedule that is near-optimal for 3-regular graphs.", "weights": [0.422, 0.609, 0.798, 0.459, 0.937, 0.235]}
+```

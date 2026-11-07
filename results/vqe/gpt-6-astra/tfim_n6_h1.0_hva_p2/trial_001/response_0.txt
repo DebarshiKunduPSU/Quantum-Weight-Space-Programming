@@ -1,0 +1,6 @@
+```json
+{
+  "reasoning": "At the critical field, the state needs both ferromagnetic ZZ correlations and substantial transverse polarization. I use a weaker first ZZ layer followed by a stronger second one, with decreasing X rotations to convert the generated phases into correlations. These angles are a physically motivated depth-two estimate, not a numerically verified optimum.",
+  "weights": [0.38, 1.23, 0.65, 0.56]
+}
+```

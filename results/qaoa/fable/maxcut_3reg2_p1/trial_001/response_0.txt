@@ -1,0 +1,9 @@
+**Analysis.** The graph is two copies of K4‑minus‑an‑edge ({0,2,3,6} and {1,4,5,7}) joined by edges (0,5) and (1,6); max cut = 10. Using the exact p=1 MaxCut formula per edge (all vertices degree 3, so d_u=d_v=2), with triangle counts λ: edges (0,5),(1,6) have λ=0; (2,3),(4,7) have λ=2; the other 8 edges have λ=1. Summing gives
+
+⟨C⟩ = 6 + 6·sinγ·cos²γ·[sin4β − sinγ·sin²2β].
+
+Maximizing over β for fixed γ gives tan(4β) = 2/sinγ; then maximizing over γ gives sinγ ≈ 0.525 (γ ≈ 0.553), 4β ≈ 1.314 (β ≈ 0.329), with ⟨C⟩ ≈ 7.76 (vs. 7.69 for the triangle‑free‑optimal angles). Signs chosen so sin4β·sinγ > 0 in this convention.
+
+```json
+{"reasoning": "Graph = two K4-minus-edge blocks joined in a ring; using the exact p=1 edge formula with triangle counts (8 edges with lambda=1, 2 with lambda=2, 2 with lambda=0, all degrees 3), <C> = 6 + 6 sin(g) cos^2(g) [sin(4b) - sin(g) sin^2(2b)]. Optimizing analytically: tan(4b)=2/sin(g), sin(g)~0.525, giving gamma~0.553, beta~0.329, expected cut ~7.76 out of max 10.", "weights": [0.553, 0.329]}
+```

@@ -1,0 +1,6 @@
+```json
+{
+  "reasoning": "I use a smooth, approximately adiabatic schedule starting from the transverse-field ground state. The ZZ rotations grow across the layers while the X rotations decrease, building ferromagnetic correlations without abruptly removing transverse polarization. The smaller final X rotation approximately centers the last interaction step; these are physically motivated estimates rather than numerically optimized angles.",
+  "weights": [0.25, 1.05, 0.45, 0.95, 0.62, 0.82, 0.68, 0.36]
+}
+```

@@ -1,0 +1,19 @@
+**Design idea.** In 8×8 digit images, the clearest difference between 3 and 8 is the lower-left region: an 8 has the left side of its lower loop (rows 4–6, columns 1–2) inked, while a 3 is open on the left there (its lower bowl sits on the right). So I build a one-qubit linear-threshold classifier: successive RY rotations on a single qubit add their angles, so P(1) = sin²(θ_total/2) with θ_total = bias + Σ w_i x_i. Weights are positive on the lower-left pixels (x[33], x[34], x[41], x[42], x[49], x[50]); the bias puts the decision boundary (θ_total = π/2) at a feature sum ≈ 1.5, which separates "3" (sum near 0–0.8) from "8" (sum near 2.5–4). Measuring 1 → class 8, 0 → class 3.
+
+```json
+{
+  "reasoning": "Single-qubit linear classifier: RY rotations accumulate into one angle theta = bias + sum(w_i x_i), giving P(1)=sin^2(theta/2). Positive weights on lower-left pixels (rows 4-6, cols 1-2) which are inked for an 8 (left side of lower loop) but dark for a 3 (open left side). Bias sets threshold so that feature sum ~1.5 maps to theta = pi/2. Outcome 1 -> 8, outcome 0 -> 3.",
+  "n_qubits": 1,
+  "state_prep": {"type": "zero"},
+  "gates": [
+    {"gate": "ry", "qubits": [0], "params": ["pi/2 - 1.5"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.9 * x[33]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.9 * x[34]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.9 * x[41]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.9 * x[42]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.5 * x[49]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.5 * x[50]"]}
+  ],
+  "readout": {"type": "bitstrings", "qubits": [0], "classes": {"3": ["0"], "8": ["1"]}}
+}
+```

@@ -1,0 +1,11 @@
+**Analysis.** For a triangle‑free graph at p=1, the exact expectation is
+
+⟨C⟩ = Σ_e w_e/2 + (sin 4β / 4) · F(γ), with F(γ) = Σ_(u,v) w_uv sin(γ w_uv) [cos(γ w_a) + cos(γ w_b)],
+
+where w_a, w_b are the weights of the other edge at u and at v (ring → each node has degree 2). I checked the sign with the given gate convention (U_C = exp(−iγC), U_B = exp(−iβΣX)): the correction term is +½ sin4β sinγ for a single edge, so β = π/8 is optimal for F>0.
+
+Scanning F(γ) numerically for this ring (weights 1,4,4,3,4,2,5,2): F ≈ 16.9 (γ=0.1), 23.1 (0.15), 26.8 (0.2), 27.7 (0.23), 27.75 (0.24), 27.7 (0.25), 27.3 (0.27), 25.9 (0.3). Larger γ regions (e.g. π/4, π/2) give |F| ≤ 16, so the small‑γ peak is the global optimum. The maximum is near γ ≈ 0.245, giving ⟨C⟩ ≈ 12.5 + 27.75/4 ≈ 19.4 (max cut = 25).
+
+```json
+{"reasoning": "Used the exact p=1 triangle-free formula <C> = W/2 + (sin4beta/4) * sum_e w_e sin(gamma w_e)[cos(gamma w_a)+cos(gamma w_b)] for the weighted ring. Sign check with the given convention shows beta = pi/8 maximizes the sin4beta factor. Numerically scanning gamma, the weighted sum F(gamma) peaks at about 27.75 near gamma ~ 0.245 (heavy weights 4-5 force a small gamma), giving <C> ~ 19.4 out of a max cut of 25.", "weights": [0.245, 0.3927]}
+```

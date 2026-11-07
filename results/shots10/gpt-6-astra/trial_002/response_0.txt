@@ -1,0 +1,89 @@
+```json
+{
+  "reasoning": "An 8 usually has ink closing the left sides of both loops, whereas a 3 is more open on the left. The circuit emphasizes left-side pixels in the upper and lower halves, with smaller corrections for central and right-side ink. Consecutive Y rotations accumulate a fixed, hand-chosen discriminant; the final measurement favors 8 when the evidence for closed left sides exceeds the threshold.",
+  "n_qubits": 1,
+  "state_prep": {
+    "type": "zero"
+  },
+  "gates": [
+    {
+      "gate": "ry",
+      "qubits": [0],
+      "params": [1.3947963267948966]
+    },
+    {
+      "gate": "ry",
+      "qubits": [0],
+      "params": ["0.352 * x[18]"]
+    },
+    {
+      "gate": "ry",
+      "qubits": [0],
+      "params": ["0.384 * x[26]"]
+    },
+    {
+      "gate": "ry",
+      "qubits": [0],
+      "params": ["0.160 * x[34]"]
+    },
+    {
+      "gate": "ry",
+      "qubits": [0],
+      "params": ["0.352 * x[42]"]
+    },
+    {
+      "gate": "ry",
+      "qubits": [0],
+      "params": ["0.112 * x[19]"]
+    },
+    {
+      "gate": "ry",
+      "qubits": [0],
+      "params": ["0.080 * x[17]"]
+    },
+    {
+      "gate": "ry",
+      "qubits": [0],
+      "params": ["0.080 * x[25]"]
+    },
+    {
+      "gate": "ry",
+      "qubits": [0],
+      "params": ["0.096 * x[41]"]
+    },
+    {
+      "gate": "ry",
+      "qubits": [0],
+      "params": ["-0.128 * x[20]"]
+    },
+    {
+      "gate": "ry",
+      "qubits": [0],
+      "params": ["-0.080 * x[21]"]
+    },
+    {
+      "gate": "ry",
+      "qubits": [0],
+      "params": ["-0.080 * x[29]"]
+    },
+    {
+      "gate": "ry",
+      "qubits": [0],
+      "params": ["-0.080 * x[43]"]
+    },
+    {
+      "gate": "ry",
+      "qubits": [0],
+      "params": ["-0.048 * x[51]"]
+    }
+  ],
+  "readout": {
+    "type": "bitstrings",
+    "qubits": [0],
+    "classes": {
+      "3": ["0"],
+      "8": ["1"]
+    }
+  }
+}
+```

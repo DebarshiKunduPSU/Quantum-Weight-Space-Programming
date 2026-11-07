@@ -1,0 +1,22 @@
+**Design idea.** The two digits differ mainly on the *left side of the middle rows*: an 8 has two closed loops, so pixels in columns 1–2 of rows 2–5 carry ink, while a 3 is open on the left and those pixels are dark (its top hook and bottom curl only touch the left edge at rows 1 and 6–7). So I build a single-qubit linear classifier: a bias RY followed by RY rotations whose angles are proportional to the left-middle pixel intensities. The total rotation angle is θ = 0.97 + Σ w·x; P(|1⟩) = sin²(θ/2) exceeds 0.5 exactly when the weighted ink sum passes the threshold (~1.5 in pixel units), and the maximum possible θ stays below 3π/2 so the response is monotone. Qubit 0 measured as 1 → class 8, 0 → class 3.
+
+```json
+{
+  "reasoning": "8 has ink on the left side of the middle rows (cols 1-2, rows 2-5) because of its two closed loops; 3 is open on the left there. A single qubit accumulates RY rotations weighted by those pixels plus a bias so that P(1)=sin^2(theta/2) crosses 0.5 at a weighted ink sum of about 1.5. Maximum total angle stays below 3pi/2 so the response is monotone.",
+  "n_qubits": 1,
+  "state_prep": {"type": "zero"},
+  "gates": [
+    {"gate": "ry", "qubits": [0], "params": [0.97]},
+    {"gate": "ry", "qubits": [0], "params": ["0.3 * x[17]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.3 * x[18]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.45 * x[25]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.45 * x[26]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.45 * x[33]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.45 * x[34]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.45 * x[41]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.45 * x[42]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.15 * x[49]"]}
+  ],
+  "readout": {"type": "bitstrings", "qubits": [0], "classes": {"3": ["0"], "8": ["1"]}}
+}
+```

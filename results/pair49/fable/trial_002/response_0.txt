@@ -1,0 +1,22 @@
+**Design idea.** In 8×8 digits, a 4 has an open top (two separate strokes, little ink at row 0 col 3), a long crossbar reaching far left (row 4–5, col 1) and far right (rows 3–4, col 6), and a bottom that stays at cols 3–4. A 9 has a closed loop with a top bar centred on col 3, no ink at (4,1)/(5,1) or (3,6)/(4,6), and its stem usually curls left at the bottom (rows 6–7, col 2). I build a linear score from these pixels and encode it as a cumulative RY angle on one qubit: θ = π/2 + Σ wᵢxᵢ, so P(|1⟩) = sin²(θ/2) exceeds 0.5 exactly when the weighted sum is positive (class 9). Weights are scaled so θ stays inside (−π/2, 3π/2) where the decision rule is monotone.
+
+```json
+{
+  "reasoning": "Single-qubit linear classifier: sequential RY rotations add up to theta = pi/2 + sum(w_i x_i). Positive weights on pixels typical for 9 (top bar at row 0 col 2-3, bottom-left tail at rows 6-7 col 1-2); negative weights on pixels typical for 4 (left end of crossbar at rows 4-5 col 1, right end of crossbar at rows 3-4 col 6). P(1) = sin^2(theta/2) > 0.5 iff weighted sum > 0 -> class 9.",
+  "n_qubits": 1,
+  "state_prep": {"type": "zero"},
+  "gates": [
+    {"gate": "ry", "qubits": [0], "params": ["pi / 2"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.8 * x[3]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.4 * x[2]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.8 * x[58]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.6 * x[57]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.4 * x[50]"]},
+    {"gate": "ry", "qubits": [0], "params": ["-0.8 * x[33]"]},
+    {"gate": "ry", "qubits": [0], "params": ["-0.6 * x[41]"]},
+    {"gate": "ry", "qubits": [0], "params": ["-0.6 * x[30]"]},
+    {"gate": "ry", "qubits": [0], "params": ["-0.6 * x[38]"]}
+  ],
+  "readout": {"type": "bitstrings", "qubits": [0], "classes": {"4": ["0"], "9": ["1"]}}
+}
+```

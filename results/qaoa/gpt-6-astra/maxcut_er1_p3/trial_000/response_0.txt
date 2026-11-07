@@ -1,0 +1,6 @@
+```json
+{
+  "reasoning": "I chose increasing cost angles and decreasing mixer magnitudes to build cut correlations progressively. The moderate cost angles account for the graph's high-degree vertices and overlapping triangles. Negative mixer angles give the cut-enhancing sign with the specified exp(-i gamma C) convention.",
+  "weights": [0.43, -0.52, 0.78, -0.35, 0.99, -0.18]
+}
+```

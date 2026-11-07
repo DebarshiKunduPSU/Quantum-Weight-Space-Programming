@@ -1,0 +1,12 @@
+```json
+{
+  "reasoning": "The main visual distinction is the stronger left-side ink in 8, versus the right-heavy structure of 3. I chose rotations that make the readout compare left- and right-half ink correlations between nearby rows. The column rotation adds a modest offset toward class 8 for more balanced images.",
+  "weights": [
+    0, 0, 0, -1.85, 0, 0,
+    0, 0, 0, 0, 0, 0,
+    0, -1.5707963267948966, 0, 0, 0, 0,
+    1.5707963267948966, 1.5707963267948966, 0, 0, 0, 0,
+    -1.5707963267948966, 0, 0, 0, 0, 0
+  ]
+}
+```

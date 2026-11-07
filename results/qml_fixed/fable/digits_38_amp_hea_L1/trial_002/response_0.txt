@@ -1,0 +1,13 @@
+**Analysis.** Only qubit q0 is read out, and q0 is never a CX target, so its final statistics depend only on the (q0,q1) reduced state of the encoded image, i.e. on row‑structure features. Working out the Heisenberg picture, the measured observable is  
+⟨Z0⟩_final = cosθ6·(cosθ0·Z0 − sinθ0·X0) − sinθ6·⟨(cosθ0·X0+sinθ0·Z0)(cosθ1·X1+sinθ1·Z1)⟩,  
+and P(q0=1) = (1−⟨Z0⟩_final)/2 is the score for class 8.
+
+Useful row features of the amplitude‑encoded image:
+- X0 = overlap between row r and row r+4 (same column). An "8" is two stacked loops, so it is nearly periodic under a 4‑row shift → X0 ≈ 0.85–0.9; a "3" is much less so → X0 ≈ 0.5–0.6.
+- Z0Z1 = (ink² in rows 0,1,6,7) − (ink² in rows 2–5). A "3" has heavy top and bottom bars → Z0Z1 ≈ +0.15–0.25; an "8" is nearly uniform over rows → Z0Z1 ≈ 0.
+
+Choosing θ0 = θ1 = π/2 removes the noisy Z0, X0Z1, Z0X1 terms and gives ⟨Z0⟩_final = −cosθ6·X0 − sinθ6·Z0Z1. With θ6 = −φ this becomes sinφ·Z0Z1 − cosφ·X0, which is positive (→ class 3) when the outer rows dominate and negative (→ class 8) when the image is 4‑row‑shift symmetric. I set cotφ ≈ 0.15 (φ ≈ 1.42) to balance the two classes. The remaining angles don't influence q0 and are set to 0.
+
+```json
+{"reasoning": "q0 is never a CX target, so its readout depends only on the q0,q1 reduced state (row features). With theta0=theta1=pi/2 the measured quantity becomes <Z0> = -cos(theta6)*X0 - sin(theta6)*Z0Z1, where X0 = overlap of rows r and r+4 (high ~0.85 for the two-loop '8', ~0.55 for '3') and Z0Z1 = outer rows (0,1,6,7) minus inner rows (2-5) ink mass (positive ~0.2 for '3' with its top/bottom bars, ~0 for '8'). Setting theta6 = -1.42 gives <Z0> ~ 0.99*Z0Z1 - 0.15*X0: positive -> q0=0 -> class 3, negative -> q0=1 -> class 8. Other angles do not affect q0 and are set to 0.", "weights": [1.5707963, 1.5707963, 0.0, 0.0, 0.0, 0.0, -1.422, 0.0, 0.0, 0.0, 0.0, 0.0]}
+```

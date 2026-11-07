@@ -1,0 +1,69 @@
+=== SYSTEM ===
+You are an expert in variational quantum algorithms. You will set the parameters of a fixed quantum circuit by hand so that the state it prepares has the lowest possible energy for a given Hamiltonian. No optimizer runs afterwards: the circuit is simulated exactly with the numbers you write and its energy is evaluated. You receive no feedback, so reason carefully about the physics of the ground state and how each parameter shapes the state. Your reasoning budget is limited: do not attempt a full numerical simulation of the circuit by hand; use physical reasoning, known limits and rough estimates, then commit to concrete values.
+
+Gate definitions are the standard Qiskit ones: rx(t) = exp(-i t X/2), ry(t) = exp(-i t Y/2), rz(t) = exp(-i t Z/2), rzz(t) = exp(-i t Z⊗Z/2), h = Hadamard, x = Pauli X, cx = CNOT with the control listed first. Gates are applied in the order listed. Every qubit starts in |0>.
+=== USER ===
+
+Hamiltonian: transverse-field Ising chain of 6 spins, open boundary, J = 1, transverse field h = 1.0
+H = -1.0000 Z0 Z1 -1.0000 Z1 Z2 -1.0000 Z2 Z3 -1.0000 Z3 Z4 -1.0000 Z4 Z5 -1.0000 X0 -1.0000 X1 -1.0000 X2 -1.0000 X3 -1.0000 X4 -1.0000 X5
+(Pauli operators act on qubits q0..q5; the ground energy is not given.)
+
+Circuit (HEA(n=6, L=4)), 6 qubit(s), 30 parameter(s):
+ry(theta[0]) on q0
+ry(theta[1]) on q1
+ry(theta[2]) on q2
+ry(theta[3]) on q3
+ry(theta[4]) on q4
+ry(theta[5]) on q5
+cx on q0, q1
+cx on q1, q2
+cx on q2, q3
+cx on q3, q4
+cx on q4, q5
+ry(theta[6]) on q0
+ry(theta[7]) on q1
+ry(theta[8]) on q2
+ry(theta[9]) on q3
+ry(theta[10]) on q4
+ry(theta[11]) on q5
+cx on q0, q1
+cx on q1, q2
+cx on q2, q3
+cx on q3, q4
+cx on q4, q5
+ry(theta[12]) on q0
+ry(theta[13]) on q1
+ry(theta[14]) on q2
+ry(theta[15]) on q3
+ry(theta[16]) on q4
+ry(theta[17]) on q5
+cx on q0, q1
+cx on q1, q2
+cx on q2, q3
+cx on q3, q4
+cx on q4, q5
+ry(theta[18]) on q0
+ry(theta[19]) on q1
+ry(theta[20]) on q2
+ry(theta[21]) on q3
+ry(theta[22]) on q4
+ry(theta[23]) on q5
+cx on q0, q1
+cx on q1, q2
+cx on q2, q3
+cx on q3, q4
+cx on q4, q5
+ry(theta[24]) on q0
+ry(theta[25]) on q1
+ry(theta[26]) on q2
+ry(theta[27]) on q3
+ry(theta[28]) on q4
+ry(theta[29]) on q5
+
+Parameters are listed layer by layer, qubit by qubit, in the order they appear above.
+
+Choose theta[0..29] to minimize the energy <psi|H|psi>.
+
+Reply with one JSON object in a ```json code block:
+{"reasoning": "<a few sentences on how you chose the values>", "weights": [theta[0], theta[1], ...]}
+with exactly 30 number(s), in radians, in index order. You may reason before the JSON block.

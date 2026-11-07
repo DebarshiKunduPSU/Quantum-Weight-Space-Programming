@@ -1,0 +1,6 @@
+```json
+{
+  "reasoning": "The graph consists of two linked diamonds, with four triangles creating substantial local frustration. I chose a smooth three-layer schedule with increasing cost angles and decreasing mixer angles, moderating the cost rotations relative to a triangle-free cubic graph. These are hand-selected angles, not numerically optimized values.",
+  "weights": [0.43, 0.53, 0.78, 0.38, 0.98, 0.20]
+}
+```

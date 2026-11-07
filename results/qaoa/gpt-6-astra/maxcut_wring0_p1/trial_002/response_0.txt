@@ -1,0 +1,6 @@
+```json
+{
+  "reasoning": "For this triangle-free ring, the expected cut is 12.5 + sin(4 beta) S(gamma)/4, where S(gamma) = 4 sin(8 gamma) + 14 sin(7 gamma) + 3 sin(6 gamma) + 2.5 sin(5 gamma) + 6 sin(3 gamma) + sin(2 gamma) + 1.5 sin(gamma). Choosing beta = pi/8 and gamma near the maximum of this expression gives an expected cut of approximately 19.4390.",
+  "weights": [0.241788, 0.392699081698724]
+}
+```

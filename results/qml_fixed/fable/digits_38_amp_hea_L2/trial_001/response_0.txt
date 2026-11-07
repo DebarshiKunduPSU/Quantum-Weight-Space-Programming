@@ -1,0 +1,13 @@
+**Analysis.** Since q0 is only ever a CNOT control, the measured observable M = U†Z₀U can only involve the row qubits q0,q1,q2 (Z propagates up the chain, X propagates one step down per layer), so the classifier is a quadratic form on same-column row–row products. Working out the Heisenberg picture:
+
+M_pre-R1 = c₁₂c₆ Z₀ − c₁₂s₆ X₀X₁ − s₁₂c₆c₇ X₀X₂ + s₁₂c₆s₇ Y₀Y₁ − s₁₂s₆c₇ Z₀X₁X₂ − s₁₂s₆s₇ Z₁.
+
+Choosing θ₇ = π/2 kills the X₀X₂ and Z₀X₁X₂ terms, and θ₀ = θ₁ = π/2 turns Z₀→−X₀, Z₁→−X₁, X₀→Z₀, X₁→Z₁, giving
+
+M = −c₁₂c₆ X₀ − c₁₂s₆ Z₀Z₁ + s₁₂c₆ Y₀Y₁ + s₁₂s₆ X₁.
+
+⟨X₀⟩ = vertical period‑4 self-similarity (rows r and r+4 in the same column): very high for an 8 (two stacked loops, ≈0.9) and much lower for a 3 (≈0.5). ⟨X₁⟩ (rows r, r+2) is ≈0.7–0.8 for both digits and acts as the bias needed to put the decision threshold near ⟨X₀⟩≈0.7. Taking θ₆ = θ₁₂ negative makes the remaining cross terms (+Z₀Z₁: outer rows minus inner rows; −Y₀Y₁: top/bottom stroke overlap minus middle overlap) both push 3s toward outcome 0 and 8s toward outcome 1, which is the correct direction. With θ₆ = θ₁₂ ≈ −0.66 rad the estimated expectations on typical samples were ⟨M⟩ ≈ +0.19 for a 3 (P(q0=1)≈0.40 → class 3) and ⟨M⟩ ≈ −0.24 for an 8 (P(q0=1)≈0.62 → class 8). Rotations on q2–q5 do not enter M and are set to 0.
+
+```json
+{"reasoning": "q0 is only a CNOT control, so the effective observable only involves row qubits. With theta7=pi/2 and theta0=theta1=pi/2 the observable becomes M = -c*c X0 - c*s Z0Z1 + s*c Y0Y1 + s*s X1 (c=cos theta6, s=sin theta6, theta12=theta6). <X0> measures rows r vs r+4 vertical alignment, which is much higher for 8 (stacked loops) than for 3; <X1> is nearly constant and serves as the bias to put the threshold near <X0>~0.7; choosing theta6=theta12 negative makes the Z0Z1 and Y0Y1 cross terms also favor 3->0 and 8->1. Rotations on q2-q5 don't affect the readout and are set to 0.", "weights": [1.5707963, 1.5707963, 0.0, 0.0, 0.0, 0.0, -0.66, 1.5707963, 0.0, 0.0, 0.0, 0.0, -0.66, 0.0, 0.0, 0.0, 0.0, 0.0]}
+```

@@ -1,0 +1,23 @@
+\section{Weight-space programming for quantum circuits}
+\label{sec:method}
+
+We follow the setting of \citet{takehi2026sparks}: a general-purpose model writes a network's weights directly, without an optimizer, from a natural-language specification. The network is a parameterized quantum circuit and the weights are its gate angles.
+
+\paragraph{Protocol.}
+A weight-space programming trial is a single request to a language model. The prompt contains (i) the problem---a Hamiltonian, a graph, or a handful of labelled images; (ii) the circuit, either fully specified with named angles $\theta[0..K{-}1]$, or a description of a small circuit language in which the model may design its own; (iii) the exact gate conventions (we use the Qiskit definitions, \eg\ $ry(t) = e^{-itY/2}$); and (iv) the reply format, a JSON object with a list of $K$ numbers (or a full circuit). The model's reply is simulated exactly as written. No loss value, gradient, or accuracy is ever sent back. The only feedback loop is syntactic: if the reply is not a valid circuit (wrong number of weights, a gate on a non-existent qubit, a malformed expression), the validation error is returned and the model may answer again, at most twice. Every prompt, reply, and parsed circuit is saved, and the model's free-text reasoning is kept alongside the numbers.
+
+\paragraph{Two levels of freedom.}
+In the \emph{weights-only} setting the circuit is fixed and the model writes $K$ real numbers. This is the clean test of the hypothesis, and it is the setting of all VQE and QAOA experiments and of the fixed-ansatz QML experiment. In the \emph{free-design} setting (QML only) the model also chooses the number of qubits, the data encoding, the gates, and the readout, within a small circuit language described in Appendix~\ref{app:dsl}; this tests whether the model can invent a usable architecture and program it in one shot.
+
+\paragraph{What ``works'' means.}
+Numbers written by a model are only interesting relative to what the same circuit can do. For every trial we therefore evaluate, on the same circuit layout:
+\begin{itemize}
+  \item \textbf{Random weights.} The same layout with every angle drawn uniformly from $[-\pi, \pi]$ (50 draws for VQE/QAOA, 20 for QML). This is the floor: it tells us how much of the score comes from the layout and the readout rather than from the numbers.
+  \item \textbf{Optimizer.} A classical optimizer (L-BFGS-B with finite-difference gradients) started from random weights, with five restarts for VQE/QAOA and one for QML. For QML it sees exactly the examples the model saw, so it is the fair ``same information, numerical optimization instead of reasoning'' comparison. This is the ceiling the layout admits under modest effort, not a tuned upper bound.
+  \item \textbf{Optimizer from the model's weights.} The same optimizer started where the model left off. If the model's weights are near a good basin the optimizer should reach the optimum quickly; we count the number of loss evaluations it needs to come within $0.1\%$ of the best value found from random starts.
+  \item \textbf{Exact and classical references.} The exact ground energy and the brute-force maximum cut, computed by diagonalization and enumeration; and, for QML, logistic regression on the raw pixels.
+\end{itemize}
+For energies we report the fraction of the spectrum captured, $r = (E_{\max} - E)/(E_{\max} - E_0)$, which is $1$ at the ground state and $0$ at the highest eigenstate, and for MaxCut the usual approximation ratio $\langle C \rangle / C_{\max}$. Both put every problem on the same $[0, 1]$ scale.
+
+\paragraph{Model.}
+We use one frontier model, \gpt\ (OpenAI, Responses API), with its default reasoning settings and a 32{,}000-token output budget. Each prompt is sent 3 times (VQE, QAOA, fixed-ansatz QML) or 5 times (free-design QML) so that the spread across samples is visible; the reported mean $\pm$ standard deviation is over these repeats. Repeats are independent requests with no shared context. A second frontier model (Claude Fable 5.1) was run on a subset of the experiments with identical prompts; its traces are released but it was not run to completion and is not analysed here.

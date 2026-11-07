@@ -1,0 +1,6 @@
+```json
+{
+  "reasoning": "I chose a hand-set spatial-contrast basis: the first row rotation mixes upper and lower strokes, while smaller row rotations retain differences between neighboring bands. The column rotations compensate for the CNOT chain’s parity-dependent left/right reversal. Rotations acting only on the unmeasured trailing qubits are set to zero. These are heuristic weights, not validated or optimized values.",
+  "weights": [-1.15, 0.25, -0.15, -1.5707963268, 0.0, 0.0, 0.2, -0.25, 0.15, 1.5707963268, 0.0, 0.0]
+}
+```

@@ -1,0 +1,23 @@
+**Design idea.** The main difference between a 3 and an 8 at 8×8 resolution is ink on the *left* side of the image: an 8 closes both loops, so pixels in columns 1–2 at rows 2–3 (upper loop) and rows 5–6 (lower loop) are bright, whereas a 3 is open on the left and those pixels are dark (apart from an occasional tail near row 6, col 2, which gets a smaller weight). 
+
+Since consecutive RY rotations on one qubit add their angles, a single qubit computes a linear score: θ = bias + Σ wᵢ·x[i] over those eight left-side pixels. The bias is set so that θ ≈ π/2 at the decision threshold (score ≈ 0.45 in weighted units); P(|1⟩) = sin²(θ/2) is then > 0.5 for 8-like images and < 0.5 for 3-like images. Weights are scaled so θ stays roughly within [0, π] over the realistic feature range.
+
+```json
+{
+  "reasoning": "Single-qubit linear classifier: an 8 has ink on the left side (cols 1-2) in both the upper rows 2-3 and lower rows 5-6, while a 3 is open on the left there. Successive RY gates add angles, giving theta = 0.94 + sum w_i x[i]; bias places the threshold at theta = pi/2, so P(1)=sin^2(theta/2) exceeds 0.5 for 8 and stays below for 3.",
+  "n_qubits": 1,
+  "state_prep": {"type": "zero"},
+  "gates": [
+    {"gate": "ry", "qubits": [0], "params": [0.941]},
+    {"gate": "ry", "qubits": [0], "params": ["0.42 * x[17]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.35 * x[18]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.42 * x[25]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.35 * x[26]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.42 * x[41]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.35 * x[42]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.42 * x[49]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.21 * x[50]"]}
+  ],
+  "readout": {"type": "bitstrings", "qubits": [0], "classes": {"3": ["0"], "8": ["1"]}}
+}
+```

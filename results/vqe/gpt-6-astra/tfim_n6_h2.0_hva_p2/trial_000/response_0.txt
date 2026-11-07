@@ -1,0 +1,6 @@
+```json
+{
+  "reasoning": "The strong transverse field makes |+>^6 a good starting point, so the ZZ rotations should introduce only modest ferromagnetic correlations. I chose the two X rotations so that the layers combine to produce predominantly real pair-flip amplitudes, while also capturing the leading correlations across two adjacent bonds. The angles are perturbatively motivated estimates rather than numerically optimized values.",
+  "weights": [0.24, 1.36, 0.445, 0.58]
+}
+```

@@ -1,0 +1,6 @@
+```json
+{
+  "reasoning": "I used the analytic p=1 MaxCut expectation, accounting for each vertex degree and the common neighbors of each edge. The graph's triangles favor a mixer angle below pi/8; balancing this triangle penalty against the cut-enhancing term gives approximately gamma = 0.53871 and beta = 0.33030.",
+  "weights": [0.53871, 0.33030]
+}
+```

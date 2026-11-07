@@ -1,0 +1,23 @@
+**Design idea.** The difference between a 3 and an 8 in these 8×8 images is the left side of the two loops: an 8 closes its loops with ink in the left columns (cols 1–2) around rows 2 and 5 (and some at rows 3–4 where the loops cross), while a 3 is open on the left, so those pixels are dark. Top/bottom rows are avoided because the 3's horizontal strokes can reach the left there.
+
+I use a single qubit. Successive RY rotations about the same axis add up, so the circuit computes θ = c + Σ wᵢ x[i] and P(|1⟩) = sin²(θ/2). The bias puts the decision boundary (θ = π/2) at a weighted left-side ink sum of ≈0.6: typical 3 → θ≈1.1 (P₁≈0.28), typical 8 → θ≈2.6 (P₁≈0.93), with the maximum possible θ staying below π so the mapping is monotone.
+
+```json
+{
+  "reasoning": "Single-qubit linear classifier: RY rotations on the same qubit add their angles, giving theta = bias + weighted sum of left-side loop pixels (cols 1-2, rows 2 and 5 strongly, rows 3-4 weaker). An 8 has ink there (closed loops) -> theta > pi/2 -> measure 1; a 3 is open on the left -> theta < pi/2 -> measure 0.",
+  "n_qubits": 1,
+  "state_prep": {"type": "zero"},
+  "gates": [
+    {"gate": "ry", "qubits": [0], "params": ["pi/2 - 0.6"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.5 * x[17]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.5 * x[18]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.5 * x[41]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.5 * x[42]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.25 * x[25]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.25 * x[26]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.25 * x[33]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.25 * x[34]"]}
+  ],
+  "readout": {"type": "bitstrings", "qubits": [0], "classes": {"3": ["0"], "8": ["1"]}}
+}
+```

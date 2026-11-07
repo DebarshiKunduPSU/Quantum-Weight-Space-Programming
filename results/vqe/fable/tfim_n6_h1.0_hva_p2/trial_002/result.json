@@ -1,0 +1,26 @@
+{
+  "experiment": "vqe",
+  "model": "fable",
+  "case": "tfim_n6_h1.0_hva_p2",
+  "trial": 2,
+  "meta": {
+    "hamiltonian": "TFIM n=6 J=1.0 h=1.0 open",
+    "ansatz": "HVA-TFIM(n=6, p=2)",
+    "n_params": 4
+  },
+  "status": "truncated",
+  "attempts": [
+    {
+      "model": "claude-fable-5-1",
+      "stop_reason": "max_tokens",
+      "input_tokens": 1136,
+      "output_tokens": 64000,
+      "latency_s": 699.6,
+      "error": "reply truncated at the output-token budget: no JSON object found in the reply"
+    }
+  ],
+  "n_attempts": 1,
+  "model_reported": "claude-fable-5-1",
+  "input_tokens": 1136,
+  "output_tokens": 64000
+}

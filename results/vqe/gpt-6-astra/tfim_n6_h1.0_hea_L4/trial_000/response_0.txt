@@ -1,0 +1,12 @@
+```json
+{
+  "reasoning": "The final CNOT cascade converts domain-wall variables into physical spins. I prepare a weakly correlated state in those variables, balancing the transverse-field contribution against ferromagnetic correlations using analytic estimates. The first two layers remain idle, while the last two active layers preserve the global spin-flip symmetry and account for the open boundaries.",
+  "weights": [
+    0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+    0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+    0.0, 1.570796, 1.464798, 1.447686, 1.447686, 1.464798,
+    1.570796, -0.524061, -0.584762, -0.598012, -0.584762, -0.524061,
+    0.0, 0.0, 0.0, 0.0, 0.0, 0.0
+  ]
+}
+```

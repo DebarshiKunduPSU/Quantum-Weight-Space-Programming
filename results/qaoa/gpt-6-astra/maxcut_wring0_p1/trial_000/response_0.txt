@@ -1,0 +1,6 @@
+```json
+{
+  "reasoning": "For this triangle-free ring, the exact p=1 expectation is 12.5 + sin(4 beta) S(gamma)/4, where S(gamma) = 1.5 sin(gamma) + sin(2 gamma) + 6 sin(3 gamma) + 2.5 sin(5 gamma) + 3 sin(6 gamma) + 14 sin(7 gamma) + 4 sin(8 gamma). Its dominant maximum occurs near gamma = 0.241788; choosing beta = pi/8 maximizes the positive mixer factor.",
+  "weights": [0.241788, 0.392699081698724]
+}
+```

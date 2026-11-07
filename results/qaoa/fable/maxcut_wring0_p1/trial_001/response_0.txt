@@ -1,0 +1,11 @@
+**Analysis.** For p=1 on a triangle‑free graph the expected cut has the closed form
+
+⟨C⟩ = W/2 + (1/4)·sin(4β)·F(γ), F(γ) = Σ_edges w_uv·sin(γ w_uv)·[cos(γ w_ua) + cos(γ w_vb)],
+
+where a, b are the other neighbours of u and v (each node has degree 2 on the ring). With this circuit's sign conventions the sin(4β) factor should be +1, i.e. β = π/8, and γ should maximize F(γ).
+
+Weights around the ring are [1,4,4,3,4,2,5,2]; evaluating F numerically: F(0.15)≈23.1, F(0.20)≈26.8, F(0.23)≈27.7, F(0.25)≈27.7, F(0.27)≈27.3, F(0.30)≈25.9. The maximum is near γ ≈ 0.245, giving ⟨C⟩ ≈ 12.5 + 27.7/4 ≈ 19.4 out of a max cut of 25.
+
+```json
+{"reasoning": "Used the exact p=1 formula for triangle-free graphs: <C> = W/2 + (1/4) sin(4β) Σ w_uv sin(γ w_uv)[cos(γ w_ua)+cos(γ w_vb)]. With this circuit's conventions sin(4β)=+1 is optimal, so β=π/8. Scanning γ numerically for the weight pattern [1,4,4,3,4,2,5,2] gives the maximum of the γ-dependent sum (~27.7) near γ≈0.245, yielding <C>≈19.4 of max 25.", "weights": [0.245, 0.392699]}
+```

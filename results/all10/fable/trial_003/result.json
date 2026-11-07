@@ -1,0 +1,369 @@
+{
+  "trial": 3,
+  "classes": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "shots_per_class": 3,
+  "modality": "image",
+  "max_features_per_angle": 1,
+  "structured": false,
+  "n_test": 540,
+  "chance": 0.1,
+  "status": "ok",
+  "attempts": [
+    {
+      "model": "claude-fable-5-1",
+      "stop_reason": "max_tokens",
+      "input_tokens": 3570,
+      "output_tokens": 32000,
+      "latency_s": 437.5,
+      "error": "no JSON object found in the reply"
+    },
+    {
+      "model": "claude-fable-5-1",
+      "stop_reason": "end_turn",
+      "input_tokens": 3628,
+      "output_tokens": 28658,
+      "latency_s": 335.5
+    }
+  ],
+  "model_reported": "claude-fable-5-1",
+  "n_attempts": 2,
+  "input_tokens": 7198,
+  "output_tokens": 60658,
+  "circuit": {
+    "n_qubits": 6,
+    "state_prep": "zero",
+    "n_gates": 38,
+    "n_two_qubit_gates": 0,
+    "n_weights": 70,
+    "n_data_dependent_angles": 32,
+    "features_used": [
+      9,
+      10,
+      17,
+      18,
+      21,
+      22,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      41,
+      42,
+      45,
+      46,
+      49,
+      50,
+      51,
+      53,
+      54,
+      57,
+      58,
+      59
+    ],
+    "gate_counts": {
+      "ry": 38
+    },
+    "readout": "bitstrings"
+  },
+  "llm": {
+    "test": {
+      "accuracy": 0.43148148148148147,
+      "balanced_accuracy": 0.4290883190883191,
+      "confusion": [
+        [
+          48,
+          0,
+          0,
+          0,
+          0,
+          0,
+          6,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          27,
+          0,
+          2,
+          10,
+          2,
+          6,
+          8,
+          0,
+          0
+        ],
+        [
+          0,
+          20,
+          0,
+          1,
+          1,
+          15,
+          4,
+          12,
+          0,
+          0
+        ],
+        [
+          0,
+          13,
+          0,
+          24,
+          5,
+          5,
+          0,
+          4,
+          4,
+          0
+        ],
+        [
+          8,
+          1,
+          2,
+          0,
+          34,
+          0,
+          3,
+          5,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          12,
+          37,
+          4,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          5,
+          0,
+          0,
+          17,
+          0,
+          17,
+          0,
+          15,
+          0
+        ],
+        [
+          0,
+          8,
+          7,
+          8,
+          6,
+          1,
+          1,
+          22,
+          1,
+          0
+        ],
+        [
+          0,
+          7,
+          14,
+          0,
+          16,
+          2,
+          3,
+          2,
+          8,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          8,
+          14,
+          3,
+          0,
+          11,
+          2,
+          16
+        ]
+      ]
+    },
+    "support": {
+      "accuracy": 0.36666666666666664,
+      "balanced_accuracy": 0.3666666666666666,
+      "confusion": [
+        [
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          3,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          1,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          2,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          2,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          2,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ]
+    }
+  },
+  "baselines": {
+    "random_weights": {
+      "n_draws": 20,
+      "mean": 0.08824074074074074,
+      "std": 0.03711692772484192,
+      "max": 0.15555555555555556
+    },
+    "trained_on_support": {
+      "train_loss": 1.2293393870355984,
+      "stopped": "max_iter",
+      "seconds": 14.0,
+      "n_fit": 30,
+      "fit_accuracy": 0.5,
+      "test_accuracy": 0.35185185185185186
+    },
+    "llm_finetuned_on_support": {
+      "train_loss": 1.1425872446877134,
+      "stopped": "max_iter",
+      "seconds": 12.9,
+      "n_fit": 30,
+      "fit_accuracy": 0.6,
+      "test_accuracy": 0.45555555555555555
+    },
+    "logreg_on_support": 0.7555555555555555,
+    "logreg_on_full": 0.9703703703703703
+  },
+  "model": "fable",
+  "run_name": "all10"
+}

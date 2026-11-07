@@ -1,0 +1,157 @@
+=== SYSTEM ===
+You are an expert in quantum machine learning. You will set the weights of a fixed parameterized quantum circuit classifier by hand. No optimizer or training loop runs afterwards: the circuit is simulated exactly with the numbers you write and scored on held-out images. You receive no feedback.
+
+Input features: each image is 8x8 grayscale pixels; x[i] is the pixel in row r, column c with i = 8*r + c (row 0 at the top, column 0 at the left), scaled to [0, 1] (0 = black, 1 = brightest ink).
+
+Gate definitions are the standard Qiskit ones: rx(t) = exp(-i t X/2), ry(t) = exp(-i t Y/2), rz(t) = exp(-i t Z/2), rzz(t) = exp(-i t Z⊗Z/2), h = Hadamard, x = Pauli X, cx = CNOT with the control listed first. Gates are applied in the order listed. Every qubit starts in |0>.
+=== USER ===
+
+Task: classify 8x8 images of handwritten digits into the classes 0, 1, 2, 3, 4, 5, 6, 7, 8, 9. Below are 3 labelled training example(s) per class, shown side by side and separated by blue bars; pixel brightness is the feature value.
+
+Class 0, 3 example(s), left to right:
+
+[image: image_00.png]
+
+Class 1, 3 example(s), left to right:
+
+[image: image_01.png]
+
+Class 2, 3 example(s), left to right:
+
+[image: image_02.png]
+
+Class 3, 3 example(s), left to right:
+
+[image: image_03.png]
+
+Class 4, 3 example(s), left to right:
+
+[image: image_04.png]
+
+Class 5, 3 example(s), left to right:
+
+[image: image_05.png]
+
+Class 6, 3 example(s), left to right:
+
+[image: image_06.png]
+
+Class 7, 3 example(s), left to right:
+
+[image: image_07.png]
+
+Class 8, 3 example(s), left to right:
+
+[image: image_08.png]
+
+Class 9, 3 example(s), left to right:
+
+[image: image_09.png]
+
+Circuit (amplitude+HEA(L=8)), 6 qubits, 54 weights.
+State preparation: amplitude encoding. The 6 qubits start in sum_i (x[i] / ||x||) |i>, where i is read in binary with q0 as the most significant bit, so q0 q1 q2 hold the pixel row and q3 q4 q5 the pixel column.
+Gates, in order:
+ry(theta[0]) on q0
+ry(theta[1]) on q1
+ry(theta[2]) on q2
+ry(theta[3]) on q3
+ry(theta[4]) on q4
+ry(theta[5]) on q5
+cx on q0, q1
+cx on q1, q2
+cx on q2, q3
+cx on q3, q4
+cx on q4, q5
+ry(theta[6]) on q0
+ry(theta[7]) on q1
+ry(theta[8]) on q2
+ry(theta[9]) on q3
+ry(theta[10]) on q4
+ry(theta[11]) on q5
+cx on q0, q1
+cx on q1, q2
+cx on q2, q3
+cx on q3, q4
+cx on q4, q5
+ry(theta[12]) on q0
+ry(theta[13]) on q1
+ry(theta[14]) on q2
+ry(theta[15]) on q3
+ry(theta[16]) on q4
+ry(theta[17]) on q5
+cx on q0, q1
+cx on q1, q2
+cx on q2, q3
+cx on q3, q4
+cx on q4, q5
+ry(theta[18]) on q0
+ry(theta[19]) on q1
+ry(theta[20]) on q2
+ry(theta[21]) on q3
+ry(theta[22]) on q4
+ry(theta[23]) on q5
+cx on q0, q1
+cx on q1, q2
+cx on q2, q3
+cx on q3, q4
+cx on q4, q5
+ry(theta[24]) on q0
+ry(theta[25]) on q1
+ry(theta[26]) on q2
+ry(theta[27]) on q3
+ry(theta[28]) on q4
+ry(theta[29]) on q5
+cx on q0, q1
+cx on q1, q2
+cx on q2, q3
+cx on q3, q4
+cx on q4, q5
+ry(theta[30]) on q0
+ry(theta[31]) on q1
+ry(theta[32]) on q2
+ry(theta[33]) on q3
+ry(theta[34]) on q4
+ry(theta[35]) on q5
+cx on q0, q1
+cx on q1, q2
+cx on q2, q3
+cx on q3, q4
+cx on q4, q5
+ry(theta[36]) on q0
+ry(theta[37]) on q1
+ry(theta[38]) on q2
+ry(theta[39]) on q3
+ry(theta[40]) on q4
+ry(theta[41]) on q5
+cx on q0, q1
+cx on q1, q2
+cx on q2, q3
+cx on q3, q4
+cx on q4, q5
+ry(theta[42]) on q0
+ry(theta[43]) on q1
+ry(theta[44]) on q2
+ry(theta[45]) on q3
+ry(theta[46]) on q4
+ry(theta[47]) on q5
+cx on q0, q1
+cx on q1, q2
+cx on q2, q3
+cx on q3, q4
+cx on q4, q5
+ry(theta[48]) on q0
+ry(theta[49]) on q1
+ry(theta[50]) on q2
+ry(theta[51]) on q3
+ry(theta[52]) on q4
+ry(theta[53]) on q5
+
+Parameters are listed layer by layer, qubit by qubit, in the order they appear above.
+
+Readout: qubit(s) q0, q1, q2, q3 are measured; the class score is the probability of the bitstring assigned to it (class 0 ↔ 0000; class 1 ↔ 0001; class 2 ↔ 0010; class 3 ↔ 0011; class 4 ↔ 0100; class 5 ↔ 0101; class 6 ↔ 0110; class 7 ↔ 0111; class 8 ↔ 1000; class 9 ↔ 1001; character k is the outcome of the k-th listed qubit). The predicted class is the one with the highest score.
+
+Choose the weights so that the circuit separates the classes. It is scored by accuracy on held-out test images.
+
+Reply with one JSON object in a ```json code block:
+{"reasoning": "<a few sentences on how you chose the values>", "weights": [theta[0], theta[1], ...]}
+with exactly 54 number(s), in radians, in index order. You may reason before the JSON block.

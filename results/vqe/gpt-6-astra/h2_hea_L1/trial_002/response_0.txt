@@ -1,0 +1,6 @@
+```json
+{
+  "reasoning": "The ground state lies in the odd-parity subspace, where |10> (q0=1, q1=0) has the lower diagonal energy and the off-diagonal coupling is 0.182 Hartree. Setting theta[1]=pi makes the CNOT prepare this subspace; choosing theta[0]=pi+atan(0.182/0.7782) gives the ground-state mixing with opposite-sign amplitudes. The final rotations are unnecessary.",
+  "weights": [3.37133636, 3.141592653589793, 0.0, 0.0]
+}
+```

@@ -1,0 +1,279 @@
+{
+  "reasoning": "An 8 usually has more ink along the upper-left and middle-left portions of its loops, whereas a 3 is more open on the left and concentrates ink on the right. The fixed weights combine evidence from several rows, including the lower-left loop, to accommodate different handwriting styles. Alternating Z gates and signed RY angles accumulate this evidence into one decision angle; a CNOT transfers its measurement probabilities to the readout qubit.",
+  "n_qubits": 2,
+  "state_prep": {
+    "type": "zero"
+  },
+  "gates": [
+    {
+      "gate": "ry",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "pi / 2 - 0.585"
+      ]
+    },
+    {
+      "gate": "z",
+      "qubits": [
+        0
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "-0.54 * x[18]"
+      ]
+    },
+    {
+      "gate": "z",
+      "qubits": [
+        0
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "0.225 * x[17]"
+      ]
+    },
+    {
+      "gate": "z",
+      "qubits": [
+        0
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "-0.405 * x[26]"
+      ]
+    },
+    {
+      "gate": "z",
+      "qubits": [
+        0
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "0.18 * x[25]"
+      ]
+    },
+    {
+      "gate": "z",
+      "qubits": [
+        0
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "-0.45 * x[35]"
+      ]
+    },
+    {
+      "gate": "z",
+      "qubits": [
+        0
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "0.09 * x[34]"
+      ]
+    },
+    {
+      "gate": "z",
+      "qubits": [
+        0
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "-0.2925 * x[43]"
+      ]
+    },
+    {
+      "gate": "z",
+      "qubits": [
+        0
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "0.45 * x[42]"
+      ]
+    },
+    {
+      "gate": "z",
+      "qubits": [
+        0
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "-0.09 * x[50]"
+      ]
+    },
+    {
+      "gate": "z",
+      "qubits": [
+        0
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "-0.2025 * x[20]"
+      ]
+    },
+    {
+      "gate": "z",
+      "qubits": [
+        0
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "0.27 * x[37]"
+      ]
+    },
+    {
+      "gate": "z",
+      "qubits": [
+        0
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "-0.1575 * x[38]"
+      ]
+    },
+    {
+      "gate": "z",
+      "qubits": [
+        0
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "0.18 * x[46]"
+      ]
+    },
+    {
+      "gate": "z",
+      "qubits": [
+        0
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "-0.2025 * x[5]"
+      ]
+    },
+    {
+      "gate": "z",
+      "qubits": [
+        0
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "0.09 * x[4]"
+      ]
+    },
+    {
+      "gate": "z",
+      "qubits": [
+        0
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "-0.09 * x[44]"
+      ]
+    },
+    {
+      "gate": "cx",
+      "qubits": [
+        0,
+        1
+      ]
+    }
+  ],
+  "readout": {
+    "type": "bitstrings",
+    "qubits": [
+      1
+    ],
+    "classes": {
+      "3": [
+        "0"
+      ],
+      "8": [
+        "1"
+      ]
+    }
+  }
+}

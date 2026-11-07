@@ -1,0 +1,6 @@
+```json
+{
+  "reasoning": "The graph has eight edges with one common neighbor, two with two common neighbors, and two with none. The exact p=1 expectation is 6 + 6 sin(4β) sin(γ) cos²(γ) - 6 sin²(2β) sin²(γ) cos²(γ). Analytically maximizing over β and then γ gives the angles below, including the triangle-induced correction.",
+  "weights": [0.548761812, 0.328916111]
+}
+```

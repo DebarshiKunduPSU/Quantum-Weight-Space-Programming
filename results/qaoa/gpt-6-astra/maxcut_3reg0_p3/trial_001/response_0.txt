@@ -1,0 +1,6 @@
+```json
+{
+  "reasoning": "The graph consists of two triangle-rich diamonds joined by two edges. I chose a smooth three-layer schedule with increasing cost angles and decreasing mixer angles, moderating the early rotations to account for the short cycles while allowing later layers to build correlations across the diamonds. These are hand-selected angles, not a numerically verified optimum.",
+  "weights": [0.44, 0.47, 0.81, 0.31, 1.02, 0.17]
+}
+```

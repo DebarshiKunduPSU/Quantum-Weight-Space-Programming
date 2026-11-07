@@ -1,0 +1,99 @@
+```json
+{
+  "reasoning": "An 8 usually has substantially more ink along the middle-left edge and the left side of its lower loop than a 3. The circuit accumulates evidence from those regions, with compensating negative weights on central strokes that can otherwise make a thick or slanted 3 resemble an 8. Consecutive RY rotations implement a fixed weighted decision score; the angle range ensures that the more probable readout bit gives the intended threshold decision.",
+  "n_qubits": 1,
+  "state_prep": {
+    "type": "zero"
+  },
+  "gates": [
+    {
+      "gate": "ry",
+      "qubits": [0],
+      "params": [1.1857963267948966]
+    },
+    {
+      "gate": "ry",
+      "qubits": [0],
+      "params": ["0.07 * x[17]"]
+    },
+    {
+      "gate": "ry",
+      "qubits": [0],
+      "params": ["0.28 * x[18]"]
+    },
+    {
+      "gate": "ry",
+      "qubits": [0],
+      "params": ["-0.175 * x[19]"]
+    },
+    {
+      "gate": "ry",
+      "qubits": [0],
+      "params": ["0.21 * x[25]"]
+    },
+    {
+      "gate": "ry",
+      "qubits": [0],
+      "params": ["0.315 * x[26]"]
+    },
+    {
+      "gate": "ry",
+      "qubits": [0],
+      "params": ["-0.21 * x[27]"]
+    },
+    {
+      "gate": "ry",
+      "qubits": [0],
+      "params": ["-0.07 * x[28]"]
+    },
+    {
+      "gate": "ry",
+      "qubits": [0],
+      "params": ["0.21 * x[33]"]
+    },
+    {
+      "gate": "ry",
+      "qubits": [0],
+      "params": ["0.385 * x[34]"]
+    },
+    {
+      "gate": "ry",
+      "qubits": [0],
+      "params": ["0.28 * x[35]"]
+    },
+    {
+      "gate": "ry",
+      "qubits": [0],
+      "params": ["-0.07 * x[36]"]
+    },
+    {
+      "gate": "ry",
+      "qubits": [0],
+      "params": ["0.14 * x[41]"]
+    },
+    {
+      "gate": "ry",
+      "qubits": [0],
+      "params": ["0.455 * x[42]"]
+    },
+    {
+      "gate": "ry",
+      "qubits": [0],
+      "params": ["0.385 * x[43]"]
+    },
+    {
+      "gate": "ry",
+      "qubits": [0],
+      "params": ["-0.07 * x[44]"]
+    }
+  ],
+  "readout": {
+    "type": "bitstrings",
+    "qubits": [0],
+    "classes": {
+      "3": ["0"],
+      "8": ["1"]
+    }
+  }
+}
+```

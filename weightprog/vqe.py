@@ -20,7 +20,9 @@ SYSTEM = (
     "quantum circuit by hand so that the state it prepares has the lowest possible energy for a given "
     "Hamiltonian. No optimizer runs afterwards: the circuit is simulated exactly with the numbers you "
     "write and its energy is evaluated. You receive no feedback, so reason carefully about the physics "
-    "of the ground state and how each parameter shapes the state.\n\n" + GATE_CONVENTIONS
+    "of the ground state and how each parameter shapes the state. Your reasoning budget is limited: do not "
+    "attempt a full numerical simulation of the circuit by hand; use physical reasoning, known limits and "
+    "rough estimates, then commit to concrete values.\n\n" + GATE_CONVENTIONS
 )
 
 
@@ -91,6 +93,11 @@ def build_cases() -> list[Case]:
         physics = f"transverse-field Ising chain of 6 spins, open boundary, J = 1, transverse field h = {h}"
         problems.append((f"tfim_n6_h{h}_hva_p2", H, physics, az.hva_tfim(6, 2)))
         problems.append((f"tfim_n6_h{h}_hea_L2", H, physics, az.hardware_efficient(6, 2)))
+    # Scaling: more weights on the critical chain
+    H = hm.tfim(6, 1.0)
+    physics = "transverse-field Ising chain of 6 spins, open boundary, J = 1, transverse field h = 1.0"
+    problems.append(("tfim_n6_h1.0_hva_p4", H, physics, az.hva_tfim(6, 4)))
+    problems.append(("tfim_n6_h1.0_hea_L4", H, physics, az.hardware_efficient(6, 4)))
     H = hm.heisenberg_xxz(6, 1.0)
     physics = "antiferromagnetic Heisenberg chain of 6 spins, open boundary, J = 1 (XXX point)"
     problems.append(("xxz_n6_hea_L2", H, physics, az.hardware_efficient(6, 2)))

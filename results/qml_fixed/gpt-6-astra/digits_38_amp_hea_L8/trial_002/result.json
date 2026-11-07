@@ -1,0 +1,157 @@
+{
+  "experiment": "qml_fixed",
+  "model": "gpt-6-astra",
+  "case": "digits_38_amp_hea_L8",
+  "trial": 2,
+  "meta": {
+    "classes": [
+      3,
+      8
+    ],
+    "shots_per_class": 5,
+    "ansatz": "amplitude+HEA(L=8)",
+    "n_params": 54
+  },
+  "status": "ok",
+  "attempts": [
+    {
+      "model": "gpt-6-astra",
+      "stop_reason": "completed",
+      "input_tokens": 1929,
+      "output_tokens": 4277,
+      "latency_s": 124.8
+    }
+  ],
+  "n_attempts": 1,
+  "model_reported": "gpt-6-astra",
+  "input_tokens": 1929,
+  "output_tokens": 4277,
+  "weights": [
+    0.0,
+    0.0,
+    0.0,
+    0.75,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.5707963267948966,
+    0.0,
+    1.5707963267948966,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.5707963267948966,
+    1.5707963267948966,
+    1.5707963267948966,
+    1.5707963267948966,
+    1.5707963267948966,
+    1.5707963267948966,
+    1.5707963267948966,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "llm": {
+    "test": {
+      "accuracy": 0.4166666666666667,
+      "balanced_accuracy": 0.41732418524871356,
+      "confusion": [
+        [
+          21,
+          34
+        ],
+        [
+          29,
+          24
+        ]
+      ]
+    },
+    "support": {
+      "accuracy": 0.3,
+      "balanced_accuracy": 0.30000000000000004,
+      "confusion": [
+        [
+          2,
+          3
+        ],
+        [
+          4,
+          1
+        ]
+      ]
+    }
+  },
+  "baselines": {
+    "random_weights": {
+      "n_draws": 20,
+      "mean": 0.43425925925925934,
+      "std": 0.14542933458564916,
+      "max": 0.7407407407407407
+    },
+    "trained_on_support": {
+      "train_loss": 0.3171395855917042,
+      "stopped": "max_iter",
+      "seconds": 15.2,
+      "n_fit": 10,
+      "fit_accuracy": 1.0,
+      "test_accuracy": 0.9537037037037037
+    },
+    "llm_finetuned_on_support": {
+      "train_loss": 0.317571006494704,
+      "stopped": "max_iter",
+      "seconds": 15.4,
+      "n_fit": 10,
+      "fit_accuracy": 1.0,
+      "test_accuracy": 0.9629629629629629
+    },
+    "trained_on_full": {
+      "train_loss": 0.39211747665708757,
+      "stopped": "max_iter",
+      "seconds": 50.7,
+      "n_fit": 200,
+      "fit_accuracy": 0.975,
+      "test_accuracy": 0.9537037037037037
+    },
+    "logreg_on_support": 0.9537037037037037
+  },
+  "summary": {
+    "acc_llm": 0.4166666666666667,
+    "acc_support": 0.3,
+    "acc_random": 0.43425925925925934,
+    "acc_trained_support": 0.9537037037037037,
+    "acc_llm_finetuned": 0.9629629629629629,
+    "acc_trained_full": 0.9537037037037037,
+    "chance": 0.5
+  }
+}

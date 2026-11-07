@@ -1,0 +1,11 @@
+**Analysis.** The circuit matches the standard convention (rzz(−γ) = exp(iγZZ/2) = U_C up to a global phase, rx(2β) = exp(−iβX)), so I can use the closed-form p=1 MaxCut expectation. The graph is two copies of K4-minus-an-edge ({0,2,3,6} and {1,4,5,7}) joined by edges (0,5) and (1,6). Counting triangles per edge: (0,5),(1,6) are in 0 triangles; (2,3),(4,7) are in 2 triangles; the other 8 edges are in 1 triangle each. All degrees are 3.
+
+Summing the per-edge formula ⟨C_uv⟩ = 1/2 + ½ sin4β sinγ cos²γ − ¼ sin²2β cos^{4−2λ}γ (1 − cos^λ2γ) over the 12 edges gives
+
+⟨C⟩ = 6 + 6[ sin4β · sinγcos²γ − sin²2β · sin²γcos²γ ].
+
+Optimizing over β for fixed γ gives tan(4β) = 2/sinγ, and then maximizing over γ numerically gives sinγ ≈ 0.52 (γ ≈ 0.547), so 4β ≈ arctan(3.85) ≈ 1.316 → β ≈ 0.329. Expected cut ≈ 7.76 (max cut is 10). The triangles push γ and β slightly below the triangle-free 3-regular values (0.616, π/8).
+
+```json
+{"reasoning": "Circuit matches standard QAOA convention. Used the exact p=1 MaxCut formula: 2 edges in 0 triangles, 8 edges in 1 triangle, 2 edges in 2 triangles, all degree 3. Total <C> = 6 + 6[sin4β sinγ cos²γ − sin²2β sin²γ cos²γ]. Optimizing: tan(4β)=2/sinγ, best γ ≈ 0.547, β ≈ 0.329, giving <C> ≈ 7.76.", "weights": [0.547, 0.329]}
+```

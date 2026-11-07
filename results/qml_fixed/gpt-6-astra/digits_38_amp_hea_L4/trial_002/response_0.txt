@@ -1,0 +1,12 @@
+```json
+{
+  "reasoning": "I chose rotations that make the readout compare left- and right-half ink, weighted by overlap between rows separated by two pixels. This targets the stronger middle-left strokes of 8 versus the predominantly right-sided strokes of 3. A small additional column rotation shifts ambiguous cases toward 8; the weights are analytical rather than fitted.",
+  "weights": [
+    0, -1.5707963267948966, 0, -0.25, 0, 0,
+    1.5707963267948966, 1.5707963267948966, 1.5707963267948966, 1.5707963267948966, 0, 0,
+    0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0,
+    1.5707963267948966, 0, 0, 0, 0, 0
+  ]
+}
+```

@@ -1,0 +1,3 @@
+```json
+{"reasoning": "The circuit matches the standard convention U_C=exp(-i*gamma*C) with C=sum(1-ZZ)/2 and U_B=exp(-i*beta*sum X), for which the known p=1 optimum on 3-regular graphs is gamma≈0.616, beta≈π/8 (checked by deriving the sin(4β)sin(γ)cos²(γ) edge expression). For higher depth I use the fixed-angle (tree-like 3-regular) QAOA angles from the Wurtz–Lykov fixed-angle-conjecture results, which show the typical pattern of monotonically increasing gammas and decreasing betas and transfer well across 3-regular instances, including small ones with triangles like this graph (max cut = 10).", "weights": [0.331, 0.636, 0.645, 0.534, 0.731, 0.463, 0.837, 0.360, 1.009, 0.259, 1.126, 0.139]}
+```

@@ -1,0 +1,5 @@
+Using the known fixed-angle (tree-like 3-regular) optimal QAOA parameters for p=3 from Wurtz & Love, which match this circuit's convention (positive γ, β increase the cut, as checked via the single-edge p=1 formula ⟨C⟩ = 1/2 + ½ sin4β sinγ). Gammas increase and betas decrease across layers, mimicking an annealing schedule. The graph has two triangles, so these are slightly off-optimal but should be very close.
+
+```json
+{"reasoning": "Used the fixed-angle optimal p=3 QAOA parameters for 3-regular MaxCut (Wurtz & Love): gamma=(0.422,0.798,0.937), beta=(0.609,0.459,0.235). Sign convention verified: with U_C=exp(-i gamma C), C=sum(1-ZZ)/2 and U_B=exp(-i beta X), positive gamma and beta increase the cut (single-edge check gives <C>=1/2+1/2 sin(4beta) sin(gamma)). Gammas increase and betas decrease layer by layer, following the annealing-like structure of optimal QAOA schedules.", "weights": [0.422, 0.609, 0.798, 0.459, 0.937, 0.235]}
+```

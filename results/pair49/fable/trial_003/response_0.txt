@@ -1,0 +1,25 @@
+**Design idea.** In these 8×8 digits the "9" and "4" differ most reliably in two regions:
+
+- **Bottom-left (rows 6–7, columns 2–3: x[50], x[51], x[58], x[59])**: the tail of a 9 curves left and lights these pixels; a 4's lower stroke sits at columns 4–5, leaving them dark.
+- **Left side of the middle (rows 3–5, column 1: x[25], x[33], x[41])**: the left arm of a 4 descends here before the crossbar; a 9's loop stays at columns 2–6, so these are dark.
+
+I use a single qubit as a linear accumulator: rotations `ry` about the same axis simply add their angles, so the final state is `ry(pi/2 + s)|0>` with `s = Σ w_i x_i`. Then P(1) = sin²(π/4 + s/2), monotone increasing in s on the range the weights can reach (|s| < π). Positive weights go on the 9-evidence pixels, negative on the 4-evidence pixels, so outcome 1 → class 9, outcome 0 → class 4.
+
+```json
+{
+  "reasoning": "Single-qubit linear accumulator: successive ry rotations add their angles, giving ry(pi/2 + s) where s is a weighted sum of pixels. Bottom-left tail pixels (x50,x51,x58,x59) are bright for 9 and dark for 4 (positive weights); left-arm pixels at column 1 rows 3-5 (x25,x33,x41) are bright for 4 and dark for 9 (negative weights). P(measure 1) = sin^2(pi/4 + s/2) is monotone in s over the reachable range, so 1 -> class 9, 0 -> class 4.",
+  "n_qubits": 1,
+  "state_prep": {"type": "zero"},
+  "gates": [
+    {"gate": "ry", "qubits": [0], "params": ["pi/2"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.8 * x[50]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.8 * x[51]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.5 * x[58]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.5 * x[59]"]},
+    {"gate": "ry", "qubits": [0], "params": ["-0.8 * x[33]"]},
+    {"gate": "ry", "qubits": [0], "params": ["-0.8 * x[25]"]},
+    {"gate": "ry", "qubits": [0], "params": ["-0.6 * x[41]"]}
+  ],
+  "readout": {"type": "bitstrings", "qubits": [0], "classes": {"4": ["0"], "9": ["1"]}}
+}
+```

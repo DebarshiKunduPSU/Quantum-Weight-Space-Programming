@@ -1,0 +1,47 @@
+=== SYSTEM ===
+You are an expert in variational quantum algorithms. You will set the parameters of a fixed quantum circuit by hand so that the state it prepares has the lowest possible energy for a given Hamiltonian. No optimizer runs afterwards: the circuit is simulated exactly with the numbers you write and its energy is evaluated. You receive no feedback, so reason carefully about the physics of the ground state and how each parameter shapes the state. Your reasoning budget is limited: do not attempt a full numerical simulation of the circuit by hand; use physical reasoning, known limits and rough estimates, then commit to concrete values.
+
+Gate definitions are the standard Qiskit ones: rx(t) = exp(-i t X/2), ry(t) = exp(-i t Y/2), rz(t) = exp(-i t Z/2), rzz(t) = exp(-i t Z⊗Z/2), h = Hadamard, x = Pauli X, cx = CNOT with the control listed first. Gates are applied in the order listed. Every qubit starts in |0>.
+=== USER ===
+
+Hamiltonian: transverse-field Ising chain of 6 spins, open boundary, J = 1, transverse field h = 1.0
+H = -1.0000 Z0 Z1 -1.0000 Z1 Z2 -1.0000 Z2 Z3 -1.0000 Z3 Z4 -1.0000 Z4 Z5 -1.0000 X0 -1.0000 X1 -1.0000 X2 -1.0000 X3 -1.0000 X4 -1.0000 X5
+(Pauli operators act on qubits q0..q5; the ground energy is not given.)
+
+Circuit (HVA-TFIM(n=6, p=2)), 6 qubit(s), 4 parameter(s):
+h on q0
+h on q1
+h on q2
+h on q3
+h on q4
+h on q5
+rzz(theta[0]) on q0, q1
+rzz(theta[0]) on q1, q2
+rzz(theta[0]) on q2, q3
+rzz(theta[0]) on q3, q4
+rzz(theta[0]) on q4, q5
+rx(theta[1]) on q0
+rx(theta[1]) on q1
+rx(theta[1]) on q2
+rx(theta[1]) on q3
+rx(theta[1]) on q4
+rx(theta[1]) on q5
+rzz(theta[2]) on q0, q1
+rzz(theta[2]) on q1, q2
+rzz(theta[2]) on q2, q3
+rzz(theta[2]) on q3, q4
+rzz(theta[2]) on q4, q5
+rx(theta[3]) on q0
+rx(theta[3]) on q1
+rx(theta[3]) on q2
+rx(theta[3]) on q3
+rx(theta[3]) on q4
+rx(theta[3]) on q5
+
+theta[2k] is the ZZ angle of layer k and theta[2k+1] its X angle. With all angles 0 the state is |+>^n, the ground state of the pure transverse field.
+
+Choose theta[0..3] to minimize the energy <psi|H|psi>.
+
+Reply with one JSON object in a ```json code block:
+{"reasoning": "<a few sentences on how you chose the values>", "weights": [theta[0], theta[1], ...]}
+with exactly 4 number(s), in radians, in index order. You may reason before the JSON block.

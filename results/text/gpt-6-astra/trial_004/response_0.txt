@@ -1,0 +1,34 @@
+```json
+{
+  "reasoning": "An 8 usually has a closed lower-left loop, whereas a 3 leaves that region nearly empty. The circuit emphasizes lower-left ink, supported by upper-left and adjacent pixels, and subtracts weaker right-side ink contributions to reduce sensitivity to overall brightness. Consecutive RY gates accumulate a fixed contrast score; the readout assigns stronger left-loop evidence to class 8.",
+  "n_qubits": 1,
+  "state_prep": {
+    "type": "zero"
+  },
+  "gates": [
+    {"gate": "ry", "qubits": [0], "params": ["pi / 2 - 0.6"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.95 * x[42]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.5 * x[34]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.35 * x[18]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.15 * x[26]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.4 * x[43]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.15 * x[50]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.3 * x[41]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.2 * x[33]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.15 * x[17]"]},
+    {"gate": "ry", "qubits": [0], "params": ["-0.25 * x[20]"]},
+    {"gate": "ry", "qubits": [0], "params": ["-0.1 * x[21]"]},
+    {"gate": "ry", "qubits": [0], "params": ["-0.15 * x[36]"]},
+    {"gate": "ry", "qubits": [0], "params": ["-0.1 * x[44]"]},
+    {"gate": "ry", "qubits": [0], "params": ["-0.15 * x[53]"]}
+  ],
+  "readout": {
+    "type": "bitstrings",
+    "qubits": [0],
+    "classes": {
+      "3": ["0"],
+      "8": ["1"]
+    }
+  }
+}
+```

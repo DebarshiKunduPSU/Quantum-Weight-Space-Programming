@@ -1,0 +1,6 @@
+```json
+{
+  "reasoning": "At the critical field, both transverse polarization and ferromagnetic correlations are important. I use the final CNOT chain to map domain-wall variables into physical spins, with the preceding layer adding weak correlations between neighboring domain walls. The angles balance these effects while preserving the global spin-flip symmetry.",
+  "weights": [0.0, 1.57079633, 1.4641, 1.4470, 1.4470, 1.4641, 1.57079633, -0.5248, -0.5863, -0.5978, -0.5863, -0.5248, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+}
+```

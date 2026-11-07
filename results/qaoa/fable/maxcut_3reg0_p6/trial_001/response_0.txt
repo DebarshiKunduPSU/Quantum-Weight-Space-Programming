@@ -1,0 +1,3 @@
+```json
+{"reasoning": "The circuit matches the standard convention U_C(γ)=exp(-iγC), U_B(β)=exp(-iβΣX) (rzz(-γ) = exp(iγZZ/2), rx(2β)=exp(-iβX)), for which the p=1 optimum on 3-regular graphs is γ≈0.616, β≈π/8 with both positive. For p=6 I use the known fixed-angle (Wurtz–Love) optimal pattern for 3-regular MaxCut: gammas increasing monotonically and betas decreasing, which transfers well across 3-regular instances including ones with triangles like this one (max cut 10).", "weights": [0.331, 0.636, 0.645, 0.534, 0.731, 0.463, 0.837, 0.360, 1.009, 0.259, 1.126, 0.139]}
+```

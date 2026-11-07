@@ -1,0 +1,113 @@
+{
+  "reasoning": "Single-qubit linear classifier: sequential RY rotations add up to theta = pi/2 + sum(w_i x_i). Positive weights on pixels typical for 9 (top bar at row 0 col 2-3, bottom-left tail at rows 6-7 col 1-2); negative weights on pixels typical for 4 (left end of crossbar at rows 4-5 col 1, right end of crossbar at rows 3-4 col 6). P(1) = sin^2(theta/2) > 0.5 iff weighted sum > 0 -> class 9.",
+  "n_qubits": 1,
+  "state_prep": {
+    "type": "zero"
+  },
+  "gates": [
+    {
+      "gate": "ry",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "pi / 2"
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "0.8 * x[3]"
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "0.4 * x[2]"
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "0.8 * x[58]"
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "0.6 * x[57]"
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "0.4 * x[50]"
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "-0.8 * x[33]"
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "-0.6 * x[41]"
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "-0.6 * x[30]"
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "-0.6 * x[38]"
+      ]
+    }
+  ],
+  "readout": {
+    "type": "bitstrings",
+    "qubits": [
+      0
+    ],
+    "classes": {
+      "4": [
+        "0"
+      ],
+      "9": [
+        "1"
+      ]
+    }
+  }
+}

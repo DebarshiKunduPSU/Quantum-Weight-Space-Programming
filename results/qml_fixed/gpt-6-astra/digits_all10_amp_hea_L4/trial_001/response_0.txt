@@ -1,0 +1,12 @@
+```json
+{
+  "reasoning": "I kept most rotations at zero to preserve localized stroke information. Modest row rotations combine nearby horizontal features, while two column rotations within the entangling stack introduce row-dependent left/right interference. These are hand-chosen heuristic settings, not optimized or validated weights.",
+  "weights": [
+    0.1, -0.2, -0.45, 0.0, 0.0, 0.0,
+    0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+    0.0, 0.0, 0.0, -0.8, 0.0, 0.0,
+    0.0, 0.0, 0.0, -0.35, 0.0, 0.0,
+    0.0, 0.0, 0.0, 0.0, 0.0, 0.0
+  ]
+}
+```

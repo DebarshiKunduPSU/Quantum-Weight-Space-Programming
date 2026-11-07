@@ -1,0 +1,16 @@
+```json
+{
+  "reasoning": "I used the stronger left-side strokes typical of 8, versus the right-heavy shape of 3. The π/2 rotations route a signed column-half contrast to q0 despite the fixed CNOT layers. The initial column rotation adds a modest cross-half coherence penalty, favoring 8 when ink extends across both sides.",
+  "weights": [
+    0, 0, 0, -0.6107259644, 0, 0,
+    0, 0, 1.5707963268, 1.5707963268, 0, 0,
+    0, 0, 1.5707963268, 0, 0, 0,
+    0, 1.5707963268, 1.5707963268, 0, 0, 0,
+    0, 1.5707963268, 0, 0, 0, 0,
+    1.5707963268, 1.5707963268, 0, 0, 0, 0,
+    1.5707963268, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0
+  ]
+}
+```

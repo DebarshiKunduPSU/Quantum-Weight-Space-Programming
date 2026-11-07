@@ -1,0 +1,9 @@
+**Analysis.** Only θ0, θ1 and θ6 influence the q0 readout (the later CX gates never target q0, and ry on other qubits commute away). Working in the Heisenberg picture, the measured quantity is
+
+P(q0=1) = ½[1 − cosθ6(cosθ0⟨Z0⟩ − sinθ0⟨X0⟩) + sinθ6⟨(cosθ0 X0 + sinθ0 Z0)(cosθ1 X1 + sinθ1 Z1)⟩].
+
+Choosing θ0 = π/2, θ1 = −π/2, θ6 = π/2 gives P(q0=1) = ½(1 − ⟨Z0Z1⟩), where ⟨Z0Z1⟩ = (ink² in rows {0,1,6,7} − ink² in rows {2,3,4,5}) / total. An "8" has two full loops, so its middle rows (2–5) carry ink on both left and right sides plus the central crossing, making the inner rows heavier → ⟨Z0Z1⟩ < 0 → P(q0=1) > ½ → class 8. A "3" concentrates ink in the thick top and bottom horizontal strokes (outer rows) and has only a single right-side stroke in the middle rows → ⟨Z0Z1⟩ ≳ 0 → class 3. The remaining parameters are irrelevant and set to 0.
+
+```json
+{"reasoning": "Only theta0, theta1, theta6 affect the q0 readout. Setting theta0=pi/2, theta1=-pi/2, theta6=pi/2 turns the measurement into P(q0=1) = (1 - <Z0 Z1>)/2, i.e. it compares squared ink in the outer rows {0,1,6,7} against the inner rows {2,3,4,5}. Digit 8 has two closed loops with ink on both sides plus the crossing in the middle rows, so inner rows dominate and P(q0=1)>1/2 (class 8); digit 3 puts most ink in its top and bottom horizontal strokes with only a thin right-side stroke in the middle, so outer rows dominate and the circuit outputs 0 (class 3). Other angles are irrelevant and set to zero.", "weights": [1.5707963, -1.5707963, 0, 0, 0, 0, 1.5707963, 0, 0, 0, 0, 0]}
+```

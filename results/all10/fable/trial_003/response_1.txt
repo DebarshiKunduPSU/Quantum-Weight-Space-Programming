@@ -1,0 +1,68 @@
+```json
+{
+  "reasoning": "Six independent region-detector qubits, each a soft linear threshold built from a chain of ry rotations (angles add) over a small pixel patch: q0 = lower-left ink (rows 4-6, cols 1-2), q1 = upper-left ink (rows 1-3, cols 1-2), q2 = lower-right ink (rows 4-6, cols 5-6), q3 = center ink (rows 3-4, cols 3-4), q4 = upper-right ink (rows 2-3, cols 5-6), q5 = bottom-left ink (rows 6-7, cols 1-3). Each digit has a characteristic on/off code over these six regions (e.g. 0: all sides on but center off; 1: only center; 6: left side on, upper-right off; 7: upper-right + center, left/lower-right off; 4: no bottom-left tail; 9: left-top/right/center on with tail). The 64 measured bitstrings are assigned to the class whose code is most likely under a naive-Bayes style estimate of each region probability.",
+  "n_qubits": 6,
+  "state_prep": {"type": "zero"},
+  "gates": [
+    {"gate": "ry", "qubits": [0], "params": [0.2]},
+    {"gate": "ry", "qubits": [0], "params": ["0.5*x[33]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.8*x[34]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.5*x[41]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.8*x[42]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.5*x[49]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.8*x[50]"]},
+
+    {"gate": "ry", "qubits": [1], "params": [0.2]},
+    {"gate": "ry", "qubits": [1], "params": ["0.5*x[9]"]},
+    {"gate": "ry", "qubits": [1], "params": ["0.8*x[10]"]},
+    {"gate": "ry", "qubits": [1], "params": ["0.5*x[17]"]},
+    {"gate": "ry", "qubits": [1], "params": ["0.8*x[18]"]},
+    {"gate": "ry", "qubits": [1], "params": ["0.5*x[25]"]},
+    {"gate": "ry", "qubits": [1], "params": ["0.8*x[26]"]},
+
+    {"gate": "ry", "qubits": [2], "params": [0.2]},
+    {"gate": "ry", "qubits": [2], "params": ["0.8*x[37]"]},
+    {"gate": "ry", "qubits": [2], "params": ["0.5*x[38]"]},
+    {"gate": "ry", "qubits": [2], "params": ["0.8*x[45]"]},
+    {"gate": "ry", "qubits": [2], "params": ["0.5*x[46]"]},
+    {"gate": "ry", "qubits": [2], "params": ["0.3*x[53]"]},
+    {"gate": "ry", "qubits": [2], "params": ["0.3*x[54]"]},
+
+    {"gate": "ry", "qubits": [3], "params": [0.2]},
+    {"gate": "ry", "qubits": [3], "params": ["0.85*x[27]"]},
+    {"gate": "ry", "qubits": [3], "params": ["0.85*x[28]"]},
+    {"gate": "ry", "qubits": [3], "params": ["0.85*x[35]"]},
+    {"gate": "ry", "qubits": [3], "params": ["0.85*x[36]"]},
+
+    {"gate": "ry", "qubits": [4], "params": [0.2]},
+    {"gate": "ry", "qubits": [4], "params": ["1.0*x[21]"]},
+    {"gate": "ry", "qubits": [4], "params": ["0.6*x[22]"]},
+    {"gate": "ry", "qubits": [4], "params": ["1.0*x[29]"]},
+    {"gate": "ry", "qubits": [4], "params": ["0.6*x[30]"]},
+
+    {"gate": "ry", "qubits": [5], "params": [0.2]},
+    {"gate": "ry", "qubits": [5], "params": ["0.6*x[49]"]},
+    {"gate": "ry", "qubits": [5], "params": ["0.9*x[50]"]},
+    {"gate": "ry", "qubits": [5], "params": ["0.6*x[51]"]},
+    {"gate": "ry", "qubits": [5], "params": ["0.6*x[57]"]},
+    {"gate": "ry", "qubits": [5], "params": ["0.9*x[58]"]},
+    {"gate": "ry", "qubits": [5], "params": ["0.6*x[59]"]}
+  ],
+  "readout": {
+    "type": "bitstrings",
+    "qubits": [0, 1, 2, 3, 4, 5],
+    "classes": {
+      "0": ["100010", "100011", "101010", "101011", "110010", "110011", "111000", "111010", "111011"],
+      "1": ["000000", "000001", "000100", "000101", "001100", "100100", "100101"],
+      "2": ["100111", "110111", "010111"],
+      "3": ["001000", "001001", "001010", "001011", "001101", "001110", "001111"],
+      "4": ["010000", "011000", "011010", "011100", "011110", "100000", "100110", "101000", "101100", "101110", "110100", "110110", "111100", "111110"],
+      "5": ["010001", "010101", "011001", "011101"],
+      "6": ["100001", "101001", "110000", "110001", "110101", "111001"],
+      "7": ["000010", "000011", "000110", "000111", "010010", "010011", "010100", "010110"],
+      "8": ["101101", "101111", "111101", "111111"],
+      "9": ["011011", "011111"]
+    }
+  }
+}
+```

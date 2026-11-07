@@ -1,0 +1,67 @@
+run_name: all10
+model: fable
+trials: 5
+seed: 0
+models:
+  gpt-6-astra:
+    provider: openai
+    model: gpt-6-astra
+  fable:
+    provider: anthropic
+    model: claude-fable-5-1
+    max_output_tokens: 64000
+  opus:
+    provider: anthropic
+    model: claude-opus-5-5
+  sonnet:
+    provider: anthropic
+    model: claude-sonnet-5-5
+  haiku:
+    provider: anthropic
+    model: claude-haiku-5-5
+task:
+  classes:
+  - 0
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  test_fraction: 0.3
+  split_seed: 0
+prompt:
+  shots_per_class: 3
+  modality: image
+  image_layout: grid
+  cell_px: 24
+circuit:
+  max_qubits: 8
+  max_gates: 200
+  max_features_per_angle: 1
+  allow_amplitude_encoding: true
+  min_qubits: 1
+  require_entangling: false
+  forbid_repeated_rotation: false
+  shots: null
+llm:
+  max_output_tokens: 32000
+  effort: null
+  max_repair_attempts: 2
+  timeout_s: 1800
+baselines:
+  random_weight_draws: 20
+  train_on_support: true
+  finetune_llm_on_support: true
+  train_on_full: false
+  train_full_max_samples: 200
+  train_max_iter: 100
+  train_max_seconds: 60
+  logistic_regression: true
+resolved_model:
+  provider: anthropic
+  model: claude-fable-5-1
+  max_output_tokens: 64000

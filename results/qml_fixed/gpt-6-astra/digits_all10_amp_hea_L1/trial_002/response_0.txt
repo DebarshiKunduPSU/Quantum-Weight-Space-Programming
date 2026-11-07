@@ -1,0 +1,6 @@
+```json
+{
+  "reasoning": "I used modest row-mixing rotations to combine nearby horizontal strokes while preserving the column information needed to distinguish left- and right-heavy shapes. The final row rotations rebalance upper and lower image regions after the CNOT chain. These are heuristic settings, not fitted weights; the last two rotations are zero because they cannot affect the measured-qubit probabilities.",
+  "weights": [0.0, -0.65, -0.2, 0.0, 0.0, 0.0, 0.12, -0.3, 0.0, 0.0, 0.0, 0.0]
+}
+```

@@ -1,0 +1,6 @@
+```json
+{
+  "reasoning": "The ferromagnetic coupling dominates, so I use two ZZ layers to build nearest-neighbor correlations while retaining transverse polarization. The stronger intermediate X rotation and smaller final X rotation balance these correlations against the field energy. These angles are a physically motivated low-depth estimate, not a numerically optimized solution.",
+  "weights": [0.55, 1.22, 0.93, 0.62]
+}
+```

@@ -1,0 +1,30 @@
+{
+  "experiment": "qml_fixed",
+  "model": "fable",
+  "case": "digits_38_amp_hea_L4",
+  "trial": 1,
+  "meta": {
+    "classes": [
+      3,
+      8
+    ],
+    "shots_per_class": 5,
+    "ansatz": "amplitude+HEA(L=4)",
+    "n_params": 30
+  },
+  "status": "truncated",
+  "attempts": [
+    {
+      "model": "claude-fable-5-1",
+      "stop_reason": "max_tokens",
+      "input_tokens": 1991,
+      "output_tokens": 64000,
+      "latency_s": 773.8,
+      "error": "reply truncated at the output-token budget: no JSON object found in the reply"
+    }
+  ],
+  "n_attempts": 1,
+  "model_reported": "claude-fable-5-1",
+  "input_tokens": 1991,
+  "output_tokens": 64000
+}

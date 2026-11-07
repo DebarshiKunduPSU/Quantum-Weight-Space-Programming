@@ -1,0 +1,16 @@
+```json
+{
+  "reasoning": "I chose a structured spatial-contrast heuristic: small row rotations combine nearby and top/bottom stroke information, while a rotation within the entangling stack makes column contrast depend on row structure. Final row-bit flips align these features with the fixed readout labels. These are hand-selected values, not an optimized or validated solution.",
+  "weights": [
+    -0.32, 0.08, 0.18, 0.04, 0.0, 0.0,
+    0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+    0.0, 0.0, 0.0, 0.56, 0.0, 0.0,
+    0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+    0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+    0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+    0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+    0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+    0.0, 3.141592653589793, 3.141592653589793, 0.0, 0.0, 0.0
+  ]
+}
+```

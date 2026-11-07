@@ -1,0 +1,67 @@
+```json
+{
+  "reasoning": "An 8 usually has more ink along the middle and lower left side, closing loops that remain open in a 3. The circuit emphasizes these regions and subtracts evidence from the lower-right stroke, with a fixed threshold. Feature-dependent phases accumulate coherently; the final two-qubit parity measurement converts the resulting score into competing class probabilities.",
+  "n_qubits": 2,
+  "state_prep": {
+    "type": "zero"
+  },
+  "gates": [
+    {"gate": "h", "qubits": [0]},
+    {"gate": "cx", "qubits": [0, 1]},
+    {"gate": "rz", "qubits": [0], "params": [1.2487963267948966]},
+
+    {"gate": "cx", "qubits": [0, 1]},
+    {"gate": "rz", "qubits": [0], "params": ["0.126 * x[18]"]},
+
+    {"gate": "cx", "qubits": [0, 1]},
+    {"gate": "rz", "qubits": [0], "params": ["0.07 * x[25]"]},
+
+    {"gate": "cx", "qubits": [0, 1]},
+    {"gate": "rz", "qubits": [0], "params": ["0.224 * x[26]"]},
+
+    {"gate": "cx", "qubits": [0, 1]},
+    {"gate": "rz", "qubits": [0], "params": ["0.112 * x[33]"]},
+
+    {"gate": "cx", "qubits": [0, 1]},
+    {"gate": "rz", "qubits": [0], "params": ["0.294 * x[34]"]},
+
+    {"gate": "cx", "qubits": [0, 1]},
+    {"gate": "rz", "qubits": [0], "params": ["0.196 * x[35]"]},
+
+    {"gate": "cx", "qubits": [0, 1]},
+    {"gate": "rz", "qubits": [0], "params": ["-0.056 * x[36]"]},
+
+    {"gate": "cx", "qubits": [0, 1]},
+    {"gate": "rz", "qubits": [0], "params": ["-0.182 * x[37]"]},
+
+    {"gate": "cx", "qubits": [0, 1]},
+    {"gate": "rz", "qubits": [0], "params": ["0.154 * x[41]"]},
+
+    {"gate": "cx", "qubits": [0, 1]},
+    {"gate": "rz", "qubits": [0], "params": ["0.336 * x[42]"]},
+
+    {"gate": "cx", "qubits": [0, 1]},
+    {"gate": "rz", "qubits": [0], "params": ["0.224 * x[43]"]},
+
+    {"gate": "cx", "qubits": [0, 1]},
+    {"gate": "rz", "qubits": [0], "params": ["-0.07 * x[44]"]},
+
+    {"gate": "cx", "qubits": [0, 1]},
+    {"gate": "rz", "qubits": [0], "params": ["-0.098 * x[45]"]},
+
+    {"gate": "cx", "qubits": [0, 1]},
+    {"gate": "rz", "qubits": [0], "params": ["0.042 * x[50]"]},
+
+    {"gate": "h", "qubits": [0]},
+    {"gate": "h", "qubits": [1]}
+  ],
+  "readout": {
+    "type": "bitstrings",
+    "qubits": [0, 1],
+    "classes": {
+      "3": ["00", "11"],
+      "8": ["01", "10"]
+    }
+  }
+}
+```

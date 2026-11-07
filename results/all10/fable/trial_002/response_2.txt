@@ -1,0 +1,80 @@
+```json
+{
+  "reasoning": "Product-state decision tree. Each of 7 qubits computes a soft linear threshold on a pixel region via summed RY rotations (P(1)=sin^2(angle/2), angle = pi/2 + k*(region_sum - threshold)). q0: left-middle ink (rows 3-6, cols 1-2) separates {0,4,6,8} from {1,2,3,5,7,9}. q1: center ink (rows 3-5, cols 3-4) isolates 0. q2: bottom-left corner + bottom-right ink isolates 4 (low) from 6/8, and 2 (high) from 1/7. q3: upper-right ink (rows 1-2, cols 4-6) separates 6 vs 8 and 5 vs 9. q4: upper-left ink (rows 2-3, cols 1-2) separates {5,9} from {1,2,3,7}. q5: right-middle ink (rows 4-5, cols 5-6) isolates 3. q6: top-right ink (rows 0-2, cols 5-6) separates 7 from 1. Readout bitstrings implement the tree leaves with wildcards on unused tests.",
+  "n_qubits": 7,
+  "state_prep": {"type": "zero"},
+  "gates": [
+    {"gate": "ry", "qubits": [0], "params": [0.1308]},
+    {"gate": "ry", "qubits": [0], "params": ["0.675*x[25]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.675*x[33]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.675*x[41]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.675*x[49]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.45*x[26]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.45*x[34]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.45*x[42]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.45*x[50]"]},
+
+    {"gate": "ry", "qubits": [1], "params": [0.66]},
+    {"gate": "ry", "qubits": [1], "params": ["0.65*x[27]"]},
+    {"gate": "ry", "qubits": [1], "params": ["0.65*x[28]"]},
+    {"gate": "ry", "qubits": [1], "params": ["0.65*x[35]"]},
+    {"gate": "ry", "qubits": [1], "params": ["0.65*x[36]"]},
+    {"gate": "ry", "qubits": [1], "params": ["0.65*x[43]"]},
+    {"gate": "ry", "qubits": [1], "params": ["0.65*x[44]"]},
+
+    {"gate": "ry", "qubits": [2], "params": [0.4708]},
+    {"gate": "ry", "qubits": [2], "params": ["0.5*x[41]"]},
+    {"gate": "ry", "qubits": [2], "params": ["0.5*x[42]"]},
+    {"gate": "ry", "qubits": [2], "params": ["0.5*x[49]"]},
+    {"gate": "ry", "qubits": [2], "params": ["0.5*x[50]"]},
+    {"gate": "ry", "qubits": [2], "params": ["0.5*x[57]"]},
+    {"gate": "ry", "qubits": [2], "params": ["0.5*x[58]"]},
+    {"gate": "ry", "qubits": [2], "params": ["0.5*x[61]"]},
+    {"gate": "ry", "qubits": [2], "params": ["0.5*x[62]"]},
+
+    {"gate": "ry", "qubits": [3], "params": [0.6908]},
+    {"gate": "ry", "qubits": [3], "params": ["0.4*x[12]"]},
+    {"gate": "ry", "qubits": [3], "params": ["0.4*x[20]"]},
+    {"gate": "ry", "qubits": [3], "params": ["0.8*x[13]"]},
+    {"gate": "ry", "qubits": [3], "params": ["0.8*x[14]"]},
+    {"gate": "ry", "qubits": [3], "params": ["0.8*x[21]"]},
+    {"gate": "ry", "qubits": [3], "params": ["0.8*x[22]"]},
+
+    {"gate": "ry", "qubits": [4], "params": [0.5708]},
+    {"gate": "ry", "qubits": [4], "params": ["1.0*x[17]"]},
+    {"gate": "ry", "qubits": [4], "params": ["1.0*x[18]"]},
+    {"gate": "ry", "qubits": [4], "params": ["1.0*x[25]"]},
+    {"gate": "ry", "qubits": [4], "params": ["1.0*x[26]"]},
+
+    {"gate": "ry", "qubits": [5], "params": [0.4708]},
+    {"gate": "ry", "qubits": [5], "params": ["1.0*x[37]"]},
+    {"gate": "ry", "qubits": [5], "params": ["1.0*x[38]"]},
+    {"gate": "ry", "qubits": [5], "params": ["1.0*x[45]"]},
+    {"gate": "ry", "qubits": [5], "params": ["1.0*x[46]"]},
+
+    {"gate": "ry", "qubits": [6], "params": [0.4508]},
+    {"gate": "ry", "qubits": [6], "params": ["0.7*x[5]"]},
+    {"gate": "ry", "qubits": [6], "params": ["0.7*x[6]"]},
+    {"gate": "ry", "qubits": [6], "params": ["0.7*x[13]"]},
+    {"gate": "ry", "qubits": [6], "params": ["0.7*x[14]"]},
+    {"gate": "ry", "qubits": [6], "params": ["0.7*x[21]"]},
+    {"gate": "ry", "qubits": [6], "params": ["0.7*x[22]"]}
+  ],
+  "readout": {
+    "type": "bitstrings",
+    "qubits": [0, 1, 2, 3, 4, 5, 6],
+    "classes": {
+      "0": ["1000000","1000001","1000010","1000011","1000100","1000101","1000110","1000111","1001000","1001001","1001010","1001011","1001100","1001101","1001110","1001111","1010000","1010001","1010010","1010011","1010100","1010101","1010110","1010111","1011000","1011001","1011010","1011011","1011100","1011101","1011110","1011111"],
+      "4": ["1100000","1100001","1100010","1100011","1100100","1100101","1100110","1100111","1101000","1101001","1101010","1101011","1101100","1101101","1101110","1101111"],
+      "6": ["1110000","1110001","1110010","1110011","1110100","1110101","1110110","1110111"],
+      "8": ["1111000","1111001","1111010","1111011","1111100","1111101","1111110","1111111"],
+      "5": ["0000100","0000101","0000110","0000111","0010100","0010101","0010110","0010111","0100100","0100101","0100110","0100111","0110100","0110101","0110110","0110111"],
+      "9": ["0001100","0001101","0001110","0001111","0011100","0011101","0011110","0011111","0101100","0101101","0101110","0101111","0111100","0111101","0111110","0111111"],
+      "3": ["0000010","0000011","0001010","0001011","0010010","0010011","0011010","0011011","0100010","0100011","0101010","0101011","0110010","0110011","0111010","0111011"],
+      "2": ["0010000","0010001","0011000","0011001","0110000","0110001","0111000","0111001"],
+      "7": ["0000001","0001001","0100001","0101001"],
+      "1": ["0000000","0001000","0100000","0101000"]
+    }
+  }
+}
+```

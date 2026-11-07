@@ -1,0 +1,6 @@
+```json
+{
+  "reasoning": "The even ring is bipartite, so all eight edges can be cut simultaneously. I chose a three-layer schedule with increasing cost angles and decreasing mixer angles, scaling the cost angles to the edge weights and moderating the final angle to accommodate their variation. These are hand-selected angles, not a numerically verified optimum.",
+  "weights": [0.165, 0.62, 0.282, 0.465, 0.35, 0.255]
+}
+```

@@ -1,0 +1,6 @@
+```json
+{
+  "reasoning": "The examples suggest that 3 concentrates more ink in the outer row pairs (0–1 and 6–7), whereas 8 distributes it more evenly through the middle rows. These weights measure that energy contrast, with a modest subtraction based on similarity between the upper and lower halves to set a nonzero decision threshold. Only the rotations that affect the q0 readout are used.",
+  "weights": [1.5707963267948966, 1.5707963267948966, 0, 0, 0, 0, -1.35, 0, 0, 0, 0, 0]
+}
+```

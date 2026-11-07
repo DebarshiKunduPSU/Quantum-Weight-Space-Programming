@@ -1,0 +1,137 @@
+{
+  "trial": 3,
+  "classes": [
+    4,
+    9
+  ],
+  "shots_per_class": 5,
+  "modality": "image",
+  "max_features_per_angle": 1,
+  "structured": false,
+  "n_test": 109,
+  "chance": 0.5,
+  "status": "ok",
+  "attempts": [
+    {
+      "model": "gpt-6-astra",
+      "stop_reason": "completed",
+      "input_tokens": 1657,
+      "output_tokens": 5056,
+      "latency_s": 88.5
+    }
+  ],
+  "model_reported": "gpt-6-astra",
+  "n_attempts": 1,
+  "input_tokens": 1657,
+  "output_tokens": 5056,
+  "circuit": {
+    "n_qubits": 1,
+    "state_prep": "zero",
+    "n_gates": 39,
+    "n_two_qubit_gates": 0,
+    "n_weights": 77,
+    "n_data_dependent_angles": 38,
+    "features_used": [
+      2,
+      3,
+      4,
+      5,
+      10,
+      11,
+      12,
+      13,
+      14,
+      18,
+      19,
+      21,
+      26,
+      27,
+      28,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      58,
+      59,
+      60,
+      61,
+      62
+    ],
+    "gate_counts": {
+      "ry": 39
+    },
+    "readout": "bitstrings"
+  },
+  "llm": {
+    "test": {
+      "accuracy": 0.9541284403669725,
+      "balanced_accuracy": 0.9538720538720539,
+      "confusion": [
+        [
+          54,
+          1
+        ],
+        [
+          4,
+          50
+        ]
+      ]
+    },
+    "support": {
+      "accuracy": 1.0,
+      "balanced_accuracy": 1.0,
+      "confusion": [
+        [
+          5,
+          0
+        ],
+        [
+          0,
+          5
+        ]
+      ]
+    }
+  },
+  "baselines": {
+    "random_weights": {
+      "n_draws": 20,
+      "mean": 0.5100917431192661,
+      "std": 0.05934297845429807,
+      "max": 0.6513761467889908
+    },
+    "trained_on_support": {
+      "train_loss": 2.1457663684796354e-08,
+      "stopped": "converged",
+      "seconds": 4.2,
+      "n_fit": 10,
+      "fit_accuracy": 1.0,
+      "test_accuracy": 0.5504587155963303
+    },
+    "llm_finetuned_on_support": {
+      "train_loss": 1.3416617649288828e-08,
+      "stopped": "converged",
+      "seconds": 6.1,
+      "n_fit": 10,
+      "fit_accuracy": 1.0,
+      "test_accuracy": 0.944954128440367
+    },
+    "logreg_on_support": 0.9541284403669725,
+    "logreg_on_full": 1.0
+  },
+  "model": "gpt-6-astra",
+  "run_name": "pair49"
+}

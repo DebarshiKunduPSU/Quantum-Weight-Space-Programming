@@ -1,0 +1,113 @@
+{
+  "trial": 4,
+  "classes": [
+    3,
+    8
+  ],
+  "shots_per_class": 5,
+  "modality": "image",
+  "max_features_per_angle": 1,
+  "n_test": 108,
+  "chance": 0.5,
+  "status": "ok",
+  "attempts": [
+    {
+      "model": "gpt-6-astra",
+      "stop_reason": "completed",
+      "input_tokens": 1657,
+      "output_tokens": 4246,
+      "latency_s": 95.7
+    }
+  ],
+  "model_reported": "gpt-6-astra",
+  "n_attempts": 1,
+  "input_tokens": 1657,
+  "output_tokens": 4246,
+  "circuit": {
+    "n_qubits": 1,
+    "state_prep": "zero",
+    "n_gates": 16,
+    "n_two_qubit_gates": 0,
+    "n_weights": 31,
+    "n_data_dependent_angles": 15,
+    "features_used": [
+      12,
+      17,
+      18,
+      20,
+      25,
+      26,
+      33,
+      34,
+      35,
+      37,
+      41,
+      42,
+      43,
+      45,
+      50
+    ],
+    "gate_counts": {
+      "ry": 16
+    },
+    "readout": "bitstrings"
+  },
+  "llm": {
+    "test": {
+      "accuracy": 0.9537037037037037,
+      "balanced_accuracy": 0.9542024013722127,
+      "confusion": [
+        [
+          51,
+          4
+        ],
+        [
+          1,
+          52
+        ]
+      ]
+    },
+    "support": {
+      "accuracy": 1.0,
+      "balanced_accuracy": 1.0,
+      "confusion": [
+        [
+          5,
+          0
+        ],
+        [
+          0,
+          5
+        ]
+      ]
+    }
+  },
+  "baselines": {
+    "random_weights": {
+      "n_draws": 20,
+      "mean": 0.5375000000000001,
+      "std": 0.08839925911649758,
+      "max": 0.7037037037037037
+    },
+    "trained_on_support": {
+      "train_loss": 2.5198358788791737e-09,
+      "stopped": "converged",
+      "seconds": 2.0,
+      "n_fit": 10,
+      "fit_accuracy": 1.0,
+      "test_accuracy": 0.5185185185185185
+    },
+    "llm_finetuned_on_support": {
+      "train_loss": 4.4206990130303886e-08,
+      "stopped": "converged",
+      "seconds": 0.9,
+      "n_fit": 10,
+      "fit_accuracy": 1.0,
+      "test_accuracy": 0.9444444444444444
+    },
+    "logreg_on_support": 0.9907407407407407,
+    "logreg_on_full": 0.9907407407407407
+  },
+  "model": "gpt-6-astra",
+  "run_name": "default"
+}

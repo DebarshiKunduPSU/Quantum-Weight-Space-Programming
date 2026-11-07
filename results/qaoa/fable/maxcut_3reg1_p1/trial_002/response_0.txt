@@ -1,0 +1,3 @@
+```json
+{"reasoning": "For p=1 QAOA on 3-regular MaxCut with this convention (rzz(-gamma) implements exp(-i gamma C) up to phase, rx(2beta) implements the mixer), the single-edge analysis gives <C_ij> = 1/2 + (1/4) sin(4beta) sin(gamma) * (neighbor cosine factors) - ..., maximized at positive angles. For triangle-free 3-regular graphs the known optimum is gamma = arctan(1/sqrt(2)) ≈ 0.6155, beta = pi/8 ≈ 0.3927. This graph has one triangle (1,2,3), which only slightly perturbs the landscape, so I use angles very close to the 3-regular optimum.", "weights": [0.61, 0.39]}
+```

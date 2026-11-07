@@ -1,0 +1,6 @@
+```json
+{
+  "reasoning": "I used the exact p=1 expectation formula, accounting for each vertex degree and the shared neighbors of each edge. Analytically choosing beta for each gamma and locating the stationary maximum gives these angles, with an expected cut of approximately 9.164.",
+  "weights": [0.48044, 0.30437]
+}
+```

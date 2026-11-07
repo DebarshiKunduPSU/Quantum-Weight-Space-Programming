@@ -1,0 +1,4 @@
+\section{Conclusion}
+\label{sec:conclusion}
+
+A frontier language model can write the parameters of a variational quantum circuit directly, with no optimizer and no feedback, whenever the parameters have a meaning it can reason about: the angles of a Hamiltonian variational ansatz, the schedule of a QAOA circuit, the pixel weights of a small classifier. In those settings its weights match a classical optimizer's, sometimes exceed an optimizer given the same data, and almost always put an optimizer within one evaluation of its best value. The approach does not extend to circuits whose weights have no individual meaning, and it is vulnerable to convention errors that an optimizer would never make. We think the right reading, in line with \citet{takehi2026sparks}, is that language models are not optimizers but programmers, and that variational quantum circuits are a natural home for weight-space programming: their weights are few, meaningful, and expensive to train.

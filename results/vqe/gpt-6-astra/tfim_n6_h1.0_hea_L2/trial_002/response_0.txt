@@ -1,0 +1,25 @@
+```json
+{
+  "reasoning": "The CNOT ladder maps the Ising bonds to single-spin terms in domain-wall variables. I use the first layer to introduce weak nearest-neighbor correlations in those variables, then rotate them toward the ferromagnetic mean-field directions with boundary-adjusted angles. The final rotations are zero to preserve the global spin-flip symmetry.",
+  "weights": [
+    0.0,
+    1.5707963268,
+    1.4657963268,
+    1.4527963268,
+    1.4527963268,
+    1.4657963268,
+    1.5707963268,
+    -0.5207963268,
+    -0.5807963268,
+    -0.5907963268,
+    -0.5807963268,
+    -0.5207963268,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ]
+}
+```

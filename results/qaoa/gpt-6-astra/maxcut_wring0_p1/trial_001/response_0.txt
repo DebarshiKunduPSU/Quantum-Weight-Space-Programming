@@ -1,0 +1,3 @@
+```json
+{"reasoning":"For this triangle-free ring, the p=1 expected cut is 12.5 plus a weighted trigonometric sum multiplied by sin(4 beta)/4. Taking beta = pi/8 maximizes this factor; the sum peaks near gamma = 0.241788, giving an expected cut of approximately 19.44.","weights":[0.241788,0.39269908169872414]}
+```

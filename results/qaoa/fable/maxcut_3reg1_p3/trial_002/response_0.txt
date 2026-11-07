@@ -1,0 +1,3 @@
+```json
+{"reasoning": "The circuit matches the standard convention U_C = exp(-i gamma C) with C = sum (1 - Z_i Z_j)/2 and U_B = exp(-i beta sum X) (rzz(-gamma) and rx(2 beta)). For this convention, the p=1 optimum on 3-regular graphs is gamma≈0.6155, beta≈π/8, confirming the sign/scale. For p=3 I use the known 'fixed angles' for 3-regular MaxCut (Wurtz & Love), which are near-optimal across 3-regular instances, including ones with triangles like this graph: gammas increase and betas decrease across layers (adiabatic-like schedule).", "weights": [0.422, 0.609, 0.798, 0.459, 0.937, 0.235]}
+```

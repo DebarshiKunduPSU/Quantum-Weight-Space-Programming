@@ -1,0 +1,3 @@
+```json
+{"reasoning": "Weighted 8-node ring; max cut = 25 (bipartite). For p=1 the analytic triangle-free formula gives an optimum near gamma≈0.26 (vs pi/4 for the unweighted ring), i.e. gammas should be scaled by ~0.33 (≈1/mean weight 3.1) while betas are unchanged. I took typical p=3 ring angles (gammas increasing ≈(0.38,0.66,0.78), betas decreasing ≈(0.55,0.40,0.21)) and rescaled the gammas by 0.33 so the heaviest edge (w=5) stays below the sin saturation point.", "weights": [0.125, 0.55, 0.218, 0.40, 0.257, 0.21]}
+```

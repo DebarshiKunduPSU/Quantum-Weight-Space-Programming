@@ -1,0 +1,9 @@
+**Analysis.** The circuit implements exactly the standard convention (rzz(−γ) = e^{−iγ(1−ZZ)/2} up to phase, rx(2β) = e^{−iβX}), so positive γ, β in the usual ranges are correct (checked on a single edge: ⟨cut⟩ = (1+sin4β sinγ)/2).
+
+The graph has 8 nodes, 12 edges (mean degree 3, like a 3‑regular graph), but the degrees are uneven (3 and 7 have degree 5; 1 and 6 have degree 1) and there are several triangles. The edge‑weighted average endpoint degree is Σd²/Σd = 90/24 ≈ 3.75, which shifts the optimal γ slightly lower than for a 3‑regular graph (p=1 optimum tan²γ ≈ 1/(d−1) gives γ ≈ 0.54 vs 0.62 for d=3).
+
+I therefore start from the well‑known optimal p=3 angles for 3‑regular MaxCut in this convention (γ ≈ (0.33, 0.57, 0.64), β ≈ (0.55, 0.37, 0.21): increasing γ, decreasing β, an annealing‑like schedule) and scale the γ's down by ~0.9 to account for the higher effective degree, keeping the β schedule.
+
+```json
+{"reasoning": "Standard QAOA convention verified (positive gamma/beta). Graph has mean degree 3 but edges see average endpoint degree ~3.75 and several triangles, so I take the known optimal p=3 3-regular MaxCut schedule (gammas increasing ~0.33,0.57,0.64; betas decreasing ~0.55,0.37,0.21) and shrink the gammas by ~10% to account for the higher effective degree, keeping the annealing-like increasing-gamma / decreasing-beta structure.", "weights": [0.31, 0.54, 0.54, 0.36, 0.61, 0.21]}
+```

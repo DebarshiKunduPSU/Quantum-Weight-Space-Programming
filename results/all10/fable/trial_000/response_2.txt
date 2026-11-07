@@ -1,0 +1,45 @@
+```json
+{
+  "reasoning": "Five qubits each compute a soft binary feature as a sum of RY rotations over a 2x2 pixel region (center, left-middle, bottom-left, top-right, mid-right). The 5-bit measured code approximates a region-presence signature of the digit; codes are mapped to classes by hand (center dark -> 0, etc.).",
+  "n_qubits": 5,
+  "state_prep": {"type": "zero"},
+  "gates": [
+    {"gate": "ry", "qubits": [0], "params": ["0.9 * x[27]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.9 * x[28]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.9 * x[35]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.9 * x[36]"]},
+    {"gate": "ry", "qubits": [1], "params": ["0.9 * x[25]"]},
+    {"gate": "ry", "qubits": [1], "params": ["0.9 * x[26]"]},
+    {"gate": "ry", "qubits": [1], "params": ["0.9 * x[33]"]},
+    {"gate": "ry", "qubits": [1], "params": ["0.9 * x[34]"]},
+    {"gate": "ry", "qubits": [2], "params": ["0.9 * x[49]"]},
+    {"gate": "ry", "qubits": [2], "params": ["0.9 * x[50]"]},
+    {"gate": "ry", "qubits": [2], "params": ["0.9 * x[57]"]},
+    {"gate": "ry", "qubits": [2], "params": ["0.9 * x[58]"]},
+    {"gate": "ry", "qubits": [3], "params": ["0.9 * x[4]"]},
+    {"gate": "ry", "qubits": [3], "params": ["0.9 * x[5]"]},
+    {"gate": "ry", "qubits": [3], "params": ["0.9 * x[12]"]},
+    {"gate": "ry", "qubits": [3], "params": ["0.9 * x[13]"]},
+    {"gate": "ry", "qubits": [4], "params": ["0.9 * x[29]"]},
+    {"gate": "ry", "qubits": [4], "params": ["0.9 * x[30]"]},
+    {"gate": "ry", "qubits": [4], "params": ["0.9 * x[37]"]},
+    {"gate": "ry", "qubits": [4], "params": ["0.9 * x[38]"]}
+  ],
+  "readout": {
+    "type": "bitstrings",
+    "qubits": [0, 1, 2, 3, 4],
+    "classes": {
+      "0": ["00000","00001","00010","00011","00100","00101","00110","00111","01000","01001","01010","01011","01100","01101","01110","01111"],
+      "1": ["10000","10001"],
+      "7": ["10010"],
+      "3": ["10011"],
+      "2": ["10100","10110"],
+      "5": ["10101","11101"],
+      "8": ["10111","11111"],
+      "6": ["11000","11100","11110"],
+      "4": ["11001","11010"],
+      "9": ["11011"]
+    }
+  }
+}
+```

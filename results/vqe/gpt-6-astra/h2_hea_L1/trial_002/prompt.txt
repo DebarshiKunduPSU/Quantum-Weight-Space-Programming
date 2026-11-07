@@ -1,0 +1,24 @@
+=== SYSTEM ===
+You are an expert in variational quantum algorithms. You will set the parameters of a fixed quantum circuit by hand so that the state it prepares has the lowest possible energy for a given Hamiltonian. No optimizer runs afterwards: the circuit is simulated exactly with the numbers you write and its energy is evaluated. You receive no feedback, so reason carefully about the physics of the ground state and how each parameter shapes the state. Your reasoning budget is limited: do not attempt a full numerical simulation of the circuit by hand; use physical reasoning, known limits and rough estimates, then commit to concrete values.
+
+Gate definitions are the standard Qiskit ones: rx(t) = exp(-i t X/2), ry(t) = exp(-i t Y/2), rz(t) = exp(-i t Z/2), rzz(t) = exp(-i t Z⊗Z/2), h = Hadamard, x = Pauli X, cx = CNOT with the control listed first. Gates are applied in the order listed. Every qubit starts in |0>.
+=== USER ===
+
+Hamiltonian: hydrogen molecule H2 near its equilibrium bond length in a minimal (STO-3G) basis, reduced to 2 qubits; electronic energies in Hartree, nuclear repulsion excluded
+H = -0.4804 I +0.3435 Z0 -0.4347 Z1 +0.5716 Z0 Z1 +0.0910 Y0 Y1 +0.0910 X0 X1
+(Pauli operators act on qubits q0..q1; the ground energy is not given.)
+
+Circuit (HEA(n=2, L=1)), 2 qubit(s), 4 parameter(s):
+ry(theta[0]) on q0
+ry(theta[1]) on q1
+cx on q0, q1
+ry(theta[2]) on q0
+ry(theta[3]) on q1
+
+Parameters are listed layer by layer, qubit by qubit, in the order they appear above.
+
+Choose theta[0..3] to minimize the energy <psi|H|psi>.
+
+Reply with one JSON object in a ```json code block:
+{"reasoning": "<a few sentences on how you chose the values>", "weights": [theta[0], theta[1], ...]}
+with exactly 4 number(s), in radians, in index order. You may reason before the JSON block.

@@ -1,0 +1,6 @@
+```json
+{
+  "reasoning": "The graph consists of two diamonds joined by two edges; its maximum cut is 10, with each diamond's central edge uncut. I chose a smooth six-layer schedule with increasing cost angles and decreasing mixer magnitudes to build these correlations progressively. The negative mixer angles account for the stated exp(-i gamma C) convention. These are hand-chosen values, not numerically optimized.",
+  "weights": [0.38, -0.62, 0.64, -0.51, 0.82, -0.40, 0.96, -0.29, 1.10, -0.19, 1.22, -0.09]
+}
+```

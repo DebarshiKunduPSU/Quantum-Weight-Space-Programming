@@ -1,0 +1,7 @@
+**Sanity check of conventions.** For a single edge, this circuit gives ⟨C⟩ = (1 + sin(4β)·sin(γ))/2, so positive γ and positive β (β≈π/8-ish at p=1) are the right sign in this parameterization — it matches the standard Farhi/Zhou et al. convention where optimal schedules have γ increasing and β decreasing across layers.
+
+**Choosing the schedule.** The graph has 15 edges on 8 nodes (average degree 3.75, degrees ranging 2–6 with a hub at node 1). Good QAOA angles for unweighted graphs are well approximated by the smooth, adiabatic-like patterns found for 3-regular graphs (γ growing from ~0.2 to ~0.8, β shrinking from ~0.6 to ~0.15 at p=6), with γ scaled down by roughly √(3/D̄) ≈ 0.9 to account for the somewhat higher average degree and the high-degree hub (larger degree → phases accumulate faster → smaller γ). β is left essentially as in the regular case, since the mixer is degree-independent.
+
+```json
+{"reasoning": "Verified that this circuit matches the standard convention (positive gamma, positive beta optimal; single-edge <C> = (1+sin4β sinγ)/2). Used the well-known smooth optimal-angle pattern for p=6 on unweighted graphs (gamma increasing, beta decreasing), taken from 3-regular-graph optima and scaling gammas down by ~sqrt(3/3.75) to account for the higher average degree (3.75) and the degree-6 hub node 1.", "weights": [0.20, 0.60, 0.37, 0.50, 0.47, 0.41, 0.54, 0.33, 0.62, 0.24, 0.73, 0.13]}
+```

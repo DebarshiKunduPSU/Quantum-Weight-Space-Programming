@@ -1,0 +1,15 @@
+**Analysis of what q0 can "see"**
+
+Working in the Heisenberg picture, q0 is never a CNOT target, so after pulling the final Z₀ back through the circuit only row-qubit (q0,q1,q2) operators appear; the column qubits never influence the readout. The available features are therefore row-profile Z-strings (Z₀, Z₁, Z₀Z₁, Z₀Z₂, …) and same-column, row-to-row correlations (X₀ ↔ pixel (r,c)·pixel(r+4,c), etc.).
+
+Two row-based features separate 3 from 8 reasonably:
+- ⟨Z₀Z₁⟩ = ink in rows {0,1,6,7} − ink in rows {2,3,4,5}: a "3" has very bright top and bottom bars and only a thin stroke in the middle rows (≈ +0.2), while an "8" has two strokes in every middle row (≈ +0.05–0.1).
+- ⟨X₀⟩ = correlation between row r and row r+4 in the same column: an "8" has long vertical strokes and vertically aligned arcs/crossing (≈ 0.5–0.7), a "3" much less (≈ 0.3–0.4).
+
+**Realizing O = s₆·Z₀Z₁ + c₆·X₀**
+
+With θ₁₂=0 the observable is Z₀ → (after ry(θ₆) and the ladder) c₆Z₀ − s₆X₀X₁. Choosing θ₀=−π/2 (Z₀→X₀, X₀→−Z₀) and θ₁=π/2 (X₁→Z₁) gives exactly O = c₆X₀ + s₆Z₀Z₁. Picking θ₆ ≈ 1.92 (s₆≈0.94, c₆≈−0.34) gives P(q0=1) = (1 − 0.94⟨Z₀Z₁⟩ + 0.34⟨X₀⟩)/2, so an image is called "8" when 0.37·⟨X₀⟩ > ⟨Z₀Z₁⟩ — satisfied for the sketched 8s (≈0.25 vs 0.1) and violated for the 3s (≈0.13 vs 0.2). All other angles are zero (θ₁₃–θ₁₇ do not affect q0 at all).
+
+```json
+{"reasoning": "Only row qubits can influence the q0 readout (q0 is never a CNOT target), so I built the observable O = sin(th6)*Z0Z1 + cos(th6)*X0 using th0=-pi/2, th1=pi/2, th12=0 and th6=1.92 (cos negative). <Z0Z1> (outer rows minus middle rows) is larger for 3s (bright top/bottom bars), while <X0> (same-column correlation between rows r and r+4) is larger for 8s (long vertical strokes). The negative X0 coefficient both biases toward class 8 and adds discriminative power; the ratio |c6|/s6 ≈ 0.37 places the decision boundary between the estimated class values. All other angles are zero.", "weights": [-1.5708, 1.5708, 0.0, 0.0, 0.0, 0.0, 1.92, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]}
+```

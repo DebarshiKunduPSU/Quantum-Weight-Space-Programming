@@ -1,0 +1,10 @@
+**Analysis**
+
+- The circuit matches the standard convention (rzz(−γ) ≡ e^{−iγ(1−ZZ)/2}, rx(2β) ≡ e^{−iβX}), so positive (γ, β) with the usual sign are correct (checked on a single edge: ⟨C⟩ = ½(1 + sin4β sinγ)).
+- The graph is 3-regular with heavy triangle content: two "diamonds" (K4 minus an edge) on {0,2,3,6} and {1,4,5,7}, joined by edges (0,5) and (1,6). Max cut = 10 of 12.
+- Good starting point: the Wurtz–Love fixed angles for 3-regular MaxCut at p=3, γ ≈ (0.422, 0.798, 0.937), β ≈ (0.609, 0.459, 0.235), with the characteristic increasing-γ / decreasing-β adiabatic-like schedule.
+- A p=1 analytic check including the triangle terms (8 edges in one triangle, 2 edges in two triangles) shows the triangles shift the optimal γ downward (~0.52 instead of 0.616 at p=1), so I shrink the γ schedule by ~7–8% while keeping the β schedule.
+
+```json
+{"reasoning": "Convention verified to be standard (positive gamma/beta). Started from Wurtz-Love fixed angles for 3-regular MaxCut at p=3 (gamma=(0.422,0.798,0.937), beta=(0.609,0.459,0.235)), which follow the monotone adiabatic-like schedule. Because this graph is triangle-rich (two K4-minus-edge diamonds joined by two edges), a p=1 analytic check with triangle terms shows the optimal gamma shifts smaller, so gammas were scaled down ~7% while betas were kept.", "weights": [0.39, 0.61, 0.74, 0.46, 0.87, 0.235]}
+```

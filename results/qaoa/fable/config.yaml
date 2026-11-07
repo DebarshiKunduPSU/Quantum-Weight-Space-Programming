@@ -1,0 +1,13 @@
+experiment: qaoa
+model: fable
+resolved_model:
+  provider: anthropic
+  model: claude-fable-5-1
+  max_output_tokens: 64000
+llm:
+  max_output_tokens: 32000
+  effort: null
+  max_repair_attempts: 2
+  timeout_s: 1800
+seed: 0
+trials: 3

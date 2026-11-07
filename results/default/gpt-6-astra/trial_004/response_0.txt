@@ -1,0 +1,33 @@
+```json
+{
+  "reasoning": "An 8 usually has ink along the left sides of both loops, whereas a 3 is generally open on the left. The circuit emphasizes left-middle and lower-left pixels, with smaller neighboring contributions for handwriting variation and negative weights on selected right-side pixels. Successive Y rotations accumulate this fixed spatial discriminant; the readout favors 8 when its left-loop evidence exceeds the chosen threshold.",
+  "n_qubits": 1,
+  "state_prep": {"type": "zero"},
+  "gates": [
+    {"gate": "ry", "qubits": [0], "params": ["pi / 2 - 0.575"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.8 * x[42]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.5 * x[34]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.325 * x[18]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.275 * x[26]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.5 * x[43]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.25 * x[41]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.15 * x[33]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.075 * x[17]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.075 * x[25]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.05 * x[50]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.125 * x[35]"]},
+    {"gate": "ry", "qubits": [0], "params": ["-0.225 * x[45]"]},
+    {"gate": "ry", "qubits": [0], "params": ["-0.15 * x[37]"]},
+    {"gate": "ry", "qubits": [0], "params": ["-0.15 * x[20]"]},
+    {"gate": "ry", "qubits": [0], "params": ["-0.075 * x[12]"]}
+  ],
+  "readout": {
+    "type": "bitstrings",
+    "qubits": [0],
+    "classes": {
+      "3": ["0"],
+      "8": ["1"]
+    }
+  }
+}
+```

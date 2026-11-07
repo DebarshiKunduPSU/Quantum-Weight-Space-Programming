@@ -1,0 +1,17 @@
+\begin{tabular}{llccccc}
+\toprule
+Problem, ansatz & Model & Valid & LLM & Random & Optimizer & LLM$\to$opt. \\
+\midrule
+TFIM h=0.5, HVA p=2 (4 w) & GPT-6 Astra & 3/3 & 0.955 $\pm$ 0.001 & 0.564 $\pm$ 0.026 & 0.957 $\pm$ 0.000 & 0.957 $\pm$ 0.000 \\
+TFIM h=0.5, HEA L=2 (18 w) & GPT-6 Astra & 3/3 & 0.999 $\pm$ 0.001 & 0.499 $\pm$ 0.026 & 0.999 $\pm$ 0.000 & 0.999 $\pm$ 0.001 \\
+TFIM h=1.0, HVA p=2 (4 w) & GPT-6 Astra & 3/3 & 0.993 $\pm$ 0.001 & 0.584 $\pm$ 0.004 & 0.995 $\pm$ 0.000 & 0.995 $\pm$ 0.000 \\
+TFIM h=1.0, HEA L=2 (18 w) & GPT-6 Astra & 3/3 & 0.999 $\pm$ 0.000 & 0.494 $\pm$ 0.012 & 1.000 $\pm$ 0.000 & 1.000 $\pm$ 0.000 \\
+TFIM h=2.0, HVA p=2 (4 w) & GPT-6 Astra & 3/3 & 1.000 $\pm$ 0.000 & 0.612 $\pm$ 0.014 & 1.000 $\pm$ 0.000 & 1.000 $\pm$ 0.000 \\
+TFIM h=2.0, HEA L=2 (18 w) & GPT-6 Astra & 3/3 & 1.000 $\pm$ 0.000 & 0.514 $\pm$ 0.008 & 1.000 $\pm$ 0.000 & 1.000 $\pm$ 0.000 \\
+TFIM h=1.0, HVA p=4 (8 w) & GPT-6 Astra & 3/3 & 0.992 $\pm$ 0.003 & 0.543 $\pm$ 0.019 & 0.999 $\pm$ 0.000 & 0.999 $\pm$ 0.000 \\
+TFIM h=1.0, HEA L=4 (30 w) & GPT-6 Astra & 3/3 & 0.999 $\pm$ 0.001 & 0.503 $\pm$ 0.011 & 1.000 $\pm$ 0.000 & 1.000 $\pm$ 0.000 \\
+Heisenberg, HEA L=2 (18 w) & GPT-6 Astra & 3/3 & 0.956 $\pm$ 0.005 & 0.333 $\pm$ 0.016 & 0.962 $\pm$ 0.000 & 0.959 $\pm$ 0.000 \\
+H$_2$, 1-parameter ansatz & GPT-6 Astra & 3/3 & 1.000 $\pm$ 0.000 & 0.643 $\pm$ 0.033 & 1.000 $\pm$ 0.000 & 1.000 $\pm$ 0.000 \\
+H$_2$, HEA L=1 (4 w) & GPT-6 Astra & 3/3 & 1.000 $\pm$ 0.000 & 0.300 $\pm$ 0.034 & 1.000 $\pm$ 0.000 & 1.000 $\pm$ 0.000 \\
+\bottomrule
+\end{tabular}

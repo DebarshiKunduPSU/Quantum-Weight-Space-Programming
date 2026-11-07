@@ -1,0 +1,6 @@
+```json
+{
+  "reasoning": "The graph has two triangles, so six edges receive a triangle correction. The exact p=1 expectation is 6 + 6 sin(4β) sin(γ) cos²(γ) − 3 sin²(2β) sin²(γ) cos²(γ). Analytically maximizing over β and then γ gives the angles below.",
+  "weights": [0.581458, 0.358585]
+}
+```

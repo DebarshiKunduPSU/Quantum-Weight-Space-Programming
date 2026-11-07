@@ -1,0 +1,12 @@
+```json
+{
+  "reasoning": "I use the last CNOT chain to encode ferromagnetic correlations while preserving the global spin-flip symmetry. In the corresponding domain-wall basis, the preceding layer adds weak nearest-neighbor pair fluctuations to a tilted product state. The angles balance the Ising and transverse-field energies, with reflection-symmetric corrections for the open boundaries.",
+  "weights": [
+    0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+    0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+    0.0, 1.5707963268, 1.4646, 1.4474, 1.4474, 1.4646,
+    1.5707963268, -0.5240, -0.5846, -0.5975, -0.5846, -0.5240,
+    0.0, 0.0, 0.0, 0.0, 0.0, 0.0
+  ]
+}
+```

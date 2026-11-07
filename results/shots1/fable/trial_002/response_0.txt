@@ -1,0 +1,21 @@
+**Design idea.** In 8×8 digit images, the 8 is a closed double loop, so it has ink along the *left* edge in the middle rows (rows 3–5, columns 1–2). A 3 is open on the left: those same pixels are dark, since the 3's strokes are on the right and only touch the left at the very top and bottom. So a weighted sum of the left‑middle pixels is a strong single discriminator.
+
+I implement this with a single qubit: a small bias rotation followed by data‑encoding RY rotations whose angles add up (all RY on one qubit commute and sum). The probability of measuring 1 is sin²(θ/2) with θ = 0.4 + 0.9·(x[26]+x[34]+x[42]) + 0.5·(x[25]+x[33]+x[41]). For a 3 the sum is near 0 → θ ≈ 0.4 → P(1) ≈ 0.04 → class 3. For an 8 the left loop boundary gives a weighted sum ≳ 1.5 → θ ≳ 1.9 → P(1) ≳ 0.65 → class 8. Weights are chosen so that even fully saturated pixels keep θ below 3π/2, so the prediction never flips back.
+
+```json
+{
+  "reasoning": "An 8 has a closed left side: ink in rows 3-5, columns 1-2. A 3 is open on the left, so those pixels are dark. A single qubit accumulates RY rotations proportional to these left-middle pixels plus a small bias; P(measure 1)=sin^2(theta/2) exceeds 0.5 only when enough left-side ink is present, giving class 8, otherwise class 3.",
+  "n_qubits": 1,
+  "state_prep": {"type": "zero"},
+  "gates": [
+    {"gate": "ry", "qubits": [0], "params": [0.4]},
+    {"gate": "ry", "qubits": [0], "params": ["0.9 * x[26]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.9 * x[34]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.9 * x[42]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.5 * x[25]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.5 * x[33]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.5 * x[41]"]}
+  ],
+  "readout": {"type": "bitstrings", "qubits": [0], "classes": {"3": ["0"], "8": ["1"]}}
+}
+```

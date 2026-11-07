@@ -1,0 +1,95 @@
+{
+  "reasoning": "Single-qubit linear accumulator: successive ry rotations add their angles, giving ry(pi/2 + s) where s is a weighted sum of pixels. Bottom-left tail pixels (x50,x51,x58,x59) are bright for 9 and dark for 4 (positive weights); left-arm pixels at column 1 rows 3-5 (x25,x33,x41) are bright for 4 and dark for 9 (negative weights). P(measure 1) = sin^2(pi/4 + s/2) is monotone in s over the reachable range, so 1 -> class 9, 0 -> class 4.",
+  "n_qubits": 1,
+  "state_prep": {
+    "type": "zero"
+  },
+  "gates": [
+    {
+      "gate": "ry",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "pi/2"
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "0.8 * x[50]"
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "0.8 * x[51]"
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "0.5 * x[58]"
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "0.5 * x[59]"
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "-0.8 * x[33]"
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "-0.8 * x[25]"
+      ]
+    },
+    {
+      "gate": "ry",
+      "qubits": [
+        0
+      ],
+      "params": [
+        "-0.6 * x[41]"
+      ]
+    }
+  ],
+  "readout": {
+    "type": "bitstrings",
+    "qubits": [
+      0
+    ],
+    "classes": {
+      "4": [
+        "0"
+      ],
+      "9": [
+        "1"
+      ]
+    }
+  }
+}

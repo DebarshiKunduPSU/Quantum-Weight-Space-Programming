@@ -1,0 +1,6 @@
+```json
+{
+  "reasoning": "I chose row rotations to combine upper and lower strokes, with row-bit flips routing different pooled regions toward the assigned labels. The column rotation mixes left–right stroke strength and contrast. These are hand-designed heuristic weights, not an optimized or validated solution; the remaining rotations are left neutral.",
+  "weights": [-1.5, 3.5, 3.1415926536, -2.55, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+}
+```

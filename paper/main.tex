@@ -1,0 +1,64 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage[hidelinks]{hyperref}
+\usepackage{natbib}
+\usepackage{authblk}
+\usepackage{tabularx}
+\renewcommand{\topfraction}{0.9}
+\renewcommand{\bottomfraction}{0.9}
+\renewcommand{\textfraction}{0.05}
+\renewcommand{\floatpagefraction}{0.75}
+\setcounter{topnumber}{3}
+\setcounter{totalnumber}{4}
+
+\lstset{basicstyle=\ttfamily\footnotesize, breaklines=true, frame=single, columns=fullflexible, keepspaces=true}
+\newcommand{\gpt}{GPT-6 Astra}
+\newcommand{\fable}{Claude Fable 5.1}
+\newcommand{\ie}{i.e.,}
+\newcommand{\eg}{e.g.,}
+
+\title{Weight-Space Programming of Variational Quantum Circuits:\\ Large Language Models Write Quantum Circuit Parameters Without an Optimizer}
+
+\author[1]{Debarshi Kundu}
+\author[1]{Swaroop Ghosh}
+\author[1]{Vasant Honavar}
+\affil[1]{The Pennsylvania State University}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+\input{sections/abstract}
+\end{abstract}
+
+\input{sections/introduction}
+\input{sections/background}
+\input{sections/method}
+\input{sections/experiments}
+\input{sections/results}
+\input{sections/discussion}
+\input{sections/related}
+\input{sections/conclusion}
+
+\section*{Reproducibility}
+\input{sections/reproducibility}
+
+\bibliographystyle{plainnat}
+\bibliography{refs}
+
+\appendix
+\input{sections/appendix}
+
+\end{document}

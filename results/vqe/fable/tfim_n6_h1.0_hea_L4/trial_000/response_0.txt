@@ -1,0 +1,7 @@
+**Approach.** The CNOT ladder L maps computational bits to prefix parities, so in the Heisenberg picture L†Z_kZ_{k+1}L = Z_{k+1}, L†X_kL = X_kX_{k+1} (X_5→X_5). If I set the first three RY layers to 0 (the state stays |0…0⟩ through three ladders), then layer 4 prepares a product state ⊗ry(a_k)|0⟩ and the final ladder turns it into an "independent domain-wall" state: q0 in |+⟩ gives the Z₂-symmetric superposition, and each a_k (k≥1) sets the domain-wall probability on bond k−1. The energy is then exactly 
+E = −(s₁ + s₁s₂ + s₂s₃ + s₃s₄ + s₄s₅ + s₅) − (c₁+…+c₅), with s_k=sin a_k, c_k=cos a_k. 
+Maximizing gives tan a_k ≈ s_{k−1}+s_{k+1} ⇒ a₁=a₅≈1.08, a₂=a₃=a₄≈1.05, E ≈ −7.23 (vs. −6.8 mean-field, exact ≈ −7.30). I checked that adding a nonzero final RY layer on top of this (with q0 at π/2) is a local minimum at zero, so the last layer stays 0.
+
+```json
+{"reasoning": "Set layers 0-2 to zero so the state stays |0...0> through the first three CNOT ladders. Layer 3 prepares a product state (q0 at pi/2, others ~1.05-1.08 rad); the final CNOT ladder (prefix-parity map) converts it into a Z2-symmetric independent-domain-wall state whose energy is exactly -(s1+s1s2+s2s3+s3s4+s4s5+s5)-(c1+...+c5) ≈ -7.23, close to the exact critical ground energy (~-7.30). The final RY layer is left at zero since it is locally optimal there.", "weights": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1.5707963, 1.08, 1.05, 1.05, 1.05, 1.08, 0, 0, 0, 0, 0, 0]}
+```

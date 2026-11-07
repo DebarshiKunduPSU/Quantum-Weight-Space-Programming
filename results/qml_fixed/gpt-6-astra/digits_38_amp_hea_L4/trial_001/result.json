@@ -1,0 +1,133 @@
+{
+  "experiment": "qml_fixed",
+  "model": "gpt-6-astra",
+  "case": "digits_38_amp_hea_L4",
+  "trial": 1,
+  "meta": {
+    "classes": [
+      3,
+      8
+    ],
+    "shots_per_class": 5,
+    "ansatz": "amplitude+HEA(L=4)",
+    "n_params": 30
+  },
+  "status": "ok",
+  "attempts": [
+    {
+      "model": "gpt-6-astra",
+      "stop_reason": "completed",
+      "input_tokens": 1553,
+      "output_tokens": 6967,
+      "latency_s": 246.2
+    }
+  ],
+  "n_attempts": 1,
+  "model_reported": "gpt-6-astra",
+  "input_tokens": 1553,
+  "output_tokens": 6967,
+  "weights": [
+    0.0,
+    1.5707963267948966,
+    0.0,
+    -0.55,
+    0.0,
+    0.0,
+    1.5707963267948966,
+    1.5707963267948966,
+    1.5707963267948966,
+    1.5707963267948966,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.5707963267948966,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "llm": {
+    "test": {
+      "accuracy": 0.8333333333333334,
+      "balanced_accuracy": 0.8308747855917666,
+      "confusion": [
+        [
+          53,
+          2
+        ],
+        [
+          16,
+          37
+        ]
+      ]
+    },
+    "support": {
+      "accuracy": 0.8,
+      "balanced_accuracy": 0.8,
+      "confusion": [
+        [
+          5,
+          0
+        ],
+        [
+          2,
+          3
+        ]
+      ]
+    }
+  },
+  "baselines": {
+    "random_weights": {
+      "n_draws": 20,
+      "mean": 0.5175925925925926,
+      "std": 0.051876647510486804,
+      "max": 0.6944444444444444
+    },
+    "trained_on_support": {
+      "train_loss": 0.4512133673005733,
+      "stopped": "converged",
+      "seconds": 2.1,
+      "n_fit": 10,
+      "fit_accuracy": 1.0,
+      "test_accuracy": 0.9444444444444444
+    },
+    "llm_finetuned_on_support": {
+      "train_loss": 0.4313459500082315,
+      "stopped": "converged",
+      "seconds": 1.2,
+      "n_fit": 10,
+      "fit_accuracy": 1.0,
+      "test_accuracy": 0.9722222222222222
+    },
+    "trained_on_full": {
+      "train_loss": 0.46761893720626757,
+      "stopped": "converged",
+      "seconds": 11.6,
+      "n_fit": 200,
+      "fit_accuracy": 0.94,
+      "test_accuracy": 0.9351851851851852
+    },
+    "logreg_on_support": 0.9351851851851852
+  },
+  "summary": {
+    "acc_llm": 0.8333333333333334,
+    "acc_support": 0.8,
+    "acc_random": 0.5175925925925926,
+    "acc_trained_support": 0.9444444444444444,
+    "acc_llm_finetuned": 0.9722222222222222,
+    "acc_trained_full": 0.9351851851851852,
+    "chance": 0.5
+  }
+}

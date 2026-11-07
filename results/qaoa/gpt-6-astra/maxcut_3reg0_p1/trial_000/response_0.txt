@@ -1,0 +1,6 @@
+```json
+{
+  "reasoning": "Accounting for the graph's four triangles, the exact p=1 expectation is 6 + 6 sin(4β) sin(γ) cos²(γ) − 6 sin²(2β) sin²(γ) cos²(γ). Maximizing analytically over β and then γ gives sin²(γ) ≈ 0.272099147 and β = atan(2/sin(γ))/4, yielding the angles below.",
+  "weights": [0.5487618, 0.3289161]
+}
+```

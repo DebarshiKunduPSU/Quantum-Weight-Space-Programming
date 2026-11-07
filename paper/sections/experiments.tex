@@ -1,0 +1,35 @@
+\section{Experimental setup}
+\label{sec:experiments}
+
+Table~\ref{tab:overview} summarizes the tasks. All circuits are simulated exactly with a batched state-vector simulator written for this study and cross-checked against Qiskit on random circuits over the full gate set; the simulator, prompts, raw replies and analysis code are released (see Reproducibility).
+
+\begin{table}[t]
+\centering
+\small
+\begin{tabularx}{\linewidth}{lXXl}
+\toprule
+Family & Problem & Circuit & Model writes \\
+\midrule
+QML, free design & digits 3 vs 8; 4 vs 9; all 10 classes & its own (\(\leq\) 8 qubits, \(\leq\) 200 gates) & architecture + weights \\
+QML, free design & ablations on 3 vs 8: 1 / 10 shots; pixels as text & its own & architecture + weights \\
+QML, structured & 3 vs 8; 10 classes, with structural rules & its own (\(\geq\) 2 qubits, entangling gate) & architecture + weights \\
+QML, fixed ansatz & 3 vs 8; 10 classes & amplitude encoding + HEA, \(L \in \{1, 2, 4, 8\}\) & 12, 18, 30 or 54 weights \\
+VQE & transverse-field Ising chain, \(N = 6\), \(h \in \{0.5, 1, 2\}\) & HVA \(p = 2\) (4 w.); HEA \(L = 2\) (18 w.) & weights \\
+VQE, scaling & critical Ising chain, \(h = 1\) & HVA \(p = 4\) (8 w.); HEA \(L = 4\) (30 w.) & weights \\
+VQE & Heisenberg chain, \(N = 6\) & HEA \(L = 2\) (18 w.) & weights \\
+VQE & H\(_2\) molecule, 2-qubit Hamiltonian & 1-parameter ansatz; HEA \(L = 1\) (4 w.) & weights \\
+QAOA & MaxCut, \(n = 8\): three 3-regular, two Erd\H{o}s--R\'enyi, one weighted ring & standard QAOA, \(p \in \{1, 3\}\); \(p = 6\) on two graphs & \(2p\) angles \\
+\bottomrule
+\end{tabularx}
+\caption{Tasks. Every trial is one request; the model never receives a loss, gradient or accuracy.}
+\label{tab:overview}
+\end{table}
+
+\paragraph{QML on handwritten digits.}
+We use the scikit-learn \texttt{digits} data set \citep{pedregosa2011scikit}: $8\times 8$ grayscale images of handwritten digits, pixel values scaled to $[0, 1]$. For each task a stratified 70/30 train/test split is fixed once; the model is shown $k$ labelled training examples per class ($k = 5$ unless stated) rendered as images (one image per class, examples side by side), and the circuit it returns is scored on the full test split (108--109 images for a pair of digits, 540 for all ten classes). Trial $t$ shows the same examples to both models, so the models are compared on identical prompts. In the free-design setting the model writes a circuit in a small JSON language: a number of qubits, an initial state (all-zeros, or the image amplitude-encoded on six qubits), a gate list in which every angle is an affine expression of the pixels $x[i]$ with at most one pixel per angle, and a readout that maps measured bit strings to classes (Appendix~\ref{app:dsl}). The \emph{structured} condition adds three rules: at least two qubits, at least one two-qubit gate, and no two consecutive same-axis rotations on a qubit. In the fixed-ansatz setting the image is amplitude-encoded on six qubits (three qubits index the pixel row, three the column), followed by an HEA with $L \in \{1, 2, 4, 8\}$ layers; the model writes the $6(L{+}1)$ rotation angles (12 to 54) and class scores are read from the first qubit (two classes) or the first four qubits (ten classes). The deeper circuits test how far hand-written weights scale: with 54 weights the ten-class circuit is a usable model for an optimizer, as Section~\ref{sec:results} shows.
+
+\paragraph{VQE.}
+The transverse-field Ising model (TFIM) on an open chain of six spins, $H = -\sum_i Z_i Z_{i+1} - h\sum_i X_i$, is studied at $h = 0.5$ (ordered phase), $h = 1$ (critical point) and $h = 2$ (disordered phase). The Hamiltonian variational ansatz starts from $|{+}\rangle^{\otimes 6}$ and applies $p = 2$ layers of $rzz(\theta_{2k})$ on every bond followed by $rx(\theta_{2k+1})$ on every qubit; the hardware-efficient ansatz applies three layers of $ry$ rotations separated by $cx$ ladders (18 angles). At the critical point we also test a deeper HVA ($p = 4$, 8 angles) and HEA ($L = 4$, 30 angles). The antiferromagnetic Heisenberg chain $H = \sum_i (X_iX_{i+1} + Y_iY_{i+1} + Z_iZ_{i+1})$ on six spins uses the same HEA. For H$_2$ we use the two-qubit Hamiltonian of \citet{omalley2016scalable} near the equilibrium bond length (electronic energy, nuclear repulsion excluded), with a one-parameter ansatz that prepares $\cos(\theta/2)|10\rangle + \sin(\theta/2)|01\rangle$ from the Hartree--Fock state and with a four-angle HEA. The prompt lists every Pauli term of $H$ with its coefficient, the circuit gate by gate, and a one-line physical description (\eg\ ``transverse-field Ising chain of 6 spins, open boundary, $J = 1$, $h = 0.5$''); it does not give the ground energy.
+
+\paragraph{QAOA.}
+MaxCut instances on eight nodes: three random 3-regular graphs, two Erd\H{o}s--R\'enyi graphs with edge probability $0.5$, and one ring with integer edge weights in $\{1, \ldots, 5\}$. The prompt lists the edges, states the cost $C(z) = \sum_{ij} w_{ij}[z_i \neq z_j]$, writes out the circuit for $p$ layers with the convention $U_C(\gamma) = e^{-i\gamma C}$, $U_B(\beta) = e^{-i\beta\sum_i X_i}$, and asks for $(\gamma_1, \beta_1, \ldots, \gamma_p, \beta_p)$. We evaluate $p = 1$ and $p = 3$ on all six graphs and $p = 6$ (12 angles) on one 3-regular and one Erd\H{o}s--R\'enyi graph.

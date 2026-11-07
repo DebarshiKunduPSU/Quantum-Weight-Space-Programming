@@ -1,0 +1,6 @@
+```json
+{
+  "reasoning": "I used the exact p=1 MaxCut expectation, accounting for each vertex degree and the shared neighbors of each edge. Analytically choosing beta for a given gamma and balancing the resulting terms gives these angles, with an expected cut value of approximately 9.164.",
+  "weights": [0.4805, 0.3044]
+}
+```

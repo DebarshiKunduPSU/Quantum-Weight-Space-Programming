@@ -1,0 +1,38 @@
+```json
+{
+  "reasoning": "An 8 typically has substantial ink along the left sides of its two loops, whereas a 3 is open on the left and concentrates more ink on the right. The circuit accumulates weighted evidence from the middle-left pixels, with smaller contributions from the lower loop and penalties for right-heavy strokes. All rotations share the same axis, so their angles add exactly; the final measurement implements a fixed threshold on this spatial evidence.",
+  "n_qubits": 1,
+  "state_prep": {
+    "type": "zero"
+  },
+  "gates": [
+    {"gate": "ry", "qubits": [0], "params": [1.4347963267948966]},
+    {"gate": "ry", "qubits": [0], "params": ["0.072 * x[17]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.176 * x[18]"]},
+    {"gate": "ry", "qubits": [0], "params": ["-0.032 * x[21]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.064 * x[25]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.224 * x[26]"]},
+    {"gate": "ry", "qubits": [0], "params": ["-0.040 * x[29]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.080 * x[33]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.288 * x[34]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.104 * x[35]"]},
+    {"gate": "ry", "qubits": [0], "params": ["-0.104 * x[37]"]},
+    {"gate": "ry", "qubits": [0], "params": ["-0.056 * x[38]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.080 * x[41]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.208 * x[42]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.112 * x[43]"]},
+    {"gate": "ry", "qubits": [0], "params": ["-0.104 * x[45]"]},
+    {"gate": "ry", "qubits": [0], "params": ["-0.072 * x[46]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.056 * x[50]"]},
+    {"gate": "ry", "qubits": [0], "params": ["-0.040 * x[53]"]}
+  ],
+  "readout": {
+    "type": "bitstrings",
+    "qubits": [0],
+    "classes": {
+      "3": ["0"],
+      "8": ["1"]
+    }
+  }
+}
+```

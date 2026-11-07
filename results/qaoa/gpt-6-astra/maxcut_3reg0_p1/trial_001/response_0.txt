@@ -1,0 +1,6 @@
+```json
+{
+  "reasoning": "At p=1, the expectation depends on vertex degrees and shared-neighbor counts. Here, 2 edges lie in no triangles, 8 lie in one, and 2 lie in two. Summing their contributions gives <C> = 6 + 6 sin(gamma) cos²(gamma) sin(4 beta) - 6 sin²(gamma) cos²(gamma) sin²(2 beta). Analytically maximizing this expression gives the angles below.",
+  "weights": [0.54876182, 0.32891611]
+}
+```

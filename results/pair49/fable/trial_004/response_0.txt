@@ -1,0 +1,25 @@
+**Design idea.** The 9s have a closed loop at the top (ink across the top-left: row 0 cols 2–3, row 1 col 2) and a tail that curls to the bottom-left (row 6–7, cols 1–2). The 4s have an open top (ink only in the vertical stroke at cols 4–5 in rows 0–1), a horizontal bar reaching far left/right at row 4 (col 1 and col 6), and a vertical stroke that stays at col 4 down to the bottom row. So a linear score "9-evidence minus 4-evidence" over a handful of pixels separates the classes well.
+
+I implement that linear threshold on one qubit: consecutive RY rotations add their angles, so the final angle is pi/2 + bias + Σ w_i x[i]. P(|1>) = sin²(angle/2) is monotone in the score as long as the total stays in [0, pi]; weights are scaled (0.35 max per pixel) so the sum stays in that range. Outcome 1 → 9, outcome 0 → 4.
+
+```json
+{
+  "reasoning": "Linear threshold classifier on a single qubit via additive RY rotations. Positive weights on pixels bright for 9 (closed top of the loop: x[2], x[3], x[10]; curling tail at bottom-left: x[50], x[57], x[58]). Negative weights on pixels bright for 4 (wide horizontal bar at row 4: x[33], x[34], x[38]; vertical stroke reaching bottom row at col 4: x[60]). Constant offset pi/2 - 0.14 centers the decision boundary; weights are small enough that the total angle stays within [0, pi] so P(1)=sin^2(angle/2) is monotone in the linear score. Measure qubit 0: 1 -> class 9, 0 -> class 4.",
+  "n_qubits": 1,
+  "state_prep": {"type": "zero"},
+  "gates": [
+    {"gate": "ry", "qubits": [0], "params": ["pi/2 - 0.14"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.35 * x[2]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.35 * x[3]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.35 * x[10]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.30 * x[50]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.20 * x[57]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.35 * x[58]"]},
+    {"gate": "ry", "qubits": [0], "params": ["-0.35 * x[33]"]},
+    {"gate": "ry", "qubits": [0], "params": ["-0.20 * x[34]"]},
+    {"gate": "ry", "qubits": [0], "params": ["-0.25 * x[38]"]},
+    {"gate": "ry", "qubits": [0], "params": ["-0.15 * x[60]"]}
+  ],
+  "readout": {"type": "bitstrings", "qubits": [0], "classes": {"4": ["0"], "9": ["1"]}}
+}
+```

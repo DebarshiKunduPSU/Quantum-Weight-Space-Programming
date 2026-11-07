@@ -1,0 +1,12 @@
+```json
+{
+  "reasoning": "I chose a sparse, structured circuit: the initial rotations coherently pool upper and lower rows, add mild neighboring-row mixing, and slightly favor left-side ink when both image halves are populated. The final rotations relabel the row-derived readout bins to align several common stroke locations with their class labels. These are hand-designed heuristic weights, not optimized or validated accuracy estimates.",
+  "weights": [
+    -1.15, 0.22, 0.16, -0.12, 0.0, 0.0,
+    0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+    0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+    0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+    0.0, 3.141592653589793, 3.141592653589793, 0.0, 0.0, 0.0
+  ]
+}
+```

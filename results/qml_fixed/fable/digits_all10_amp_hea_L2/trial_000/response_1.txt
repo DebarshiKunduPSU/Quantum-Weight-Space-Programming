@@ -1,0 +1,3 @@
+```json
+{"reasoning": "With amplitude encoding the readout qubits carry row/column parity information after the CNOT ladders. I keep the entangling structure mostly intact (zero or small rotations in the first two layers) so that spatial pixel-mass patterns map onto distinct row/column-parity bitstrings, and use moderate final-layer ry rotations on the measured qubits to redistribute probability mass so that heavy-ink regions characteristic of each digit (e.g. top-left stroke for 0/5/7, central vertical stroke for 1/4, bottom-right mass for 2/3/9) land on different readout bitstrings.", "weights": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.3, -0.3, 0.3, -0.3, 0.2, 0.0, 0.5, 0.4, -0.4, 0.6, 0.0, 0.0]}
+```

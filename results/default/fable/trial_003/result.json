@@ -1,0 +1,106 @@
+{
+  "trial": 3,
+  "classes": [
+    3,
+    8
+  ],
+  "shots_per_class": 5,
+  "modality": "image",
+  "max_features_per_angle": 1,
+  "n_test": 108,
+  "chance": 0.5,
+  "status": "ok",
+  "attempts": [
+    {
+      "model": "claude-fable-5-1",
+      "stop_reason": "end_turn",
+      "input_tokens": 2138,
+      "output_tokens": 3212,
+      "latency_s": 45.3
+    }
+  ],
+  "model_reported": "claude-fable-5-1",
+  "n_attempts": 1,
+  "input_tokens": 2138,
+  "output_tokens": 3212,
+  "circuit": {
+    "n_qubits": 1,
+    "state_prep": "zero",
+    "n_gates": 9,
+    "n_two_qubit_gates": 0,
+    "n_weights": 17,
+    "n_data_dependent_angles": 8,
+    "features_used": [
+      17,
+      18,
+      25,
+      26,
+      33,
+      34,
+      41,
+      42
+    ],
+    "gate_counts": {
+      "ry": 9
+    },
+    "readout": "bitstrings"
+  },
+  "llm": {
+    "test": {
+      "accuracy": 0.8611111111111112,
+      "balanced_accuracy": 0.8619210977701544,
+      "confusion": [
+        [
+          45,
+          10
+        ],
+        [
+          5,
+          48
+        ]
+      ]
+    },
+    "support": {
+      "accuracy": 1.0,
+      "balanced_accuracy": 1.0,
+      "confusion": [
+        [
+          5,
+          0
+        ],
+        [
+          0,
+          5
+        ]
+      ]
+    }
+  },
+  "baselines": {
+    "random_weights": {
+      "n_draws": 20,
+      "mean": 0.4768518518518519,
+      "std": 0.23430683165034835,
+      "max": 0.9259259259259259
+    },
+    "trained_on_support": {
+      "train_loss": 0.0008897186881932619,
+      "stopped": "converged",
+      "seconds": 0.5,
+      "n_fit": 10,
+      "fit_accuracy": 1.0,
+      "test_accuracy": 0.8796296296296297
+    },
+    "llm_finetuned_on_support": {
+      "train_loss": 0.0008899492084874108,
+      "stopped": "converged",
+      "seconds": 0.4,
+      "n_fit": 10,
+      "fit_accuracy": 1.0,
+      "test_accuracy": 0.8888888888888888
+    },
+    "logreg_on_support": 0.9351851851851852,
+    "logreg_on_full": 0.9907407407407407
+  },
+  "model": "fable",
+  "run_name": "default"
+}

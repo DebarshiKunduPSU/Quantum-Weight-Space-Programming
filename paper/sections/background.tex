@@ -1,0 +1,24 @@
+\section{Background for machine-learning readers}
+\label{sec:background}
+
+This section gives the minimum needed to read the rest of the paper. Readers familiar with variational quantum algorithms can skip to Section~\ref{sec:method}.
+
+\paragraph{Qubits and states.}
+A classical bit is $0$ or $1$. A \emph{qubit} is described by two complex numbers $(\alpha, \beta)$ with $|\alpha|^2 + |\beta|^2 = 1$; measuring it yields $0$ with probability $|\alpha|^2$ and $1$ with probability $|\beta|^2$. A register of $n$ qubits is described by $2^n$ complex numbers (the \emph{amplitudes}), one per bit string, with squared magnitudes summing to one. Measuring the register returns one bit string, drawn with probability equal to its squared amplitude. All the circuits in this paper are small enough ($\leq 8$ qubits) that we compute these $2^n$ amplitudes exactly on a laptop, so every number we report is a noise-free expectation, not a sampled estimate.
+
+\paragraph{Gates are the layers; angles are the weights.}
+A quantum circuit is a sequence of \emph{gates}, each a small unitary matrix applied to one, two, or three qubits. Some gates are fixed (the Hadamard gate $h$, the controlled-NOT $cx$), others are \emph{rotations} with a continuous angle: $ry(\theta)$ rotates one qubit by $\theta$ about the $Y$ axis of its state sphere, $rzz(\theta)$ couples two qubits. A circuit with free angles is a \emph{parameterized quantum circuit} (PQC). The analogy to a neural network is close and worth keeping in mind: the gate layout is the architecture, the angles are the weights, and the measurement is the readout. Two angles on the same qubit about the same axis compose by addition, $ry(a)\,ry(b) = ry(a+b)$, exactly as two consecutive linear layers without a nonlinearity collapse to one; entangling gates such as $cx$ play the role of the nonlinearity that keeps depth from collapsing.
+
+\paragraph{Variational quantum algorithms.}
+A variational quantum algorithm (VQA) \citep{cerezo2021variational} fixes a circuit layout, evaluates a loss by running the circuit and measuring, and updates the angles with a classical optimizer. The three families we study differ only in the loss:
+\begin{itemize}
+  \item \textbf{Quantum machine learning (QML).} The input $x$ is encoded into the circuit (as rotation angles proportional to pixel values, or as the amplitudes themselves), the angles are the trainable weights, and a measured probability is the class score \citep{mitarai2018quantum,schuld2020circuit,perezsalinas2020data}. The loss is a classification loss on labelled data.
+  \item \textbf{Variational quantum eigensolver (VQE).} The loss is the energy $\langle \psi(\theta) | H | \psi(\theta) \rangle$ of the prepared state under a Hamiltonian $H$ (a Hermitian matrix describing a molecule or a magnet); the minimum over all states is the \emph{ground-state energy} $E_0$ \citep{peruzzo2014variational}. $H$ is written as a sum of Pauli terms, \eg\ $-\sum_i Z_i Z_{i+1} - h\sum_i X_i$ for a chain of spins with nearest-neighbour coupling and a transverse field $h$.
+  \item \textbf{Quantum approximate optimization algorithm (QAOA).} The loss is the negative expected value of a combinatorial objective, here the MaxCut value of a graph \citep{farhi2014quantum}. The circuit alternates $p$ layers of a ``cost'' step $e^{-i\gamma_k C}$ and a ``mixing'' step $e^{-i\beta_k \sum_i X_i}$; the weights are the $2p$ angles $(\gamma_1, \beta_1, \ldots, \gamma_p, \beta_p)$.
+\end{itemize}
+
+\paragraph{Why the weights are the hard part.}
+Training a VQA is, in general, NP-hard \citep{bittel2021training}, and generic circuits suffer from \emph{barren plateaus}: for random initializations the gradient of the loss vanishes exponentially in the number of qubits \citep{mcclean2018barren}, so an optimizer starting from random weights may learn nothing. Each loss evaluation is a run of the quantum device, so the number of evaluations an optimizer consumes is the dominant cost. Good initial weights are therefore valuable in their own right \citep{grant2019initialization,egger2021warm}, and for QAOA on regular graphs it is known that near-optimal angles are nearly instance-independent \citep{brandao2018fixed,zhou2020quantum,wurtz2021fixed}.
+
+\paragraph{Two standard circuit layouts.}
+The \emph{hardware-efficient ansatz} (HEA) \citep{kandala2017hardware} alternates a layer of single-qubit rotations with a ladder of $cx$ gates; it is generic and says nothing about the problem. The \emph{Hamiltonian variational ansatz} (HVA) \citep{wecker2015progress,wiersema2020exploring} builds layers from the terms of $H$ itself, so each angle has a physical meaning (how long to evolve under the coupling term, how long under the field term). We use both, because they differ in how much the structure of the problem is visible in the structure of the weights.

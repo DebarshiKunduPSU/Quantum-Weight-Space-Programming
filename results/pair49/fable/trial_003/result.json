@@ -1,0 +1,106 @@
+{
+  "trial": 3,
+  "classes": [
+    4,
+    9
+  ],
+  "shots_per_class": 5,
+  "modality": "image",
+  "max_features_per_angle": 1,
+  "structured": false,
+  "n_test": 109,
+  "chance": 0.5,
+  "status": "ok",
+  "attempts": [
+    {
+      "model": "claude-fable-5-1",
+      "stop_reason": "end_turn",
+      "input_tokens": 2138,
+      "output_tokens": 3656,
+      "latency_s": 50.2
+    }
+  ],
+  "model_reported": "claude-fable-5-1",
+  "n_attempts": 1,
+  "input_tokens": 2138,
+  "output_tokens": 3656,
+  "circuit": {
+    "n_qubits": 1,
+    "state_prep": "zero",
+    "n_gates": 8,
+    "n_two_qubit_gates": 0,
+    "n_weights": 15,
+    "n_data_dependent_angles": 7,
+    "features_used": [
+      25,
+      33,
+      41,
+      50,
+      51,
+      58,
+      59
+    ],
+    "gate_counts": {
+      "ry": 8
+    },
+    "readout": "bitstrings"
+  },
+  "llm": {
+    "test": {
+      "accuracy": 0.7798165137614679,
+      "balanced_accuracy": 0.780976430976431,
+      "confusion": [
+        [
+          36,
+          19
+        ],
+        [
+          5,
+          49
+        ]
+      ]
+    },
+    "support": {
+      "accuracy": 0.8,
+      "balanced_accuracy": 0.8,
+      "confusion": [
+        [
+          3,
+          2
+        ],
+        [
+          0,
+          5
+        ]
+      ]
+    }
+  },
+  "baselines": {
+    "random_weights": {
+      "n_draws": 20,
+      "mean": 0.5151376146788992,
+      "std": 0.1777136684876625,
+      "max": 0.8623853211009175
+    },
+    "trained_on_support": {
+      "train_loss": 0.3623169885703545,
+      "stopped": "converged",
+      "seconds": 0.2,
+      "n_fit": 10,
+      "fit_accuracy": 0.9,
+      "test_accuracy": 0.5412844036697247
+    },
+    "llm_finetuned_on_support": {
+      "train_loss": 0.0033598845804094788,
+      "stopped": "converged",
+      "seconds": 0.4,
+      "n_fit": 10,
+      "fit_accuracy": 1.0,
+      "test_accuracy": 0.7064220183486238
+    },
+    "logreg_on_support": 0.9541284403669725,
+    "logreg_on_full": 1.0
+  },
+  "model": "fable",
+  "run_name": "pair49"
+}

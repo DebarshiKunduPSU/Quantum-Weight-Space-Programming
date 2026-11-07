@@ -1,0 +1,11 @@
+**Analysis.** In this convention (rzz(−γ) = exp(iγZZ/2), rx(2β) = exp(−iβX)) the standard p=1 MaxCut formula applies, with the single‑edge check giving ⟨C_e⟩ = ½ + ½ sin4β sinγ for positive angles.
+
+The graph has two triangles ({0,4,5} and {1,2,3}); 6 edges lie in a triangle, 6 do not, all degrees are 3. Using the known p=1 formula per edge,
+
+⟨C⟩ = 6 + 6 sin4β sinγ cos²γ − 3 sin²2β sin²γ cos²γ.
+
+Optimizing β analytically for fixed γ gives tan4β = 4/sinγ, and the reduced function f(γ) = 1.5·sinγ cos²γ(√(16+sin²γ) − sinγ) is maximized near sinγ ≈ 0.548, i.e. γ ≈ 0.58, with β ≈ 0.359. This yields ⟨C⟩ ≈ 8.0 (vs. ≈ 7.98 at the triangle‑free optimum γ=0.616, β=π/8).
+
+```json
+{"reasoning": "Standard p=1 QAOA convention verified (positive gamma, beta). Graph is 3-regular with two triangles; used the closed-form p=1 edge expectation (triangle-free edges plus triangle-corrected edges), optimized beta via tan(4beta)=4/sin(gamma) and then gamma numerically, giving gamma≈0.58, beta≈0.359 for <C>≈8.0.", "weights": [0.58, 0.359]}
+```

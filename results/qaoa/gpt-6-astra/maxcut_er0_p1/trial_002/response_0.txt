@@ -1,0 +1,3 @@
+```json
+{"reasoning":"I used the exact p=1 MaxCut expectation, including the degree-dependent edge contributions and penalties from shared neighbors (triangles). Eliminating beta analytically and choosing gamma near the peak of the resulting expression gives an expected cut of approximately 9.164.","weights":[0.48043,0.30436]}
+```

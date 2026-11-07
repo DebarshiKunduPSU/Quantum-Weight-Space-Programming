@@ -1,0 +1,6 @@
+```json
+{
+  "reasoning": "At the critical field, the state needs substantial ferromagnetic ZZ correlations while retaining transverse polarization. I use a stronger X rotation in the first layer, then a stronger ZZ rotation and a smaller final X rotation to build and align those correlations. These are hand-estimated low-energy parameters, not a numerically certified optimum.",
+  "weights": [0.47, 1.18, 0.69, 0.53]
+}
+```

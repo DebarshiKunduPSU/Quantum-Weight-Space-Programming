@@ -1,0 +1,88 @@
+=== SYSTEM ===
+You are an expert in the Quantum Approximate Optimization Algorithm (QAOA). You will set the QAOA angles by hand for a MaxCut instance. No optimizer runs afterwards: the circuit is simulated exactly with the numbers you write and the expected cut value is evaluated. You receive no feedback, so reason carefully about the structure of the graph and what good angles look like.
+
+Gate definitions are the standard Qiskit ones: rx(t) = exp(-i t X/2), ry(t) = exp(-i t Y/2), rz(t) = exp(-i t Z/2), rzz(t) = exp(-i t Z⊗Z/2), h = Hadamard, x = Pauli X, cx = CNOT with the control listed first. Gates are applied in the order listed. Every qubit starts in |0>.
+=== USER ===
+
+MaxCut instance: 3-regular graph, 8 nodes (0..7), 12 edges, all weights 1:
+(0,2), (0,3), (0,6), (1,3), (1,5), (1,7), (2,4), (2,6), (3,6), (4,5), (4,7), (5,7)
+
+Cut value C(z) = sum over edges w_ij * [z_i != z_j]. Node i is qubit q_i.
+
+QAOA circuit with p = 3 layer(s), 6 parameters, applied in order:
+h on q0
+h on q1
+h on q2
+h on q3
+h on q4
+h on q5
+h on q6
+h on q7
+rzz(-1*theta[0]) on q0, q2
+rzz(-1*theta[0]) on q0, q3
+rzz(-1*theta[0]) on q0, q6
+rzz(-1*theta[0]) on q1, q3
+rzz(-1*theta[0]) on q1, q5
+rzz(-1*theta[0]) on q1, q7
+rzz(-1*theta[0]) on q2, q4
+rzz(-1*theta[0]) on q2, q6
+rzz(-1*theta[0]) on q3, q6
+rzz(-1*theta[0]) on q4, q5
+rzz(-1*theta[0]) on q4, q7
+rzz(-1*theta[0]) on q5, q7
+rx(2*theta[1]) on q0
+rx(2*theta[1]) on q1
+rx(2*theta[1]) on q2
+rx(2*theta[1]) on q3
+rx(2*theta[1]) on q4
+rx(2*theta[1]) on q5
+rx(2*theta[1]) on q6
+rx(2*theta[1]) on q7
+rzz(-1*theta[2]) on q0, q2
+rzz(-1*theta[2]) on q0, q3
+rzz(-1*theta[2]) on q0, q6
+rzz(-1*theta[2]) on q1, q3
+rzz(-1*theta[2]) on q1, q5
+rzz(-1*theta[2]) on q1, q7
+rzz(-1*theta[2]) on q2, q4
+rzz(-1*theta[2]) on q2, q6
+rzz(-1*theta[2]) on q3, q6
+rzz(-1*theta[2]) on q4, q5
+rzz(-1*theta[2]) on q4, q7
+rzz(-1*theta[2]) on q5, q7
+rx(2*theta[3]) on q0
+rx(2*theta[3]) on q1
+rx(2*theta[3]) on q2
+rx(2*theta[3]) on q3
+rx(2*theta[3]) on q4
+rx(2*theta[3]) on q5
+rx(2*theta[3]) on q6
+rx(2*theta[3]) on q7
+rzz(-1*theta[4]) on q0, q2
+rzz(-1*theta[4]) on q0, q3
+rzz(-1*theta[4]) on q0, q6
+rzz(-1*theta[4]) on q1, q3
+rzz(-1*theta[4]) on q1, q5
+rzz(-1*theta[4]) on q1, q7
+rzz(-1*theta[4]) on q2, q4
+rzz(-1*theta[4]) on q2, q6
+rzz(-1*theta[4]) on q3, q6
+rzz(-1*theta[4]) on q4, q5
+rzz(-1*theta[4]) on q4, q7
+rzz(-1*theta[4]) on q5, q7
+rx(2*theta[5]) on q0
+rx(2*theta[5]) on q1
+rx(2*theta[5]) on q2
+rx(2*theta[5]) on q3
+rx(2*theta[5]) on q4
+rx(2*theta[5]) on q5
+rx(2*theta[5]) on q6
+rx(2*theta[5]) on q7
+
+theta[2k] = gamma of layer k+1 and theta[2k+1] = beta of layer k+1, in the convention U_C(gamma) = exp(-i gamma C) with C = sum_ij w_ij (1 - Z_i Z_j)/2 and U_B(beta) = exp(-i beta sum_i X_i).
+
+Choose the angles to maximize the expected cut value <C>.
+
+Reply with one JSON object in a ```json code block:
+{"reasoning": "<a few sentences on how you chose the values>", "weights": [theta[0], theta[1], ...]}
+with exactly 6 number(s), in radians, in index order. You may reason before the JSON block.

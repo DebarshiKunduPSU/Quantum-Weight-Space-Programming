@@ -1,0 +1,25 @@
+```json
+{
+  "reasoning": "I chose heuristic row- and column-mixing rotations to expose differences in vertical stroke placement, left–right balance, and neighboring-row contrast. Intermediate rotations mix these features through the fixed CNOT chains. These are hand-selected values, not numerically fitted weights; the final rotations on the two unmeasured qubits are zero because they cannot change the class probabilities.",
+  "weights": [
+    -0.7853981634,
+    -0.7853981634,
+    -1.5707963268,
+    0.7853981634,
+    -0.7853981634,
+    -1.5707963268,
+    0.3926990817,
+    0.7853981634,
+    0.7853981634,
+    -1.5707963268,
+    0.7853981634,
+    0.0,
+    0.3926990817,
+    0.7853981634,
+    1.1780972451,
+    0.7853981634,
+    0.0,
+    0.0
+  ]
+}
+```

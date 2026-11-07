@@ -1,0 +1,6 @@
+```json
+{
+  "reasoning": "I chose a cubic-graph QAOA schedule with increasing cost angles and decreasing mixer angles, moderately adjusting it for the two triangles and short cycles. The early layers build cut correlations, while the smaller final mixer limits disruption of favorable configurations. These are hand-selected angles, not numerically optimized values.",
+  "weights": [0.46, 0.55, 0.86, 0.39, 1.04, 0.20]
+}
+```

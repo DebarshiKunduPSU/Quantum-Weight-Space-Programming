@@ -1,0 +1,6 @@
+```json
+{
+  "reasoning": "The graph consists of two diamond subgraphs joined by two edges, and its maximum cut is 10. I chose a smooth six-layer schedule with increasing cost angles and decreasing mixer magnitudes to build correlations before concentrating on high-cut states. Negative beta values give the maximizing sign relative to positive gamma in the stated gate convention; these are hand-chosen rather than numerically optimized.",
+  "weights": [0.38, -0.57, 0.65, -0.47, 0.85, -0.37, 1.02, -0.28, 1.18, -0.19, 1.32, -0.10]
+}
+```

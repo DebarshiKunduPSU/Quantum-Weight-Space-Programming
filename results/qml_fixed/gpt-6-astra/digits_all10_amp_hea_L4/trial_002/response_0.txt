@@ -1,0 +1,37 @@
+```json
+{
+  "reasoning": "I chose a heuristic multiscale setting: the initial rotations emphasize coarse row symmetry, while intermediate rotations mix row and column information through the CNOT chains. Asymmetric later rotations distinguish the readout channels. These values are hand-set, not numerically fitted or validated.",
+  "weights": [
+    -1.308996939,
+    -0.916297857,
+    -0.392699082,
+    0.261799388,
+    -1.178097245,
+    0.523598776,
+    0.130899694,
+    -0.392699082,
+    0.785398163,
+    -0.654498469,
+    0.392699082,
+    -0.785398163,
+    -0.261799388,
+    0.654498469,
+    -0.523598776,
+    1.047197551,
+    -0.785398163,
+    0.392699082,
+    0.130899694,
+    -0.523598776,
+    0.392699082,
+    -0.785398163,
+    0.654498469,
+    -0.261799388,
+    0.261799388,
+    -0.392699082,
+    0.654498469,
+    -1.047197551,
+    0.0,
+    0.0
+  ]
+}
+```

@@ -1,0 +1,6 @@
+```json
+{
+  "reasoning": "The ordered regime favors substantial nearest-neighbor ZZ correlations while retaining positive transverse magnetization. I used a depth-two bulk correlation estimate to balance these contributions, choosing a weaker first ZZ pulse followed by a stronger second pulse. The angles are a physically motivated approximate choice, not a certified optimum.",
+  "weights": [0.55, 1.2, 0.95, 0.61]
+}
+```

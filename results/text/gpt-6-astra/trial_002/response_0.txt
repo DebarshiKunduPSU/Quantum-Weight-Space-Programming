@@ -1,0 +1,38 @@
+```json
+{
+  "reasoning": "An 8 usually has ink along the middle-left and lower-left sides of its closed loops, whereas a 3 leaves these regions relatively empty. The strongest positive weights therefore target those regions, with smaller supporting weights on the upper-left loop and negative weights on right-heavy stroke patterns. Consecutive RY gates accumulate a fixed linear discriminant; the angles stay in a range where increasing this discriminant increases the probability assigned to class 8.",
+  "n_qubits": 1,
+  "state_prep": {
+    "type": "zero"
+  },
+  "gates": [
+    {"gate": "ry", "qubits": [0], "params": ["pi / 2 - 0.30"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.04 * x[17]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.12 * x[18]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.06 * x[19]"]},
+    {"gate": "ry", "qubits": [0], "params": ["-0.07 * x[20]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.04 * x[25]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.18 * x[26]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.08 * x[27]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.06 * x[33]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.18 * x[34]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.12 * x[35]"]},
+    {"gate": "ry", "qubits": [0], "params": ["-0.08 * x[37]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.08 * x[41]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.28 * x[42]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.32 * x[43]"]},
+    {"gate": "ry", "qubits": [0], "params": ["-0.10 * x[45]"]},
+    {"gate": "ry", "qubits": [0], "params": ["-0.05 * x[46]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.06 * x[50]"]},
+    {"gate": "ry", "qubits": [0], "params": ["-0.06 * x[53]"]}
+  ],
+  "readout": {
+    "type": "bitstrings",
+    "qubits": [0],
+    "classes": {
+      "3": ["0"],
+      "8": ["1"]
+    }
+  }
+}
+```

@@ -1,0 +1,3 @@
+```json
+{"reasoning": "Standard convention (rzz(-gamma) = exp(-i gamma (1-ZZ)/2) up to phase, rx(2beta) = exp(-i beta X)), so known fixed-angle MaxCut patterns apply: gammas increasing, betas decreasing across layers. The graph is fairly dense (avg degree 3.75, hub node of degree 6, many triangles), so the 3-regular fixed angles are scaled down in gamma (roughly by sqrt(3/d) and a bit more for triangles) while betas stay near the usual schedule (~0.6 -> 0.45 -> 0.22).", "weights": [0.35, 0.58, 0.60, 0.42, 0.72, 0.22]}
+```

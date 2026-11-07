@@ -1,0 +1,121 @@
+{
+  "experiment": "qml_fixed",
+  "model": "gpt-6-astra",
+  "case": "digits_38_amp_hea_L2",
+  "trial": 1,
+  "meta": {
+    "classes": [
+      3,
+      8
+    ],
+    "shots_per_class": 5,
+    "ansatz": "amplitude+HEA(L=2)",
+    "n_params": 18
+  },
+  "status": "ok",
+  "attempts": [
+    {
+      "model": "gpt-6-astra",
+      "stop_reason": "completed",
+      "input_tokens": 1365,
+      "output_tokens": 4824,
+      "latency_s": 120.2
+    }
+  ],
+  "n_attempts": 1,
+  "model_reported": "gpt-6-astra",
+  "input_tokens": 1365,
+  "output_tokens": 4824,
+  "weights": [
+    1.5707963267948966,
+    1.5707963267948966,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.46,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "llm": {
+    "test": {
+      "accuracy": 0.9814814814814815,
+      "balanced_accuracy": 0.9811320754716981,
+      "confusion": [
+        [
+          55,
+          0
+        ],
+        [
+          2,
+          51
+        ]
+      ]
+    },
+    "support": {
+      "accuracy": 1.0,
+      "balanced_accuracy": 1.0,
+      "confusion": [
+        [
+          5,
+          0
+        ],
+        [
+          0,
+          5
+        ]
+      ]
+    }
+  },
+  "baselines": {
+    "random_weights": {
+      "n_draws": 20,
+      "mean": 0.5041666666666667,
+      "std": 0.09303021582390007,
+      "max": 0.7314814814814815
+    },
+    "trained_on_support": {
+      "train_loss": 0.5079015865912903,
+      "stopped": "converged",
+      "seconds": 0.8,
+      "n_fit": 10,
+      "fit_accuracy": 0.9,
+      "test_accuracy": 0.8240740740740741
+    },
+    "llm_finetuned_on_support": {
+      "train_loss": 0.5079015868225881,
+      "stopped": "converged",
+      "seconds": 0.4,
+      "n_fit": 10,
+      "fit_accuracy": 0.9,
+      "test_accuracy": 0.8240740740740741
+    },
+    "trained_on_full": {
+      "train_loss": 0.557583064987289,
+      "stopped": "converged",
+      "seconds": 3.3,
+      "n_fit": 200,
+      "fit_accuracy": 0.9,
+      "test_accuracy": 0.9351851851851852
+    },
+    "logreg_on_support": 0.9351851851851852
+  },
+  "summary": {
+    "acc_llm": 0.9814814814814815,
+    "acc_support": 1.0,
+    "acc_random": 0.5041666666666667,
+    "acc_trained_support": 0.8240740740740741,
+    "acc_llm_finetuned": 0.8240740740740741,
+    "acc_trained_full": 0.9351851851851852,
+    "chance": 0.5
+  }
+}

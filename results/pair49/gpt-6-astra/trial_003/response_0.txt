@@ -1,0 +1,56 @@
+```json
+{
+  "reasoning": "The 4s tend to have stronger ink across the middle and lower-middle crossbar, while the 9s have a stronger upper loop and more ink near the lower-left tail. Consecutive Y rotations accumulate a weighted spatial contrast, with positive weights favoring 4 and negative weights favoring 9. The fixed offset centers this contrast using the supplied examples, and the angle scale avoids periodic reversals throughout the allowed input range.",
+  "n_qubits": 1,
+  "state_prep": {"type": "zero"},
+  "gates": [
+    {"gate": "ry", "qubits": [0], "params": ["pi / 2 + 0.1365"]},
+    {"gate": "ry", "qubits": [0], "params": ["-0.075 * x[2]"]},
+    {"gate": "ry", "qubits": [0], "params": ["-0.09 * x[3]"]},
+    {"gate": "ry", "qubits": [0], "params": ["-0.03 * x[4]"]},
+    {"gate": "ry", "qubits": [0], "params": ["-0.06 * x[5]"]},
+    {"gate": "ry", "qubits": [0], "params": ["-0.12 * x[10]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.045 * x[11]"]},
+    {"gate": "ry", "qubits": [0], "params": ["-0.075 * x[12]"]},
+    {"gate": "ry", "qubits": [0], "params": ["-0.15 * x[13]"]},
+    {"gate": "ry", "qubits": [0], "params": ["-0.06 * x[14]"]},
+    {"gate": "ry", "qubits": [0], "params": ["-0.03 * x[18]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.12 * x[19]"]},
+    {"gate": "ry", "qubits": [0], "params": ["-0.15 * x[21]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.0375 * x[26]"]},
+    {"gate": "ry", "qubits": [0], "params": ["-0.0975 * x[27]"]},
+    {"gate": "ry", "qubits": [0], "params": ["-0.09 * x[28]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.0975 * x[33]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.0975 * x[34]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.09 * x[35]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.105 * x[36]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.1125 * x[37]"]},
+    {"gate": "ry", "qubits": [0], "params": ["-0.03 * x[38]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.105 * x[41]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.15 * x[42]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.18 * x[43]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.165 * x[44]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.06 * x[45]"]},
+    {"gate": "ry", "qubits": [0], "params": ["-0.045 * x[46]"]},
+    {"gate": "ry", "qubits": [0], "params": ["-0.045 * x[49]"]},
+    {"gate": "ry", "qubits": [0], "params": ["-0.18 * x[50]"]},
+    {"gate": "ry", "qubits": [0], "params": ["-0.03 * x[51]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.06 * x[52]"]},
+    {"gate": "ry", "qubits": [0], "params": ["-0.06 * x[53]"]},
+    {"gate": "ry", "qubits": [0], "params": ["-0.06 * x[54]"]},
+    {"gate": "ry", "qubits": [0], "params": ["-0.075 * x[58]"]},
+    {"gate": "ry", "qubits": [0], "params": ["-0.075 * x[59]"]},
+    {"gate": "ry", "qubits": [0], "params": ["-0.06 * x[60]"]},
+    {"gate": "ry", "qubits": [0], "params": ["-0.075 * x[61]"]},
+    {"gate": "ry", "qubits": [0], "params": ["-0.03 * x[62]"]}
+  ],
+  "readout": {
+    "type": "bitstrings",
+    "qubits": [0],
+    "classes": {
+      "4": ["1"],
+      "9": ["0"]
+    }
+  }
+}
+```

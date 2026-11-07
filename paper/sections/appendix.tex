@@ -1,0 +1,37 @@
+\section{The circuit language for free design}
+\label{app:dsl}
+
+In the free-design QML experiments the model writes a JSON object with four fields. \texttt{n\_qubits} is the register size. \texttt{state\_prep} is either \texttt{\{"type": "zero"\}} or \texttt{\{"type": "amplitude", "qubits": [q0, \ldots, q5]\}}, which loads the normalized 64-pixel vector as the amplitudes of the six listed qubits (the first three index the row, the last three the column). \texttt{gates} is an ordered list; each entry names a gate from \{h, x, y, z, s, sdg, t, tdg, sx, rx, ry, rz, p, u3, cx, cy, cz, swap, crx, cry, crz, cp, rxx, ryy, rzz, ccx\}, its qubits, and for rotations an angle written as a number or as a string expression over numbers, \texttt{pi}, pixels \texttt{x[i]}, and $+\,-\,*\,/$. Angles must be affine in the pixels and, in the default condition, contain at most one pixel. \texttt{readout} is either \texttt{bitstrings} (a list of measured qubits and, per class, the bit strings whose total probability is the class score) or \texttt{qubit\_per\_class} (the class score is the probability that its qubit reads 1). The predicted class is the one with the highest score. The complete system prompt, including these rules, is in the repository (\texttt{weightprog/prompts.py}) and in every trial directory as \texttt{prompt.txt}.
+
+\section{Full result tables}
+\label{app:tables}
+
+Tables~\ref{tab:qml_free_full}--\ref{tab:qaoa_full} list every condition: validity (usable circuits / requests), the score of the model-written weights, the random-weight floor, the optimizer from random starts, and the optimizer started from the model's weights. Means $\pm$ standard deviations are over repeated requests.
+
+\begin{table}[h]
+\centering\footnotesize
+\resizebox{\linewidth}{!}{\input{tables/qml_free}}
+\caption{Free-design QML, test accuracy.}
+\label{tab:qml_free_full}
+\end{table}
+
+\begin{table}[h]
+\centering\footnotesize
+\resizebox{\linewidth}{!}{\input{tables/qml_fixed}}
+\caption{Fixed-ansatz QML, test accuracy.}
+\label{tab:qml_fixed_full}
+\end{table}
+
+\begin{table}[h]
+\centering\footnotesize
+\resizebox{\linewidth}{!}{\input{tables/vqe}}
+\caption{VQE, fraction of the spectrum captured ($1$ = exact ground state).}
+\label{tab:vqe_full}
+\end{table}
+
+\begin{table}[h]
+\centering\footnotesize
+\resizebox{\linewidth}{!}{\input{tables/qaoa}}
+\caption{QAOA MaxCut, approximation ratio.}
+\label{tab:qaoa_full}
+\end{table}

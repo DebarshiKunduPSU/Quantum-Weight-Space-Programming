@@ -1,0 +1,6 @@
+```json
+{
+  "reasoning": "The graph has two triangles, so six edges have one common neighbor and six have none. The exact p=1 expectation is 6 + 6 sin(4β) sin(γ) cos²(γ) − 3 sin²(2β) sin²(γ) cos²(γ). Analytically maximizing this expression gives the angles below in the specified gate convention.",
+  "weights": [0.5814569, 0.3585848]
+}
+```

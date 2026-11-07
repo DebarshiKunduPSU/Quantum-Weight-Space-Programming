@@ -1,0 +1,17 @@
+\section{Related work}
+\label{sec:related}
+
+\paragraph{Weight-space programming.}
+The term and the idea are due to \citet{takehi2026sparks}, who showed with the same model we use that a frontier LLM can read the raw weights of small networks and name the game or data they were trained on, edit $3.5\%$ of a failing control policy's weights to make it succeed, and write from scratch, with no training and no environment rollouts, the weights of MinAtar game policies that are competitive with or better than PPO-trained ones and of a $9{\times}9$ Go player that beats smaller PPO networks; they also found that weight editing removes obstacles (a looping behaviour in a small language model) but does not add missing abilities. Our study transfers the question to variational quantum circuits. The differences in regime are what make the transfer interesting: our networks have 1--54 weights rather than thousands to millions, the weights are angles with a physical or geometric meaning, the loss is an exact expectation value rather than a game score, and the optimizer being replaced is one whose every evaluation runs a quantum device.
+
+\paragraph{Initialization and warm starts for VQAs.}
+Because VQA training is hard in general \citep{bittel2021training} and random initializations land on barren plateaus \citep{mcclean2018barren}, a line of work seeks good starting points: identity-block initializations \citep{grant2019initialization}, warm starts from relaxed classical solutions \citep{egger2021warm}, and for QAOA the observation that optimal angles concentrate across instances \citep{brandao2018fixed,zhou2020quantum} and can be tabulated for regular graphs \citep{wurtz2021fixed}. Weight-space programming can be read as initialization by a reasoning system that has absorbed this literature; our warm-start measurements quantify how much optimizer effort it saves.
+
+\paragraph{Language models as optimizers and program synthesizers.}
+\citet{yang2024large} showed that a language model can act as an optimizer when it is shown a trajectory of candidate solutions and their scores (OPRO), and FunSearch \citep{romera2024mathematical} evolves programs under a scorer. Both are feedback loops. Our setting removes the loop: the model answers once, without any score, so what is measured is prior knowledge and reasoning rather than in-context optimization.
+
+\paragraph{Generating weights instead of training them.}
+Hypernetworks \citep{ha2017hypernetworks} generate the weights of one network with another, trained end to end. Our models are not trained for the task, and the ``hypernetwork'' is a general-purpose language model producing weights as text.
+
+\paragraph{Expressibility and encodings.}
+The capacity of a PQC depends on its layout \citep{sim2019expressibility} and on how data enters it \citep{schuld2021effect,havlivcek2019supervised}. The free-design results below illustrate this from an unusual angle: left to choose, both models pick the simplest encoding that makes their weights interpretable, which is also the one with the least quantum structure.

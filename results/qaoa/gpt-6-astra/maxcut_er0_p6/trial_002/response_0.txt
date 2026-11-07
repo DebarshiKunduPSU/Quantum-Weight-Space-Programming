@@ -1,0 +1,6 @@
+```json
+{
+  "reasoning": "I chose a smooth six-layer schedule with increasing cost angles and decreasing mixer angles. The graph's overlapping triangles and relatively high degrees motivate moderate cost angles to limit excessive phase dispersion, while the progressively weaker mixing concentrates probability on high-cut configurations. These are hand-chosen parameters, not numerically optimized.",
+  "weights": [0.30, 0.52, 0.47, 0.43, 0.60, 0.34, 0.72, 0.25, 0.84, 0.17, 0.95, 0.09]
+}
+```

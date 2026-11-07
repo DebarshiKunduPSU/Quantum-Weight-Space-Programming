@@ -1,0 +1,35 @@
+```json
+{
+  "reasoning": "An 8 generally has more ink along the middle-left side, closing its two loops, while a 3 leaves that region open and emphasizes the middle-right and lower-right strokes. Positive weights collect middle-left evidence, and negative weights compensate for right-side ink. Consecutive RY rotations combine into a hand-weighted spatial discriminator; its angle range ensures that class 8 wins exactly when the weighted evidence exceeds the chosen threshold.",
+  "n_qubits": 1,
+  "state_prep": {
+    "type": "zero"
+  },
+  "gates": [
+    {"gate": "ry", "qubits": [0], "params": ["pi / 2 - 0.45"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.39 * x[18]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.60 * x[26]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.66 * x[34]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.24 * x[42]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.30 * x[35]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.21 * x[27]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.15 * x[25]"]},
+    {"gate": "ry", "qubits": [0], "params": ["0.21 * x[33]"]},
+    {"gate": "ry", "qubits": [0], "params": ["-0.30 * x[37]"]},
+    {"gate": "ry", "qubits": [0], "params": ["-0.21 * x[45]"]},
+    {"gate": "ry", "qubits": [0], "params": ["-0.24 * x[46]"]},
+    {"gate": "ry", "qubits": [0], "params": ["-0.12 * x[38]"]},
+    {"gate": "ry", "qubits": [0], "params": ["-0.09 * x[54]"]},
+    {"gate": "ry", "qubits": [0], "params": ["-0.15 * x[36]"]},
+    {"gate": "ry", "qubits": [0], "params": ["-0.12 * x[28]"]}
+  ],
+  "readout": {
+    "type": "bitstrings",
+    "qubits": [0],
+    "classes": {
+      "3": ["0"],
+      "8": ["1"]
+    }
+  }
+}
+```
