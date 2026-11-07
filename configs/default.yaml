@@ -1,0 +1,59 @@
+# Defaults for `python -m weightprog.run`. Override with --config other.yaml or --set key=value.
+
+run_name: default
+model: gpt-6-astra          # alias from `models` below, or provider:model_id
+trials: 5                   # each trial draws a fresh support set (same sets for every model)
+seed: 0
+
+# Aliases. Any key besides provider/model overrides the `llm` defaults for that model.
+# Providers: openai (Responses API), anthropic, openai_chat (OpenAI-compatible servers), mock.
+models:
+  gpt-6-astra: {provider: openai, model: gpt-6-astra}
+  fable: {provider: anthropic, model: claude-fable-5-1}
+  opus: {provider: anthropic, model: claude-opus-5-5}
+  sonnet: {provider: anthropic, model: claude-sonnet-5-5}
+  haiku: {provider: anthropic, model: claude-haiku-5-5}
+  # Example of an OpenAI-compatible endpoint:
+  # local: {provider: openai_chat, model: my-model, base_url: http://localhost:8000/v1, api_key_env: LOCAL_API_KEY}
+
+task:
+  classes: [3, 8]           # any subset of 0..9, e.g. [0, 1] (easy: one pixel nearly separates them) or all ten
+  test_fraction: 0.3
+  split_seed: 0             # fixes the train/test split independently of `seed`
+
+prompt:
+  shots_per_class: 5        # labelled examples of each class shown to the model
+  modality: image           # image | text (0..16 pixel grids) | both
+  image_layout: grid        # grid = one image per class; individual = one image per example
+  cell_px: 24               # on-screen size of one digit pixel
+
+circuit:
+  max_qubits: 8
+  max_gates: 200
+  # Features allowed in one gate angle. 1 = one pixel per rotation (standard angle encoding).
+  # null = any linear combination of pixels, which lets a single rotation behave like a
+  # classical linear classifier; use it as a separate condition, not as the default.
+  max_features_per_angle: 1
+  allow_amplitude_encoding: true
+  # "Structured" condition (configs/structured.yaml turns these on): rules out the one-qubit
+  # rotation chain, which is a linear classifier, that models otherwise converge to.
+  min_qubits: 1
+  require_entangling: false
+  forbid_repeated_rotation: false
+  shots: null               # null = exact probabilities; an integer simulates finite shots
+
+llm:
+  max_output_tokens: 32000  # includes reasoning tokens
+  effort: null              # reasoning effort passed to the provider; null = provider default
+  max_repair_attempts: 2    # extra turns to fix an invalid circuit (validation error only, no accuracy feedback)
+  timeout_s: 1800
+
+baselines:
+  random_weight_draws: 20        # LLM's architecture with random weights; 0 disables
+  train_on_support: true         # optimizer on the same examples the LLM saw
+  finetune_llm_on_support: true  # optimizer started from the LLM's weights
+  train_on_full: false           # optimizer on the train split (slow); architecture ceiling
+  train_full_max_samples: 200
+  train_max_iter: 100
+  train_max_seconds: 60          # per optimizer run
+  logistic_regression: true      # classical reference on raw pixels

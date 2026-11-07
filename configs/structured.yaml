@@ -1,0 +1,7 @@
+# Free design with structural requirements: at least 2 qubits, an entangling gate, and no
+# stacked same-axis rotations. Use with: python -m weightprog.run --config configs/structured.yaml --run-name structured
+run_name: structured
+circuit:
+  min_qubits: 2
+  require_entangling: true
+  forbid_repeated_rotation: true
