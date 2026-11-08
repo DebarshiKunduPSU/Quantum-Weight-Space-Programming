@@ -73,6 +73,7 @@ python -m weightprog.run --model mock:test --dry-run     # inspect a prompt with
 @article{kundu2026weightspace,
   title   = {Weight-Space Programming of Variational Quantum Circuits: Large Language Models Write Quantum Circuit Parameters Without an Optimizer},
   author  = {Kundu, Debarshi and Ghosh, Swaroop and Honavar, Vasant},
-  year    = {2026}
+  year    = {2026},
+  url     = {https://github.com/DebarshiKunduPSU/Quantum-Weight-Space-Programming}
 }
 ```
